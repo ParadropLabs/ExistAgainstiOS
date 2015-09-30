@@ -88,7 +88,7 @@
         <!--Game View Controller-->
         <scene sceneID="4vg-yp-sbe">
             <objects>
-                <viewController id="y5l-PD-fLC" customClass="GameViewController" customModule="FabAgainst" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="game" id="y5l-PD-fLC" customClass="GameViewController" customModule="FabAgainst" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Lf-rQ-yYq"/>
                         <viewControllerLayoutGuide type="bottom" id="dkJ-FF-djK"/>

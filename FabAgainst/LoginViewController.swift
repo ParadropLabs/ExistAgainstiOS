@@ -30,11 +30,6 @@ class LoginViewController: UIViewController, RiffleDelegate {
         
         // For now assume connection means name was open
         // Present the landing controller
-//        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("landing") as! LandingViewController
-//        controller.session = session
-//        self.navigationController?.pushViewController(controller, animated: true)
-        
-        
         pushController(self, identifier: "landing", data: ["session": session!])
     }
     

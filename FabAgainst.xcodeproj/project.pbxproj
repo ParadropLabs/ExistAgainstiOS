@@ -22,16 +22,16 @@
 /* Begin PBXFileReference section */
 		073E0C481E99F06E2B723A71 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A3E9691BBB25D7002A3EBF /* FabAgainst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FabAgainst.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = FabAgainst/AppDelegate.swift; sourceTree = "<group>"; };
 		50A3E9711BBB25D7002A3EBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		50A3E9731BBB25D7002A3EBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50A3E9731BBB25D7002A3EBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = FabAgainst/Assets.xcassets; sourceTree = "<group>"; };
 		50A3E9761BBB25D7002A3EBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		50A3E9781BBB25D7002A3EBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
-		50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		50A3E9BC1BBB4BF2002A3EBF /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		50A3E9C01BBB5A71002A3EBF /* Cards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		50A3E9781BBB25D7002A3EBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = FabAgainst/Info.plist; sourceTree = "<group>"; };
+		50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandingViewController.swift; path = FabAgainst/LandingViewController.swift; sourceTree = "<group>"; };
+		50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = FabAgainst/LoginViewController.swift; sourceTree = "<group>"; };
+		50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = FabAgainst/GameViewController.swift; sourceTree = "<group>"; };
+		50A3E9BC1BBB4BF2002A3EBF /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = FabAgainst/Utils.swift; sourceTree = "<group>"; };
+		50A3E9C01BBB5A71002A3EBF /* Cards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cards.swift; path = FabAgainst/Cards.swift; sourceTree = "<group>"; };
 		85053B99367CEB699D3ABEDE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F91415098F9609B825F3D7C0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,10 +48,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		502F7CEC1BBBD46100C373CE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */,
+				50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */,
+				50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		502F7CED1BBBD46500C373CE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				50A3E9C01BBB5A71002A3EBF /* Cards.swift */,
+				50A3E9BC1BBB4BF2002A3EBF /* Utils.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		502F7CEE1BBBD46900C373CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				50A3E9701BBB25D7002A3EBF /* Main.storyboard */,
+				50A3E9751BBB25D7002A3EBF /* LaunchScreen.storyboard */,
+				50A3E9731BBB25D7002A3EBF /* Assets.xcassets */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		50A3E9601BBB25D7002A3EBF = {
 			isa = PBXGroup;
 			children = (
-				50A3E96B1BBB25D7002A3EBF /* FabAgainst */,
+				50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */,
+				50A3E9781BBB25D7002A3EBF /* Info.plist */,
+				502F7CED1BBBD46500C373CE /* Models */,
+				502F7CEC1BBBD46100C373CE /* Controllers */,
+				502F7CEE1BBBD46900C373CE /* Views */,
 				50A3E96A1BBB25D7002A3EBF /* Products */,
 				ABB01B19770A7819067DB8E1 /* Pods */,
 				B1913C54C7ED6CF5F9DAF8EB /* Frameworks */,
@@ -64,23 +97,6 @@
 				50A3E9691BBB25D7002A3EBF /* FabAgainst.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		50A3E96B1BBB25D7002A3EBF /* FabAgainst */ = {
-			isa = PBXGroup;
-			children = (
-				50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */,
-				50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */,
-				50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */,
-				50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */,
-				50A3E9C01BBB5A71002A3EBF /* Cards.swift */,
-				50A3E9BC1BBB4BF2002A3EBF /* Utils.swift */,
-				50A3E9701BBB25D7002A3EBF /* Main.storyboard */,
-				50A3E9731BBB25D7002A3EBF /* Assets.xcassets */,
-				50A3E9751BBB25D7002A3EBF /* LaunchScreen.storyboard */,
-				50A3E9781BBB25D7002A3EBF /* Info.plist */,
-			);
-			path = FabAgainst;
 			sourceTree = "<group>";
 		};
 		ABB01B19770A7819067DB8E1 /* Pods */ = {
@@ -239,6 +255,7 @@
 				50A3E9711BBB25D7002A3EBF /* Base */,
 			);
 			name = Main.storyboard;
+			path = FabAgainst;
 			sourceTree = "<group>";
 		};
 		50A3E9751BBB25D7002A3EBF /* LaunchScreen.storyboard */ = {
@@ -247,6 +264,7 @@
 				50A3E9761BBB25D7002A3EBF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = FabAgainst;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -12,13 +12,10 @@ import Riffle
 class LandingViewController: UIViewController {
     var session: RiffleSession?
     
-    
     @IBAction func play(sender: AnyObject) {
-        // Negotiate a room
+        // Ask for a room and present the gameplay controller
         session?.call("pd.demo.cardsagainst/getRoom", args: [], handler: { (result: [AnyObject]) -> () in
-            print("Call Returned")
+            pushController(self, identifier: "game", data: ["session": self.session!])
         })
-        
-        // Present the play view controller
     }
 }
