@@ -15,6 +15,7 @@
 		50A3E9B71BBB45F6002A3EBF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		50A3E9B91BBB45FE002A3EBF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		50A3E9BD1BBB4BF2002A3EBF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E9BC1BBB4BF2002A3EBF /* Utils.swift */; settings = {ASSET_TAGS = (); }; };
+		50A3E9C11BBB5A71002A3EBF /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E9C01BBB5A71002A3EBF /* Cards.swift */; settings = {ASSET_TAGS = (); }; };
 		BCB4344D374A99FE293EFC63 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073E0C481E99F06E2B723A71 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		50A3E9BC1BBB4BF2002A3EBF /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		50A3E9C01BBB5A71002A3EBF /* Cards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		85053B99367CEB699D3ABEDE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F91415098F9609B825F3D7C0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +73,7 @@
 				50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */,
 				50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */,
 				50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */,
+				50A3E9C01BBB5A71002A3EBF /* Cards.swift */,
 				50A3E9BC1BBB4BF2002A3EBF /* Utils.swift */,
 				50A3E9701BBB25D7002A3EBF /* Main.storyboard */,
 				50A3E9731BBB25D7002A3EBF /* Assets.xcassets */,
@@ -221,6 +224,7 @@
 				50A3E9BD1BBB4BF2002A3EBF /* Utils.swift in Sources */,
 				50A3E9B91BBB45FE002A3EBF /* GameViewController.swift in Sources */,
 				50A3E9B71BBB45F6002A3EBF /* LoginViewController.swift in Sources */,
+				50A3E9C11BBB5A71002A3EBF /* Cards.swift in Sources */,
 				50A3E9B51BBB45EA002A3EBF /* LandingViewController.swift in Sources */,
 				50A3E96D1BBB25D7002A3EBF /* AppDelegate.swift in Sources */,
 			);
