@@ -19,6 +19,7 @@ class LandingViewController: UIViewController {
     @IBAction func play(sender: AnyObject) {
         // Ask for a room and present the gameplay controller
         session?.call("pd.demo.cardsagainst/getRoom", args: [], handler: { (result: [AnyObject]) -> () in
+            // Expecting list of players and cards
             pushController(self, identifier: "game", data: ["session": self.session!])
         })
     }
