@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "15D0F6252F358C83FE4E3E92"
-               BuildableName = "GHODictionary.framework"
-               BlueprintName = "GHODictionary"
+               BlueprintIdentifier = "6280208CDED43216DDB2A983"
+               BuildableName = "IHKeyboardAvoiding.framework"
+               BlueprintName = "IHKeyboardAvoiding"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

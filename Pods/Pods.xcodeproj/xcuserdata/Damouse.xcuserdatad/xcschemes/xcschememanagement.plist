@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IHKeyboardAvoiding.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MPMessagePack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,22 +47,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0C459F826C4D8B9FDAB53CB3FF489C0A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>11312917E634C03D2FCFB83433D92169</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>22F4E37314F3EE8A3467C3E5CCA40267</key>
+		<key>17382C9F73AEC8580003E1CB71F069E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>628026A2341CD2D26941FD4735BD11B8</key>
+		<key>366B5A95D1E1C631710519B1382120B6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A6B9F6298E672F5EE2E2E7D7CE6CA09</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +72,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA1579C1B605E92701860340A18675FE</key>
+		<key>A3341020C0C7E10642650937BAF5CD44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C86F07D15FE184142DDC159F1294D2D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CEDCB720FD94BA326CD1F03C8DBCAB94</key>
 		<dict>
 			<key>primary</key>
 			<true/>

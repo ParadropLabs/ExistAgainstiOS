@@ -23,6 +23,7 @@
 #import "MDWampClientDelegate.h"
 #import "MDWampMessages.h"
 #import "MDWampClientConfig.h"
+#import "MDWampSerializations.h"
 
 /**
  *  Wamp - Roles
@@ -37,6 +38,32 @@ typedef NS_ENUM(NSInteger, MDWampConnectionCloseCode) {
  *  Main client class
  */
 @interface MDWamp : NSObject
+
+@property (nonatomic, assign) BOOL explicitSessionClose;
+@property (nonatomic, strong) id<MDWampTransport> transport;
+@property (nonatomic, strong) id<MDWampSerialization> serializator;
+@property (nonatomic, strong) NSString *realm;
+@property (nonatomic, assign) BOOL sessionEstablished;
+@property (nonatomic, assign) BOOL goodbyeSent;
+
+@property (nonatomic, strong) NSMutableDictionary *subscriptionRequests;
+@property (nonatomic, strong) NSMutableDictionary *subscriptionEvents;
+@property (nonatomic, strong) NSMutableDictionary *subscriptionID;
+
+@property (nonatomic, strong) NSMutableDictionary *publishRequests;
+
+@property (nonatomic, strong) NSMutableDictionary *rpcCallbackMap;
+
+@property (nonatomic, strong) NSMutableDictionary *rpcRegisterRequests;
+@property (nonatomic, strong) NSMutableDictionary *rpcUnregisterRequests;
+@property (nonatomic, strong) NSMutableDictionary *rpcRegisteredUri;
+@property (nonatomic, strong) NSMutableDictionary *rpcRegisteredProcedures;
+
+@property (nonatomic, strong) NSMutableDictionary *rpcPendingInvocation;
+
+@property (nonatomic, strong) NSTimer *hbTimer;
+@property (nonatomic, assign) int hbIncomingSeq;
+@property (nonatomic, assign) int hbOutgoingSeq;
 
 /**
  * The server generated sessionId, readonly

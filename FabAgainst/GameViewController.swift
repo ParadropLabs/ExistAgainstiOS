@@ -41,6 +41,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewWillAppear(animated: Bool) {
         // Animations?
 //        establish()
+        labelActiveCard.text = ""
         
         // HAVE TO UNSUB
     }

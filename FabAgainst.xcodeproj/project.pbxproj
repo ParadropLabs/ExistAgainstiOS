@@ -21,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		073E0C481E99F06E2B723A71 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FabAgainst-Bridging-Header.h"; sourceTree = "<group>"; };
 		50A3E9691BBB25D7002A3EBF /* FabAgainst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FabAgainst.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = FabAgainst/AppDelegate.swift; sourceTree = "<group>"; };
 		50A3E9711BBB25D7002A3EBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 			children = (
 				50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */,
 				50A3E9781BBB25D7002A3EBF /* Info.plist */,
+				5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */,
 				502F7CED1BBBD46500C373CE /* Models */,
 				502F7CEC1BBBD46100C373CE /* Controllers */,
 				502F7CEE1BBBD46900C373CE /* Views */,

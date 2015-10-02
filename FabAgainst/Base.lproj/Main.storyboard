@@ -67,6 +67,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="AD0-Pe-H1N"/>
                     <connections>
+                        <outlet property="buttonLogin" destination="g0a-Js-pY2" id="CaF-cL-Gkd"/>
                         <outlet property="textfieldUsername" destination="h8x-Ht-lcm" id="AxU-B9-59D"/>
                     </connections>
                 </viewController>

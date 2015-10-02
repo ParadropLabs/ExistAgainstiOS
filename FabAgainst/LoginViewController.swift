@@ -8,14 +8,37 @@
 
 import UIKit
 import Riffle
+import IHKeyboardAvoiding
 
 class LoginViewController: UIViewController, RiffleDelegate {
     @IBOutlet weak var textfieldUsername: UITextField!
     var session: RiffleSession?
     
+    @IBOutlet weak var buttonLogin: UIButton!
     
     override func viewDidLoad() {
         setFabric("ws://ubuntu@ec2-52-26-83-61.us-west-2.compute.amazonaws.com:8000/ws")
+        IHKeyboardAvoiding.setAvoidingView(buttonLogin)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardUp:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDown:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardUp(notification: NSNotification) {
+        
+    }
+    
+    func keyboardDown(notification: NSNotification) {
+        
     }
     
     @IBAction func login(sender: AnyObject) {

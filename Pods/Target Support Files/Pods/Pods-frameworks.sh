@@ -54,6 +54,7 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods/CocoaAsyncSocket.framework'
   install_framework 'Pods/GHODictionary.framework'
+  install_framework 'Pods/IHKeyboardAvoiding.framework'
   install_framework 'Pods/MPMessagePack.framework'
   install_framework 'Pods/Riffle.framework'
   install_framework 'Pods/SocketRocket.framework'
@@ -61,6 +62,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods/CocoaAsyncSocket.framework'
   install_framework 'Pods/GHODictionary.framework'
+  install_framework 'Pods/IHKeyboardAvoiding.framework'
   install_framework 'Pods/MPMessagePack.framework'
   install_framework 'Pods/Riffle.framework'
   install_framework 'Pods/SocketRocket.framework'
