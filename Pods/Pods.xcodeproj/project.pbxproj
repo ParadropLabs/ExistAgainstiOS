@@ -1029,6 +1029,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					BA1579C1B605E92701860340A18675FE = {
+						DevelopmentTeam = MBE45279K3;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1355,6 +1360,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D1C4C77939EAF99B90DDE086A77BF1A /* GHODictionary-Private.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1.0.9;
 				DEFINES_MODULE = YES;
@@ -1370,6 +1376,7 @@
 				MODULEMAP_FILE = "Target Support Files/GHODictionary/GHODictionary.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = GHODictionary;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1448,6 +1455,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D1C4C77939EAF99B90DDE086A77BF1A /* GHODictionary-Private.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1.0.9;
 				DEFINES_MODULE = YES;
@@ -1463,6 +1471,7 @@
 				MODULEMAP_FILE = "Target Support Files/GHODictionary/GHODictionary.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = GHODictionary;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";

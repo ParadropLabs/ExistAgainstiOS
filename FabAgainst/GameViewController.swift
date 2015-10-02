@@ -31,6 +31,9 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var hand: [Card] = []
     var room: String = ""
     
+    // The cards currently in play
+    var table: [Card] = []
+    
     //Questionable or temporary
     var chooser = ""
     
@@ -56,10 +59,10 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     
     // MARK: Incoming state 
-    func picking(domain: String) {
+    func picking(domain: String, card: [String: AnyObject]) {
+        labelActiveCard.text = card["text"]! as! String
         chooser = domain
-        
-        // If we're the picker don't show cards
+        tableCard.reloadData()
     }
     
     func choosing(table: [String: AnyObject]) {
@@ -109,15 +112,27 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hand.count
+        if chooser == session!.domain {
+            // TODO: show the active list of picked cards (flipped over or not)
+            return hand.count
+        } else {
+            return hand.count
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        // If picking touches are a submission
-        // If choosing, this is a choice
-        // Either way have to publish-- /play/picked or /play/chose
+        // NOTE: if choosing, the non-choosing players should see a list of the submissions
+        
+        // We choose this round
+        if chooser == session!.domain {
+            session!.publish(room + "/play/choose", table[indexPath.row].id)
+        } else {
+            session!.publish(room + "/play/pick", hand[indexPath.row].id)
+        }
+        
+        // TODO: remove the remaining cards and block future picks or chooses
     }
     
     
