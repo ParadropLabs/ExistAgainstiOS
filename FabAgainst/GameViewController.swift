@@ -21,6 +21,27 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var hand: [Card] = []
     var room: String = ""
     
+    override func viewWillAppear(animated: Bool) {
+        // Animations?
+        establish()
+    }
+    
+    func establish() {
+        // Rebuilds the UI to match the current state.
+        // Do we need this?
+        
+        switch state {
+        case .Picking:
+            break
+        case .Choosing:
+            break
+        case .Scoring:
+            break
+        case .Empty:
+            print("Empty room. Cant do anything")
+        }
+    }
+    
     
     //MARK: Table Delegate and Data Source
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
