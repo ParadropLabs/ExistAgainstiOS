@@ -21,7 +21,7 @@ class LoginViewController: UIViewController, RiffleDelegate {
     @IBAction func login(sender: AnyObject) {
         let name = textfieldUsername.text!
  
-        session = RiffleSession(pdid: "pd.demo.cardsagainst." + name)
+        session = RiffleSession(domain: "pd.demo.cardsagainst." + name)
         session!.delegate = self
         session!.connect()
     }

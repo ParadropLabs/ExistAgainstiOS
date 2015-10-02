@@ -96,9 +96,121 @@
                     <view key="view" contentMode="scaleToFill" id="suc-Cu-f4h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xuF-bi-CC7">
+                                <rect key="frame" x="0.0" y="108" width="600" height="366"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="card" rowHeight="52" id="R16-um-x8l" customClass="CardCell" customModule="FabAgainst" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="52"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R16-um-x8l" id="ZHC-IU-J3d">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="51.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Card CArd" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-nD-gx1">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="0rn-nD-gx1" secondAttribute="bottom" constant="8" id="Iam-U8-KZB"/>
+                                                <constraint firstAttribute="trailing" secondItem="0rn-nD-gx1" secondAttribute="trailing" constant="8" id="Wbm-6w-8PS"/>
+                                                <constraint firstItem="0rn-nD-gx1" firstAttribute="top" secondItem="ZHC-IU-J3d" secondAttribute="top" id="bVU-Rg-P6a"/>
+                                                <constraint firstItem="0rn-nD-gx1" firstAttribute="leading" secondItem="ZHC-IU-J3d" secondAttribute="leading" constant="8" id="jua-n8-joF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelTitle" destination="0rn-nD-gx1" id="i4H-m6-aVf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="y5l-PD-fLC" id="vlg-jn-jWa"/>
+                                    <outlet property="delegate" destination="y5l-PD-fLC" id="S70-UV-m9m"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOs-lQ-ALW">
+                                <rect key="frame" x="0.0" y="20" width="600" height="89"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Card Card" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M21-Hh-XMu">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="89" id="7nP-Qo-fFf"/>
+                                    <constraint firstAttribute="trailing" secondItem="M21-Hh-XMu" secondAttribute="trailing" id="Rn6-fT-elj"/>
+                                    <constraint firstItem="M21-Hh-XMu" firstAttribute="top" secondItem="wOs-lQ-ALW" secondAttribute="top" id="SBi-KX-gUY"/>
+                                    <constraint firstItem="M21-Hh-XMu" firstAttribute="leading" secondItem="wOs-lQ-ALW" secondAttribute="leading" id="hmA-or-BbE"/>
+                                    <constraint firstAttribute="bottom" secondItem="M21-Hh-XMu" secondAttribute="bottom" id="pRP-E3-3qY"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L2b-9W-dKb">
+                                <rect key="frame" x="0.0" y="474" width="600" height="126"/>
+                                <color key="backgroundColor" red="0.48433328939999998" green="0.48910958269999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="126" id="n7x-HR-Eux"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AIz-4C-GGn">
+                                    <size key="itemSize" width="278" height="53"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="player" id="tr6-xW-EtE" customClass="PlayerCell" customModule="FabAgainst" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="278" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="278" height="53"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC4-H5-YZF">
+                                                    <rect key="frame" x="8" y="16" width="217" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="labelName" destination="CC4-H5-YZF" id="Rgf-y7-JDr"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="y5l-PD-fLC" id="9uR-fh-QYx"/>
+                                    <outlet property="delegate" destination="y5l-PD-fLC" id="pqJ-fZ-1LS"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="L2b-9W-dKb" secondAttribute="trailing" id="59I-uq-0y0"/>
+                            <constraint firstAttribute="trailing" secondItem="wOs-lQ-ALW" secondAttribute="trailing" id="Cjy-bg-0ro"/>
+                            <constraint firstItem="xuF-bi-CC7" firstAttribute="top" secondItem="wOs-lQ-ALW" secondAttribute="bottom" id="IxX-si-bzt"/>
+                            <constraint firstItem="wOs-lQ-ALW" firstAttribute="leading" secondItem="suc-Cu-f4h" secondAttribute="leading" id="RSY-P7-Mng"/>
+                            <constraint firstItem="L2b-9W-dKb" firstAttribute="leading" secondItem="suc-Cu-f4h" secondAttribute="leading" id="Z0e-jV-bbv"/>
+                            <constraint firstAttribute="trailing" secondItem="xuF-bi-CC7" secondAttribute="trailing" id="ZzE-nU-2sX"/>
+                            <constraint firstItem="dkJ-FF-djK" firstAttribute="top" secondItem="L2b-9W-dKb" secondAttribute="bottom" id="cHG-Rz-Keg"/>
+                            <constraint firstItem="wOs-lQ-ALW" firstAttribute="top" secondItem="4Lf-rQ-yYq" secondAttribute="bottom" id="iAb-pv-KIq"/>
+                            <constraint firstItem="L2b-9W-dKb" firstAttribute="top" secondItem="xuF-bi-CC7" secondAttribute="bottom" id="ppG-Tz-VnV"/>
+                            <constraint firstItem="xuF-bi-CC7" firstAttribute="leading" secondItem="suc-Cu-f4h" secondAttribute="leading" id="vOq-dq-0Wb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YAd-TY-Ptz"/>
+                    <connections>
+                        <outlet property="collectionPlayers" destination="L2b-9W-dKb" id="gZy-sM-Qwh"/>
+                        <outlet property="labelActiveCard" destination="M21-Hh-XMu" id="9Y0-Cw-fa3"/>
+                        <outlet property="tableCard" destination="xuF-bi-CC7" id="MPb-nR-7Gf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUP-0Y-NiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

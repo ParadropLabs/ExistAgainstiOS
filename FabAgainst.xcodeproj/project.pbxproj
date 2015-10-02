@@ -15,10 +15,7 @@
 		50A3E9B71BBB45F6002A3EBF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		50A3E9B91BBB45FE002A3EBF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		50A3E9BD1BBB4BF2002A3EBF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E9BC1BBB4BF2002A3EBF /* Utils.swift */; settings = {ASSET_TAGS = (); }; };
-		50F37FEB1BBBFAED0028628B /* a13.json in Resources */ = {isa = PBXBuildFile; fileRef = 50F37FE71BBBFAED0028628B /* a13.json */; settings = {ASSET_TAGS = (); }; };
-		50F37FEC1BBBFAED0028628B /* a21.json in Resources */ = {isa = PBXBuildFile; fileRef = 50F37FE81BBBFAED0028628B /* a21.json */; settings = {ASSET_TAGS = (); }; };
-		50F37FED1BBBFAED0028628B /* q13.json in Resources */ = {isa = PBXBuildFile; fileRef = 50F37FE91BBBFAED0028628B /* q13.json */; settings = {ASSET_TAGS = (); }; };
-		50F37FEE1BBBFAED0028628B /* q21.json in Resources */ = {isa = PBXBuildFile; fileRef = 50F37FEA1BBBFAED0028628B /* q21.json */; settings = {ASSET_TAGS = (); }; };
+		50F3804B1BBDEFF60028628B /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F3804A1BBDEFF60028628B /* Shared.swift */; settings = {ASSET_TAGS = (); }; };
 		BCB4344D374A99FE293EFC63 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073E0C481E99F06E2B723A71 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -34,10 +31,7 @@
 		50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = FabAgainst/LoginViewController.swift; sourceTree = "<group>"; };
 		50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = FabAgainst/GameViewController.swift; sourceTree = "<group>"; };
 		50A3E9BC1BBB4BF2002A3EBF /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = FabAgainst/Utils.swift; sourceTree = "<group>"; };
-		50F37FE71BBBFAED0028628B /* a13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = a13.json; sourceTree = "<group>"; };
-		50F37FE81BBBFAED0028628B /* a21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = a21.json; sourceTree = "<group>"; };
-		50F37FE91BBBFAED0028628B /* q13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = q13.json; sourceTree = "<group>"; };
-		50F37FEA1BBBFAED0028628B /* q21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = q21.json; sourceTree = "<group>"; };
+		50F3804A1BBDEFF60028628B /* Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		85053B99367CEB699D3ABEDE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F91415098F9609B825F3D7C0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,11 +61,8 @@
 		502F7CED1BBBD46500C373CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				50F37FE71BBBFAED0028628B /* a13.json */,
-				50F37FE81BBBFAED0028628B /* a21.json */,
-				50F37FE91BBBFAED0028628B /* q13.json */,
-				50F37FEA1BBBFAED0028628B /* q21.json */,
 				50A3E9BC1BBB4BF2002A3EBF /* Utils.swift */,
+				50F3804A1BBDEFF60028628B /* Shared.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -186,12 +177,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				50A3E9771BBB25D7002A3EBF /* LaunchScreen.storyboard in Resources */,
-				50F37FEE1BBBFAED0028628B /* q21.json in Resources */,
-				50F37FEB1BBBFAED0028628B /* a13.json in Resources */,
 				50A3E9741BBB25D7002A3EBF /* Assets.xcassets in Resources */,
-				50F37FEC1BBBFAED0028628B /* a21.json in Resources */,
 				50A3E9721BBB25D7002A3EBF /* Main.storyboard in Resources */,
-				50F37FED1BBBFAED0028628B /* q13.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50F3804B1BBDEFF60028628B /* Shared.swift in Sources */,
 				50A3E9BD1BBB4BF2002A3EBF /* Utils.swift in Sources */,
 				50A3E9B91BBB45FE002A3EBF /* GameViewController.swift in Sources */,
 				50A3E9B71BBB45F6002A3EBF /* LoginViewController.swift in Sources */,
