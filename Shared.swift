@@ -10,7 +10,7 @@
 import Foundation
 
 // Representation of a player in the game
-class Player {
+class Player: Equatable {
     var domain: String
     var score = 0
     var pick: Int
@@ -35,7 +35,7 @@ class Player {
     }
 }
 
-class Card {
+class Card: Equatable {
     var id: Int
     var text: String
     
@@ -51,6 +51,15 @@ class Card {
         ]
     }
 }
+
+func ==(lhs: Card, rhs: Card) -> Bool {
+    return lhs.id == rhs.id
+}
+
+func ==(lhs: Player, rhs: Player) -> Bool {
+    return lhs.domain == rhs.domain
+}
+
 
 class Deck {
     var questions: [Card] = []
@@ -108,7 +117,7 @@ enum State {
 }
 
 // Utility function to generate random strings
-func randomStringWithLength (len : Int) -> NSString {
+func randomStringWithLength (len : Int) -> String {
     
     let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     let randomString : NSMutableString = NSMutableString(capacity: len)
@@ -118,7 +127,7 @@ func randomStringWithLength (len : Int) -> NSString {
         randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
     }
     
-    return randomString
+    return String(randomString)
 }
 
 func randomElement<T>(arr: [T]) -> T {
@@ -126,4 +135,13 @@ func randomElement<T>(arr: [T]) -> T {
     return arr[Int(arc4random_uniform(UInt32(arr.count)))]
 }
 
+extension RangeReplaceableCollectionType where Generator.Element : Equatable {
+    
+    // Remove first collection element that is equal to the given `object`:
+    mutating func removeObject(object : Generator.Element) {
+        if let index = self.indexOf(object) {
+            self.removeAtIndex(index)
+        }
+    }
+}
 
