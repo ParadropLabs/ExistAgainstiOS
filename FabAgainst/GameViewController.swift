@@ -57,24 +57,38 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         session!.subscribe(room + "/joined", newPlayer)
         session!.subscribe(room + "/left", playerLeft)
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        // Have to unsub or unregister!
+        // TODO: overload for version that doesn't take a handler block
+        session!.call(room + "/leave", session!.domain, handler: nil)
+    }
 
     
     // MARK: Incoming state 
     func picking(domain: String, card: [String: AnyObject]) {
+        state = .Picking
         labelActiveCard.text = card["text"]! as! String
         chooser = domain
+        
+        // are we choosing this round?
+        table = chooser == session!.domain ? [] : hand
+        
         tableCard.reloadData()
     }
     
-    func choosing(table: [[String: AnyObject]]) {
-        // dict of players and their card choices
+    func choosing(choices: [[String: AnyObject]]) {
+        state = .Choosing
         print("Choosing: \(table)")
+        table = choices.map { Card(json: $0) }
+        tableCard.reloadData()
     }
     
     func scoring(player: String) {
+        state = .Scoring
+        print("Player \(player) won!")
         if player == "" {
             // chooser didn't pick. No winner
-            // TODO: choose automatically?
         } else {
             // Flash the winner, remove the other cards off the screen, incrememnt their score on the bottom pane
         }
@@ -99,42 +113,33 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         hand.append(Card(json: cardJson))
     }
     
-    func leave() {
-        // Have to unsub or unregister!
-        // TODO: overload for version that doesn't take a handler block
-        session!.call(room + "/leave", session!.domain, handler: nil)
-    }
-    
     
     //MARK: Table Delegate and Data Source
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("card") as! CardCell
-        cell.labelTitle.text = hand[indexPath.row].text
+        cell.labelTitle.text = table[indexPath.row].text
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if chooser == session!.domain {
-            // TODO: show the active list of picked cards (flipped over or not)
-            return hand.count
-        } else {
-            return hand.count
-        }
+        return table.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        // NOTE: if choosing, the non-choosing players should see a list of the submissions
+        let ourChoice = chooser == session!.domain
         
-        // We choose this round
-        if chooser == session!.domain {
+        // Dont really have to worry about out of turn selections-- the chooser should see a blank table 
+        // based on the construction of the table in the reload methods
+        if state == .Picking && !ourChoice {
+            session!.publish(room + "/play/pick", table[indexPath.row].id)
+        } else if state == .Choosing && ourChoice {
             session!.publish(room + "/play/choose", table[indexPath.row].id)
+            //TOOD: remove the card from the table and reload
         } else {
-            session!.publish(room + "/play/pick", hand[indexPath.row].id)
+            print("Pick occured outside a valid round! OurChoice: \(ourChoice), state: \(state)")
         }
-        
-        // TODO: remove the remaining cards and block future picks or chooses
     }
     
     

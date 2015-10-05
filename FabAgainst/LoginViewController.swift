@@ -14,31 +14,15 @@ class LoginViewController: UIViewController, RiffleDelegate {
     @IBOutlet weak var textfieldUsername: UITextField!
     var session: RiffleSession?
     
+    var timer: NSTimer?
+    
     @IBOutlet weak var buttonLogin: UIButton!
     
     override func viewDidLoad() {
         setFabric("ws://ubuntu@ec2-52-26-83-61.us-west-2.compute.amazonaws.com:8000/ws")
         IHKeyboardAvoiding.setAvoidingView(buttonLogin)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardUp:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDown:", name: UIKeyboardWillHideNotification, object: nil)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-    }
-    
-    func keyboardUp(notification: NSNotification) {
         
-    }
-    
-    func keyboardDown(notification: NSNotification) {
-        
+        timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("someFunc:"), userInfo: [1], repeats: false)
     }
     
     @IBAction func login(sender: AnyObject) {
@@ -59,5 +43,10 @@ class LoginViewController: UIViewController, RiffleDelegate {
     
     func onLeave() {
         print("Session disconnected")
+    }
+    
+    func someFunc(timer: NSTimer?) {
+        print(timer!.userInfo)
+        print("Func Called")
     }
 }
