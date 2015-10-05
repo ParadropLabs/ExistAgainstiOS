@@ -166,7 +166,7 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
     
     //MARK: OLD CODE
     public func call(endpoint: String, _ args: AnyObject..., handler: (([AnyObject]) -> ())?) {
-        session.call(endpoint, payload: [args]) { (result: MDWampResult!, err: NSError!) -> Void in
+        session.call(endpoint, payload: args) { (result: MDWampResult!, err: NSError!) -> Void in
             if err != nil {
                 print("ERR: ", err)
             }
@@ -179,7 +179,7 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
     }
     
     public func publish(endpoint: String, _ args: AnyObject...) {
-        session.publishTo(endpoint, args: [args], kw: [:], options: [:]) { (err: NSError!) -> Void in
+        session.publishTo(endpoint, args: args, kw: [:], options: [:]) { (err: NSError!) -> Void in
             if let e = err {
                 print("Error: ", e)
             }
