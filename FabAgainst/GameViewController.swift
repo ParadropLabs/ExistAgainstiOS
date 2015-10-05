@@ -138,7 +138,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dont really have to worry about out of turn selections-- the chooser should see a blank table 
         // based on the construction of the table in the reload methods
         if state == .Picking && !ourChoice {
-            session!.call(room + "/play/pick", table[indexPath.row].id, handler: nil )
+            session!.call(room + "/play/pick", session!.domain, table[indexPath.row].id, handler: nil )
         } else if state == .Choosing && ourChoice {
             session!.publish(room + "/play/choose", table[indexPath.row].id)
             //TOOD: remove the card from the table and reload
