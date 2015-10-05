@@ -66,8 +66,9 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableCard.reloadData()
     }
     
-    func choosing(table: [String: AnyObject]) {
+    func choosing(table: [[String: AnyObject]]) {
         // dict of players and their card choices
+        print("Choosing: \(table)")
     }
     
     func scoring(player: String) {
