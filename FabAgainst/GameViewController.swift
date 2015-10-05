@@ -40,10 +40,14 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewWillAppear(animated: Bool) {
         // Animations?
-//        establish()
         labelActiveCard.text = ""
         
-        // HAVE TO UNSUB
+        
+        if state == .Picking {
+            table = hand
+        }
+        
+        // otherwise....
     }
     
     override func viewDidAppear(animated: Bool) {

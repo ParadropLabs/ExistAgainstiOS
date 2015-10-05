@@ -21,8 +21,6 @@ class LoginViewController: UIViewController, RiffleDelegate {
     override func viewDidLoad() {
         setFabric("ws://ubuntu@ec2-52-26-83-61.us-west-2.compute.amazonaws.com:8000/ws")
         IHKeyboardAvoiding.setAvoidingView(buttonLogin)
-        
-        timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("someFunc:"), userInfo: [1], repeats: false)
     }
     
     @IBAction func login(sender: AnyObject) {
@@ -38,15 +36,11 @@ class LoginViewController: UIViewController, RiffleDelegate {
         
         // For now assume connection means name was open
         // Present the landing controller
+        // WARNING: What to do with the session delegate now that its left this controller? A leave will crash.
         pushController(self, identifier: "landing", data: ["session": session!])
     }
     
     func onLeave() {
         print("Session disconnected")
-    }
-    
-    func someFunc(timer: NSTimer?) {
-        print(timer!.userInfo)
-        print("Func Called")
     }
 }
