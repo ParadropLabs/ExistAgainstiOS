@@ -76,6 +76,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         chooser = domain
         
         // are we choosing this round?
+        print("Choosen domain: \(domain), our domain: \(session!.domain)")
         table = chooser == session!.domain ? [] : hand
         
         tableCard.reloadData()
