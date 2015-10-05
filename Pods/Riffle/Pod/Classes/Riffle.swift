@@ -146,20 +146,20 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
             }, cancelHandler: { () -> Void in
                 print("Register Cancelled!")
             }) { (err: NSError!) -> Void in
-                print("Registration completed.")
+                print("Registration completed: \(endpoint)")
         }
     }
     
     func _register<R: AnyObject>(endpoint: String, fn: ([AnyObject]) -> (R)) {
         session.registerRPC(endpoint, procedure: { (wamp: MDWamp!, invocation: MDWampInvocation!) -> Void in
             
-            var result = fn(invocation.arguments as! [AnyObject])
+            let result = fn(invocation.arguments as! [AnyObject])
             wamp.resultForInvocation(invocation, arguments: [result], argumentsKw: [:])
             
             }, cancelHandler: { () -> Void in
                 print("Register Cancelled!")
             }) { (err: NSError!) -> Void in
-                print("Registration completed.")
+                print("Registration completed: \(endpoint)")
         }
     }
     
@@ -179,7 +179,7 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
     }
     
     public func publish(endpoint: String, _ args: AnyObject...) {
-        session.publishTo(endpoint, args: args, kw: [:], options: [:]) { (err: NSError!) -> Void in
+        session.publishTo(endpoint, args: [args], kw: [:], options: [:]) { (err: NSError!) -> Void in
             if let e = err {
                 print("Error: ", e)
             }

@@ -141,7 +141,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("player", forIndexPath: indexPath) as! PlayerCell
         let name = players[indexPath.row].domain
-        cell.labelName.text = name.stringByReplacingOccurrencesOfString("pd.demo.cardsagainst", withString: "")
+        cell.labelName.text = name.stringByReplacingOccurrencesOfString("pd.demo.cardsagainst.", withString: "")
         return cell
     }
     
