@@ -91,11 +91,19 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func scoring(player: String) {
         state = .Scoring
-        print("Player \(player) won!")
+        
         if player == "" {
-            // chooser didn't pick. No winner
+            // chooser didn't pick. No winner. Strictly speaking, this shouldn't be possible
         } else {
             // Flash the winner, remove the other cards off the screen, incrememnt their score on the bottom pane
+            print("Player \(player) won!")
+            var winners = players.filter { $0.domain == player }
+            let winner = winners[0]
+            winner.score += 1
+            
+            // Flash the cell
+            
+            collectionPlayers.reloadData()
         }
     }
     
@@ -151,8 +159,11 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //MARK: Collection Delegate and Data Source
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("player", forIndexPath: indexPath) as! PlayerCell
-        let name = players[indexPath.row].domain
-        cell.labelName.text = name.stringByReplacingOccurrencesOfString("pd.demo.cardsagainst.", withString: "")
+        let player = players[indexPath.row]
+        
+        cell.labelName.text = player.domain.stringByReplacingOccurrencesOfString("pd.demo.cardsagainst.", withString: "")
+        cell.labelScore.text = "\(player.score)"
+        
         return cell
     }
     
@@ -172,6 +183,7 @@ class CardCell: UITableViewCell {
 
 class PlayerCell: UICollectionViewCell {
     @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelScore: UILabel!
 }
 
 
