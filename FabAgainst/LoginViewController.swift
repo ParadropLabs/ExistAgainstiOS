@@ -18,6 +18,7 @@ class LoginViewController: UIViewController, RiffleDelegate {
     
     @IBOutlet weak var buttonLogin: UIButton!
     
+    
     override func viewDidLoad() {
         setFabric("ws://ubuntu@ec2-52-26-83-61.us-west-2.compute.amazonaws.com:8000/ws")
         IHKeyboardAvoiding.setAvoidingView(buttonLogin)
