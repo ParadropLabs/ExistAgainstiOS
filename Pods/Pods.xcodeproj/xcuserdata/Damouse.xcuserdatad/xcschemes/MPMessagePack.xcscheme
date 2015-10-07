@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E0A90566F3B743372BC38640"
+               BlueprintIdentifier = "CD19E44C0D17A685E5CA2D91"
                BuildableName = "MPMessagePack.framework"
                BlueprintName = "MPMessagePack"
                ReferencedContainer = "container:Pods.xcodeproj">

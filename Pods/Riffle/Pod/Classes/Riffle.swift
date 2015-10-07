@@ -52,6 +52,10 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
         
     }
     
+    public func stuffy() -> String {
+        return stuff()
+    }
+    
     
     //MARK: Delegates
     public func mdwamp(wamp: MDWamp!, sessionEstablished info: [NSObject : AnyObject]!) {
@@ -146,7 +150,7 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
             }, cancelHandler: { () -> Void in
                 print("Register Cancelled!")
             }) { (err: NSError!) -> Void in
-                print("Registration completed: \(endpoint)")
+                //print("Registration completed: \(endpoint)")
         }
     }
     
@@ -159,7 +163,7 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
             }, cancelHandler: { () -> Void in
                 print("Register Cancelled!")
             }) { (err: NSError!) -> Void in
-                print("Registration completed: \(endpoint)")
+                //print("Registration completed: \(endpoint)")
         }
     }
     
@@ -168,7 +172,7 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
     public func call(endpoint: String, _ args: AnyObject..., handler: (([AnyObject]) -> ())?) {
         session.call(endpoint, payload: args) { (result: MDWampResult!, err: NSError!) -> Void in
             if err != nil {
-                print("ERR: ", err)
+                print("Call Error for endpoint \(endpoint): \(err)")
             }
             else {
                 if let h = handler {
@@ -182,6 +186,7 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
         session.publishTo(endpoint, args: args, kw: [:], options: [:]) { (err: NSError!) -> Void in
             if let e = err {
                 print("Error: ", e)
+                print("Publish Error for endpoint \"\(endpoint)\": \(e)")
             }
         }
     }
@@ -244,5 +249,53 @@ func cumin<A, B, R: AnyObject>(fn: (A, B) -> (R)) -> ([AnyObject]) -> (R) {
 func cumin<A, B, C, R: AnyObject>(fn: (A, B, C) -> (R)) -> ([AnyObject]) -> (R) {
     return { (args: [AnyObject]) in fn(args[0] as! A, args[1] as! B, args[2] as! C) }
 }
+
+
+
+
+/////////////////
+// *None
+/////////////////
+
+//// NoneNone
+//
+//func cumin(fn: () -> ()) -> ([AnyObject]) -> () {
+//    return { (args: [AnyObject]) in fn() }
+//}
+//
+//// OneNone
+//func cumin<A>(fn: A -> ()) -> ([AnyObject]) -> () {
+//    return { (args: [AnyObject]) in fn(args[0] as! A) }
+//}
+//
+//
+//// TwoNone
+//func cumin<A, B>(fn: (A, B) -> ()) -> ([AnyObject]) -> () {
+//    return { (args: [AnyObject]) -> () in fn(args[0] as! A, args[1] as! B) }
+//}
+//
+//// ThreeNone
+//func cumin<A, B, C>(fn: (A, B, C) -> ()) -> ([AnyObject]) -> () {
+//    return { (args: [AnyObject]) -> () in fn(args[0] as! A, args[2] as! B, args[3] as! C) }
+//}
+//
+///////////////////
+//// *One
+///////////////////
+//// OneOne
+//func cumin<A, R>(fn: A -> R) -> ([AnyObject]) -> R {
+//    return { (args: [AnyObject]) -> R in fn(args[0] as! A) }
+//}
+//
+//// TwoOne
+//func cumin<A, B, R>(fn: (A, B) -> R) -> ([AnyObject]) -> R {
+//    return { (args: [AnyObject]) -> R in fn(args[0] as! A, args[1] as! B) }
+//}
+//
+//// ThreeOne
+//func cumin<A, B, C, R>(fn: (A, B, C) -> R) -> ([AnyObject]) -> R {
+//    return { (args: [AnyObject]) -> R in fn(args[0] as! A, args[1] as! B, args[2] as! C) }
+//}
+
 
 

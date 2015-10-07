@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Riffle:
-    :commit: 4037df8d0804f5b6732e75078f86e43d39bccbc6
+    :commit: 5bb0e876c4d1a51486f3820af045be590c9b781e
     :git: https://github.com/ParadropLabs/riffle-swift
 
 SPEC CHECKSUMS:

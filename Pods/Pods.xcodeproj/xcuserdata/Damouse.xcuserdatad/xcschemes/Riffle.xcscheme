@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A60C0165FFC586A8E272A594"
+               BlueprintIdentifier = "CE61D59B89B12BF29A273C5D"
                BuildableName = "Riffle.framework"
                BlueprintName = "Riffle"
                ReferencedContainer = "container:Pods.xcodeproj">

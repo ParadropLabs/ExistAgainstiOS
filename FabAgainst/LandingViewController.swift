@@ -14,7 +14,6 @@ class LandingViewController: UIViewController {
     
     @IBAction func play(sender: AnyObject) {
         // Ask for a room and present the gameplay controller
-        
         session?.call("pd.demo.cardsagainst/play", session!.domain) { (result: [AnyObject]) -> () in
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
             
