@@ -51,20 +51,10 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
             c.id = 1
             hand.append(c)
         }
-    }
-    
-    
-    override func viewWillAppear(animated: Bool) {
-        
-        // Animations?
-//        labelActiveCard.text = ""
-        
         
         if state == .Picking {
             table = hand
         }
-        
-        // otherwise....
     }
     
     override func viewDidAppear(animated: Bool) {

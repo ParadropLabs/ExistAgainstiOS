@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		507F0DD61BC627E6008F00CA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F0DD51BC627E6008F00CA /* main.swift */; };
+		507F0DE11BC647A4008F00CA /* DemoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F0DDC1BC647A4008F00CA /* DemoPlayer.swift */; settings = {ASSET_TAGS = (); }; };
+		507F0DE21BC647A4008F00CA /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F0DDF1BC647A4008F00CA /* Room.swift */; settings = {ASSET_TAGS = (); }; };
+		507F0DE31BC647A4008F00CA /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F0DE01BC647A4008F00CA /* Session.swift */; settings = {ASSET_TAGS = (); }; };
+		507F0DE51BC647C5008F00CA /* Riffle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507F0DE41BC647C5008F00CA /* Riffle.framework */; };
 		50A3E96D1BBB25D7002A3EBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */; };
 		50A3E9721BBB25D7002A3EBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A3E9701BBB25D7002A3EBF /* Main.storyboard */; };
 		50A3E9741BBB25D7002A3EBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A3E9731BBB25D7002A3EBF /* Assets.xcassets */; };
@@ -15,7 +19,6 @@
 		50A3E9B51BBB45EA002A3EBF /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		50A3E9B71BBB45F6002A3EBF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		50A3E9B91BBB45FE002A3EBF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		50A3E9BD1BBB4BF2002A3EBF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E9BC1BBB4BF2002A3EBF /* Utils.swift */; settings = {ASSET_TAGS = (); }; };
 		50F3804B1BBDEFF60028628B /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F3804A1BBDEFF60028628B /* Shared.swift */; settings = {ASSET_TAGS = (); }; };
 		BCB4344D374A99FE293EFC63 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073E0C481E99F06E2B723A71 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -37,6 +40,14 @@
 		5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FabAgainst-Bridging-Header.h"; sourceTree = "<group>"; };
 		507F0DD31BC627E5008F00CA /* Backend */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Backend; sourceTree = BUILT_PRODUCTS_DIR; };
 		507F0DD51BC627E6008F00CA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		507F0DDA1BC647A4008F00CA /* a13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = a13.json; sourceTree = "<group>"; };
+		507F0DDB1BC647A4008F00CA /* a21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = a21.json; sourceTree = "<group>"; };
+		507F0DDC1BC647A4008F00CA /* DemoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPlayer.swift; sourceTree = "<group>"; };
+		507F0DDD1BC647A4008F00CA /* q13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = q13.json; sourceTree = "<group>"; };
+		507F0DDE1BC647A4008F00CA /* q21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = q21.json; sourceTree = "<group>"; };
+		507F0DDF1BC647A4008F00CA /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		507F0DE01BC647A4008F00CA /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		507F0DE41BC647C5008F00CA /* Riffle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Riffle.framework; path = "Pods/../build/Debug-iphoneos/Riffle.framework"; sourceTree = "<group>"; };
 		50A3E9691BBB25D7002A3EBF /* FabAgainst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FabAgainst.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = FabAgainst/AppDelegate.swift; sourceTree = "<group>"; };
 		50A3E9711BBB25D7002A3EBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,7 +57,6 @@
 		50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandingViewController.swift; path = FabAgainst/LandingViewController.swift; sourceTree = "<group>"; };
 		50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = FabAgainst/LoginViewController.swift; sourceTree = "<group>"; };
 		50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = FabAgainst/GameViewController.swift; sourceTree = "<group>"; };
-		50A3E9BC1BBB4BF2002A3EBF /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = FabAgainst/Utils.swift; sourceTree = "<group>"; };
 		50F3804A1BBDEFF60028628B /* Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		85053B99367CEB699D3ABEDE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F91415098F9609B825F3D7C0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -57,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				507F0DE51BC647C5008F00CA /* Riffle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,38 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		502F7CEC1BBBD46100C373CE /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */,
-				50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */,
-				50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		502F7CED1BBBD46500C373CE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				50A3E9BC1BBB4BF2002A3EBF /* Utils.swift */,
-				50F3804A1BBDEFF60028628B /* Shared.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		502F7CEE1BBBD46900C373CE /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				50A3E9701BBB25D7002A3EBF /* Main.storyboard */,
-				50A3E9751BBB25D7002A3EBF /* LaunchScreen.storyboard */,
-				50A3E9731BBB25D7002A3EBF /* Assets.xcassets */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
 		507F0DD41BC627E6008F00CA /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				507F0DDA1BC647A4008F00CA /* a13.json */,
+				507F0DDB1BC647A4008F00CA /* a21.json */,
+				507F0DDC1BC647A4008F00CA /* DemoPlayer.swift */,
+				507F0DDD1BC647A4008F00CA /* q13.json */,
+				507F0DDE1BC647A4008F00CA /* q21.json */,
+				507F0DDF1BC647A4008F00CA /* Room.swift */,
+				507F0DE01BC647A4008F00CA /* Session.swift */,
 				507F0DD51BC627E6008F00CA /* main.swift */,
 			);
 			path = Backend;
@@ -114,9 +103,13 @@
 				50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */,
 				50A3E9781BBB25D7002A3EBF /* Info.plist */,
 				5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */,
-				502F7CED1BBBD46500C373CE /* Models */,
-				502F7CEC1BBBD46100C373CE /* Controllers */,
-				502F7CEE1BBBD46900C373CE /* Views */,
+				50F3804A1BBDEFF60028628B /* Shared.swift */,
+				50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */,
+				50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */,
+				50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */,
+				50A3E9701BBB25D7002A3EBF /* Main.storyboard */,
+				50A3E9751BBB25D7002A3EBF /* LaunchScreen.storyboard */,
+				50A3E9731BBB25D7002A3EBF /* Assets.xcassets */,
 				507F0DD41BC627E6008F00CA /* Backend */,
 				50A3E96A1BBB25D7002A3EBF /* Products */,
 				ABB01B19770A7819067DB8E1 /* Pods */,
@@ -145,6 +138,7 @@
 		B1913C54C7ED6CF5F9DAF8EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				507F0DE41BC647C5008F00CA /* Riffle.framework */,
 				073E0C481E99F06E2B723A71 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -293,7 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				507F0DE31BC647A4008F00CA /* Session.swift in Sources */,
 				507F0DD61BC627E6008F00CA /* main.swift in Sources */,
+				507F0DE11BC647A4008F00CA /* DemoPlayer.swift in Sources */,
+				507F0DE21BC647A4008F00CA /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +299,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				50F3804B1BBDEFF60028628B /* Shared.swift in Sources */,
-				50A3E9BD1BBB4BF2002A3EBF /* Utils.swift in Sources */,
 				50A3E9B91BBB45FE002A3EBF /* GameViewController.swift in Sources */,
 				50A3E9B71BBB45F6002A3EBF /* LoginViewController.swift in Sources */,
 				50A3E9B51BBB45EA002A3EBF /* LandingViewController.swift in Sources */,
@@ -337,6 +333,10 @@
 		507F0DD81BC627E6008F00CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -346,6 +346,10 @@
 		507F0DD91BC627E6008F00CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -475,6 +479,7 @@
 				507F0DD91BC627E6008F00CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		50A3E9641BBB25D7002A3EBF /* Build configuration list for PBXProject "FabAgainst" */ = {
 			isa = XCConfigurationList;

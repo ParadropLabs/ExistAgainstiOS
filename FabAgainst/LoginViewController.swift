@@ -28,8 +28,6 @@ class LoginViewController: UIViewController, RiffleDelegate {
         if DEB {
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("landing") as! LandingViewController
             self.showViewController(controller, sender: self)
-//            self.navigationController?.pushViewController(controller, animated: true)
-            
             return
         }
         
@@ -38,17 +36,13 @@ class LoginViewController: UIViewController, RiffleDelegate {
         session = RiffleSession(domain: "pd.demo.cardsagainst." + name)
         session!.delegate = self
         session!.connect()
-        
-        
     }
     
     func onJoin() {
         print("Session connected")
-        
-        // For now assume connection means name was open
-        // Present the landing controller
-        // WARNING: What to do with the session delegate now that its left this controller? A leave will crash.
-        pushController(self, identifier: "landing", data: ["session": session!])
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("landing") as! LandingViewController
+        controller.session = session
+        self.showViewController(controller, sender: self)
     }
     
     func onLeave() {
