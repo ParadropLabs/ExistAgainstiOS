@@ -159,6 +159,9 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("card") as! CardCell
         cell.labelTitle.text = table[indexPath.row].text
+        
+        cell.viewHolder.layer.cornerRadius = 5
+        cell.viewHolder.layer.masksToBounds = true
         return cell
     }
     
@@ -206,6 +209,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
 
 class CardCell: UITableViewCell {
+    @IBOutlet weak var viewHolder: UIView!
     @IBOutlet weak var labelTitle: UILabel!
 }
 

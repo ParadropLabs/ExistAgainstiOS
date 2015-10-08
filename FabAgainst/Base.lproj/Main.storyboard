@@ -90,58 +90,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xuF-bi-CC7">
-                                <rect key="frame" x="0.0" y="108" width="600" height="366"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="card" rowHeight="52" id="R16-um-x8l" customClass="CardCell" customModule="FabAgainst" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="52"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R16-um-x8l" id="ZHC-IU-J3d">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="52"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Card CArd" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-nD-gx1">
-                                                    <rect key="frame" x="8" y="0.0" width="584" height="44"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="0rn-nD-gx1" secondAttribute="bottom" constant="8" id="Iam-U8-KZB"/>
-                                                <constraint firstAttribute="trailing" secondItem="0rn-nD-gx1" secondAttribute="trailing" constant="8" id="Wbm-6w-8PS"/>
-                                                <constraint firstItem="0rn-nD-gx1" firstAttribute="top" secondItem="ZHC-IU-J3d" secondAttribute="top" id="bVU-Rg-P6a"/>
-                                                <constraint firstItem="0rn-nD-gx1" firstAttribute="leading" secondItem="ZHC-IU-J3d" secondAttribute="leading" constant="8" id="jua-n8-joF"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <connections>
-                                            <outlet property="labelTitle" destination="0rn-nD-gx1" id="i4H-m6-aVf"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="y5l-PD-fLC" id="vlg-jn-jWa"/>
-                                    <outlet property="delegate" destination="y5l-PD-fLC" id="S70-UV-m9m"/>
-                                </connections>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOs-lQ-ALW">
                                 <rect key="frame" x="0.0" y="20" width="600" height="89"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Card Card" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M21-Hh-XMu">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                         <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="89" id="7nP-Qo-fFf"/>
                                     <constraint firstAttribute="trailing" secondItem="M21-Hh-XMu" secondAttribute="trailing" id="Rn6-fT-elj"/>
@@ -211,6 +173,77 @@
                                     <outlet property="delegate" destination="y5l-PD-fLC" id="pqJ-fZ-1LS"/>
                                 </connections>
                             </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xuF-bi-CC7">
+                                <rect key="frame" x="0.0" y="108" width="600" height="366"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="card" rowHeight="65" id="R16-um-x8l" customClass="CardCell" customModule="FabAgainst" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R16-um-x8l" id="ZHC-IU-J3d">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="129-iJ-rNP">
+                                                    <rect key="frame" x="16" y="16" width="584" height="36"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Card Card CArd" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-nD-gx1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="584" height="44"/>
+                                                            <animations/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="0rn-nD-gx1" firstAttribute="leading" secondItem="129-iJ-rNP" secondAttribute="leading" id="76V-Xj-XMS"/>
+                                                        <constraint firstAttribute="trailing" secondItem="0rn-nD-gx1" secondAttribute="trailing" id="Yjq-qY-37z"/>
+                                                        <constraint firstItem="0rn-nD-gx1" firstAttribute="top" secondItem="129-iJ-rNP" secondAttribute="top" id="eFb-YI-kgL"/>
+                                                        <constraint firstAttribute="bottom" secondItem="0rn-nD-gx1" secondAttribute="bottom" id="vAQ-rx-uuQ"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="129-iJ-rNP" firstAttribute="top" secondItem="ZHC-IU-J3d" secondAttribute="topMargin" constant="8" id="0Rx-d7-9zg"/>
+                                                <constraint firstItem="129-iJ-rNP" firstAttribute="bottom" secondItem="ZHC-IU-J3d" secondAttribute="bottomMargin" constant="8" id="3rg-C6-ub0"/>
+                                                <constraint firstItem="129-iJ-rNP" firstAttribute="leading" secondItem="ZHC-IU-J3d" secondAttribute="leadingMargin" constant="8" id="D6i-q2-uig"/>
+                                                <constraint firstItem="129-iJ-rNP" firstAttribute="leading" secondItem="ZHC-IU-J3d" secondAttribute="leadingMargin" constant="8" id="Eqk-DM-55u"/>
+                                                <constraint firstItem="129-iJ-rNP" firstAttribute="trailing" secondItem="ZHC-IU-J3d" secondAttribute="trailingMargin" id="K0o-c8-QpB"/>
+                                                <constraint firstItem="129-iJ-rNP" firstAttribute="trailing" secondItem="ZHC-IU-J3d" secondAttribute="trailingMargin" constant="8" id="Kns-UU-hfL"/>
+                                                <constraint firstItem="129-iJ-rNP" firstAttribute="trailing" secondItem="ZHC-IU-J3d" secondAttribute="trailingMargin" constant="8" id="cW1-Z8-yyv"/>
+                                                <constraint firstItem="129-iJ-rNP" firstAttribute="leading" secondItem="ZHC-IU-J3d" secondAttribute="leadingMargin" constant="8" id="eWF-1U-s86"/>
+                                                <constraint firstItem="129-iJ-rNP" firstAttribute="bottom" secondItem="ZHC-IU-J3d" secondAttribute="bottomMargin" constant="8" id="gZB-Kx-9oW"/>
+                                                <constraint firstItem="129-iJ-rNP" firstAttribute="top" secondItem="ZHC-IU-J3d" secondAttribute="topMargin" constant="8" id="lio-fT-UzR"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="0Rx-d7-9zg"/>
+                                                    <exclude reference="D6i-q2-uig"/>
+                                                    <exclude reference="Eqk-DM-55u"/>
+                                                    <exclude reference="Kns-UU-hfL"/>
+                                                    <exclude reference="cW1-Z8-yyv"/>
+                                                    <exclude reference="gZB-Kx-9oW"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="labelTitle" destination="0rn-nD-gx1" id="i4H-m6-aVf"/>
+                                            <outlet property="viewHolder" destination="129-iJ-rNP" id="dtV-Nn-rBO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="y5l-PD-fLC" id="vlg-jn-jWa"/>
+                                    <outlet property="delegate" destination="y5l-PD-fLC" id="S70-UV-m9m"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
