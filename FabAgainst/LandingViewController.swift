@@ -22,8 +22,8 @@ class LandingViewController: UIViewController {
             let rawPlayers = json["players"] as! [[String: AnyObject]]
             let rawCards = json["hand"] as! [[String: AnyObject]]
             
-            controller.hand = rawCards.map { Card(json: $0) }
-            controller.players = rawPlayers.map { Player(json: $0) }
+            controller.hand = rawCards.map { Card.fromJson($0) }
+            controller.players = rawPlayers.map { Player.fromJson($0) }
             controller.state = State(json["state"] as! String)!
             controller.room = json["room"] as! String
             controller.session = self.session!

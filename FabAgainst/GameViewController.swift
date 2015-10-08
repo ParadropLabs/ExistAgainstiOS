@@ -70,9 +70,9 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     
     // MARK: Incoming state 
-    func picking(domain: String, card: [String: AnyObject]) {
+    func picking(domain: String, card: Card) {
         state = .Picking
-        labelActiveCard.text = card["text"]! as! String
+        labelActiveCard.text = card.text
         chooser = domain
         
         // are we choosing this round?
@@ -85,7 +85,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func choosing(choices: [[String: AnyObject]]) {
         state = .Choosing
         print("Choosing: \(table)")
-        table = choices.map { Card(json: $0) }
+        table = choices.map { Card.fromJson($0) }
         tableCard.reloadData()
     }
     
@@ -113,7 +113,9 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func newPlayer(player: String) {
-        players.append(Player(domain: player))
+        let p = Player()
+        p.domain = player
+        players.append(p)
         collectionPlayers.reloadData()
     }
     
@@ -128,7 +130,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func draw(cardJson: [String: AnyObject]) {
-        hand.append(Card(json: cardJson))
+        hand.append(Card.fromJson(cardJson))
     }
     
     
@@ -190,24 +192,4 @@ class PlayerCell: UICollectionViewCell {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelScore: UILabel!
 }
-
-
-/* Perhaps Uneeded
-func establish() {
-// Rebuilds the UI to match the current state.
-// Do we need this?
-
-switch state {
-case .Picking:
-break
-case .Choosing:
-break
-case .Scoring:
-break
-case .Empty:
-print("Empty room. Cant do anything")
-}
-}
-*/
-
 

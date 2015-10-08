@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Backend.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
 		<key>FabAgainst.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>507F0DD21BC627E5008F00CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>50A3E9681BBB25D7002A3EBF</key>
 		<dict>
 			<key>primary</key>
