@@ -13,8 +13,19 @@ class LandingViewController: UIViewController {
     var session: RiffleSession?
 
     @IBAction func play(sender: AnyObject) {
-        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
-        self.navigationController?.pushViewController(controller, animated: true)
+        if DEB {
+            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
+            self.modalPresentationStyle = .CurrentContext
+            
+            let effect = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
+            effect.frame = controller.view.frame
+            controller.view.insertSubview(effect, atIndex:0)
+            controller.modalPresentationStyle = .OverFullScreen
+            
+            self.presentViewController(controller, animated: true, completion: nil)
+//            self.navigationController?.pushViewController(controller, animated: true)
+            return
+        }
         
         // Ask for a room and present the gameplay controller
         session?.call("pd.demo.cardsagainst/play", session!.domain) { (result: [AnyObject]) -> () in
@@ -35,3 +46,17 @@ class LandingViewController: UIViewController {
         }
     }
 }
+
+/*
+UIViewController * contributeViewController = [[UIViewController alloc] init];
+UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+UIVisualEffectView *beView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+beView.frame = self.view.bounds;
+
+contributeViewController.view.frame = self.view.bounds;
+contributeViewController.view.backgroundColor = [UIColor clearColor];
+[contributeViewController.view insertSubview:beView atIndex:0];
+contributeViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+
+[self presentViewController:contributeViewController animated:YES completion:nil];
+*/

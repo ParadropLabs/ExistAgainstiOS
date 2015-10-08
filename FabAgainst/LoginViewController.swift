@@ -26,7 +26,10 @@ class LoginViewController: UIViewController, RiffleDelegate {
     
     @IBAction func login(sender: AnyObject) {
         if DEB {
-            pushController(self, identifier: "landing", data: nil)
+            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("landing") as! LandingViewController
+            self.showViewController(controller, sender: self)
+//            self.navigationController?.pushViewController(controller, animated: true)
+            
             return
         }
         

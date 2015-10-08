@@ -41,6 +41,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var chooser = ""
     
     override func viewDidLoad() {
+        
         if DEB {
             state = .Picking
             
@@ -53,8 +54,9 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     override func viewWillAppear(animated: Bool) {
+        
         // Animations?
-        labelActiveCard.text = ""
+//        labelActiveCard.text = ""
         
         
         if state == .Picking {
@@ -65,6 +67,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func viewDidAppear(animated: Bool) {
+        
         if !DEB {
             session!.subscribe(room + "/round/picking", picking)
             session!.subscribe(room + "/round/choosing", choosing)
