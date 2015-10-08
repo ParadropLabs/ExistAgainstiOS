@@ -12,6 +12,7 @@ import Spring
 import IHKeyboardAvoiding
 
 class LandingViewController: UIViewController, RiffleDelegate {
+    @IBOutlet weak var buttonLogin: UIButton!
     @IBOutlet weak var viewLogo: SpringView!
     @IBOutlet weak var viewButtons: SpringView!
     @IBOutlet weak var viewLogin: SpringView!
@@ -23,7 +24,7 @@ class LandingViewController: UIViewController, RiffleDelegate {
     
     override func viewDidLoad() {
         setFabric("ws://ubuntu@ec2-52-26-83-61.us-west-2.compute.amazonaws.com:8000/ws")
-        IHKeyboardAvoiding.setAvoidingView(viewButtons)
+        IHKeyboardAvoiding.setAvoidingView(buttonLogin)
     }
     
     override func viewWillAppear(animated: Bool) {

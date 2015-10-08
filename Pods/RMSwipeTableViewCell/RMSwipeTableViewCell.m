@@ -48,6 +48,7 @@
     self.panElasticity = YES;
     self.panElasticityFactor = 0.55f;
     self.panElasticityStartingPoint = 0.0f;
+    self.interruptPanGestureHandler = NO;
     
     UIView *backgroundView = [[UIView alloc] initWithFrame:self.frame];
     backgroundView.backgroundColor = [UIColor whiteColor];
@@ -67,6 +68,12 @@
 #pragma mark - Gesture recognizer delegate
 
 -(BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer {
+    if (self.interruptPanGestureHandler) {
+        NSLog(@"Kill triggered");
+        panGestureRecognizer.enabled = false;
+        return NO;
+    }
+    
     // We only want to deal with the gesture of it's a pan gesture
     if ([panGestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && self.revealDirection != RMSwipeTableViewCellRevealDirectionNone) {
         CGPoint translation = [panGestureRecognizer translationInView:[self superview]];
@@ -77,10 +84,18 @@
 }
 
 -(void)handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
+    if (self.interruptPanGestureHandler) {
+        NSLog(@"Kill triggered");
+        panGestureRecognizer.enabled = false;
+        return;
+    }
+    
     CGPoint translation = [panGestureRecognizer translationInView:panGestureRecognizer.view];
     CGPoint velocity = [panGestureRecognizer velocityInView:panGestureRecognizer.view];
     CGFloat panOffset = translation.x;
+    
     if (self.panElasticity) {
+        
         if (ABS(translation.x) > self.panElasticityStartingPoint) {
             CGFloat width = CGRectGetWidth(self.frame);
             CGFloat offset = abs(translation.x);
@@ -91,14 +106,18 @@
             }
         }
     }
+    
     CGPoint actualTranslation = CGPointMake(panOffset, translation.y);
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan && [panGestureRecognizer numberOfTouches] > 0) {
+        
+        
         [self didStartSwiping];
         [self animateContentViewForPoint:actualTranslation velocity:velocity];
     } else if (panGestureRecognizer.state == UIGestureRecognizerStateChanged && [panGestureRecognizer numberOfTouches] > 0) {
         [self animateContentViewForPoint:actualTranslation velocity:velocity];
 	} else {
 		[self resetCellFromPoint:actualTranslation  velocity:velocity];
+        self.interruptPanGestureHandler = NO;
 	}
 }
 

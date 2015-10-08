@@ -219,6 +219,47 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
+    //MARK: Switping Delegate
+    func swipeTableViewCell(swipeTableViewCell: RMSwipeTableViewCell!, didSwipeToPoint point: CGPoint, velocity: CGPoint) {
+        let cell = swipeTableViewCell as! CardCell
+        
+        let MAX = CGFloat(70.0)
+        
+        // right side selection
+        if point.x >= MAX {
+//            cell.resetCellFromPoint(point, velocity:
+            cell.resetContentView()
+            cell.interruptPanGestureHandler = true
+        }
+        
+        // Left side selection
+        if point.x <= (-1 * MAX) {
+            
+        }
+        
+
+    }
+    
+    // MARK: Actions
+    @IBAction func leave(sender: AnyObject) {
+        // Called when the user wants to leave the room. Unregister/subscribe to all relevant bits
+        
+        if !DEB {
+            session!.unsubscribe(room + "/round/picking")
+            session!.unsubscribe(room + "/round/choosing")
+            session!.unsubscribe(room + "/round/scoring")
+            
+            //session!.unsubscribe(room + "/play/picked")
+            
+            session!.unregister(session!.domain + "/draw")
+            session!.unsubscribe(room + "/joined")
+            session!.unsubscribe(room + "/left")
+        }
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     //MARK: Timer Functions
     func tick() {
         //timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("tick"), userInfo: nil, repeats: true)
@@ -235,6 +276,16 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
 class CardCell: RMSwipeTableViewCell {
     @IBOutlet weak var labelTitle: UILabel!
+    
+    func resetContentView() {
+        UIView.animateWithDuration(0.15, animations: { () -> Void in
+            self.contentView.frame = CGRectOffset(self.contentView.bounds, 0.0, 0.0)
+        }) { (b: Bool) -> Void in
+            self.shouldAnimateCellReset = true
+            self.cleanupBackView()
+            self.interruptPanGestureHandler = false
+        }
+    }
 }
 
 class PlayerCell: UICollectionViewCell {

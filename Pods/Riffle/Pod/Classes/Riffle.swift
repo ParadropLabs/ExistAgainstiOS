@@ -112,9 +112,7 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
                 //print("Registration completed: \(endpoint)")
         }
     }
-    
-    
-    //MARK: OLD CODE
+
     public func call(endpoint: String, _ args: AnyObject..., handler: (([AnyObject]) -> ())?) {
         session.call(endpoint, payload: serialize(args)) { (result: MDWampResult!, err: NSError!) -> Void in
             if err != nil {
@@ -135,6 +133,14 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
                 print("Publish Error for endpoint \"\(endpoint)\": \(e)")
             }
         }
+    }
+    
+    public func unregister(endpoint: String) {
+        session.unregisterRPC(endpoint, result: nil)
+    }
+    
+    public func unsubscribe(endpoint: String) {
+        session.unsubscribe(endpoint, result: nil)
     }
     
     
