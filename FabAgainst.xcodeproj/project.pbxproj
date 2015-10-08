@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		507F0DD61BC627E6008F00CA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F0DD51BC627E6008F00CA /* main.swift */; };
-		507F0DE11BC647A4008F00CA /* DemoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F0DDC1BC647A4008F00CA /* DemoPlayer.swift */; settings = {ASSET_TAGS = (); }; };
-		507F0DE21BC647A4008F00CA /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F0DDF1BC647A4008F00CA /* Room.swift */; settings = {ASSET_TAGS = (); }; };
-		507F0DE31BC647A4008F00CA /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F0DE01BC647A4008F00CA /* Session.swift */; settings = {ASSET_TAGS = (); }; };
-		507F0DE51BC647C5008F00CA /* Riffle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507F0DE41BC647C5008F00CA /* Riffle.framework */; };
 		50A3E96D1BBB25D7002A3EBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */; };
 		50A3E9721BBB25D7002A3EBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A3E9701BBB25D7002A3EBF /* Main.storyboard */; };
 		50A3E9741BBB25D7002A3EBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A3E9731BBB25D7002A3EBF /* Assets.xcassets */; };
@@ -23,30 +18,9 @@
 		BCB4344D374A99FE293EFC63 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073E0C481E99F06E2B723A71 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		507F0DD11BC627E5008F00CA /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		073E0C481E99F06E2B723A71 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FabAgainst-Bridging-Header.h"; sourceTree = "<group>"; };
-		507F0DD31BC627E5008F00CA /* Backend */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Backend; sourceTree = BUILT_PRODUCTS_DIR; };
-		507F0DD51BC627E6008F00CA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		507F0DDA1BC647A4008F00CA /* a13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = a13.json; sourceTree = "<group>"; };
-		507F0DDB1BC647A4008F00CA /* a21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = a21.json; sourceTree = "<group>"; };
-		507F0DDC1BC647A4008F00CA /* DemoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPlayer.swift; sourceTree = "<group>"; };
-		507F0DDD1BC647A4008F00CA /* q13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = q13.json; sourceTree = "<group>"; };
-		507F0DDE1BC647A4008F00CA /* q21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = q21.json; sourceTree = "<group>"; };
-		507F0DDF1BC647A4008F00CA /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
-		507F0DE01BC647A4008F00CA /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		507F0DE41BC647C5008F00CA /* Riffle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Riffle.framework; path = "Pods/../build/Debug-iphoneos/Riffle.framework"; sourceTree = "<group>"; };
 		50A3E9691BBB25D7002A3EBF /* FabAgainst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FabAgainst.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = FabAgainst/AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,14 +37,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		507F0DD01BC627E5008F00CA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				507F0DE51BC647C5008F00CA /* Riffle.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		50A3E9661BBB25D7002A3EBF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -82,27 +48,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		507F0DD41BC627E6008F00CA /* Backend */ = {
-			isa = PBXGroup;
-			children = (
-				507F0DDA1BC647A4008F00CA /* a13.json */,
-				507F0DDB1BC647A4008F00CA /* a21.json */,
-				507F0DDC1BC647A4008F00CA /* DemoPlayer.swift */,
-				507F0DDD1BC647A4008F00CA /* q13.json */,
-				507F0DDE1BC647A4008F00CA /* q21.json */,
-				507F0DDF1BC647A4008F00CA /* Room.swift */,
-				507F0DE01BC647A4008F00CA /* Session.swift */,
-				507F0DD51BC627E6008F00CA /* main.swift */,
-			);
-			path = Backend;
-			sourceTree = "<group>";
-		};
 		50A3E9601BBB25D7002A3EBF = {
 			isa = PBXGroup;
 			children = (
 				50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */,
-				50A3E9781BBB25D7002A3EBF /* Info.plist */,
-				5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */,
 				50F3804A1BBDEFF60028628B /* Shared.swift */,
 				50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */,
 				50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */,
@@ -110,7 +59,8 @@
 				50A3E9701BBB25D7002A3EBF /* Main.storyboard */,
 				50A3E9751BBB25D7002A3EBF /* LaunchScreen.storyboard */,
 				50A3E9731BBB25D7002A3EBF /* Assets.xcassets */,
-				507F0DD41BC627E6008F00CA /* Backend */,
+				50A3E9781BBB25D7002A3EBF /* Info.plist */,
+				5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */,
 				50A3E96A1BBB25D7002A3EBF /* Products */,
 				ABB01B19770A7819067DB8E1 /* Pods */,
 				B1913C54C7ED6CF5F9DAF8EB /* Frameworks */,
@@ -121,7 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				50A3E9691BBB25D7002A3EBF /* FabAgainst.app */,
-				507F0DD31BC627E5008F00CA /* Backend */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,23 +96,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		507F0DD21BC627E5008F00CA /* Backend */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 507F0DD71BC627E6008F00CA /* Build configuration list for PBXNativeTarget "Backend" */;
-			buildPhases = (
-				507F0DCF1BC627E5008F00CA /* Sources */,
-				507F0DD01BC627E5008F00CA /* Frameworks */,
-				507F0DD11BC627E5008F00CA /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Backend;
-			productName = Backend;
-			productReference = 507F0DD31BC627E5008F00CA /* Backend */;
-			productType = "com.apple.product-type.tool";
-		};
 		50A3E9681BBB25D7002A3EBF /* FabAgainst */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50A3E97B1BBB25D7002A3EBF /* Build configuration list for PBXNativeTarget "FabAgainst" */;
@@ -193,9 +125,6 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = paradrop;
 				TargetAttributes = {
-					507F0DD21BC627E5008F00CA = {
-						CreatedOnToolsVersion = 7.0.1;
-					};
 					50A3E9681BBB25D7002A3EBF = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = MBE45279K3;
@@ -216,7 +145,6 @@
 			projectRoot = "";
 			targets = (
 				50A3E9681BBB25D7002A3EBF /* FabAgainst */,
-				507F0DD21BC627E5008F00CA /* Backend */,
 			);
 		};
 /* End PBXProject section */
@@ -283,17 +211,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		507F0DCF1BC627E5008F00CA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				507F0DE31BC647A4008F00CA /* Session.swift in Sources */,
-				507F0DD61BC627E6008F00CA /* main.swift in Sources */,
-				507F0DE11BC647A4008F00CA /* DemoPlayer.swift in Sources */,
-				507F0DE21BC647A4008F00CA /* Room.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		50A3E9651BBB25D7002A3EBF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,32 +247,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		507F0DD81BC627E6008F00CA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		507F0DD91BC627E6008F00CA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 		50A3E9791BBB25D7002A3EBF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -472,15 +363,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		507F0DD71BC627E6008F00CA /* Build configuration list for PBXNativeTarget "Backend" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				507F0DD81BC627E6008F00CA /* Debug */,
-				507F0DD91BC627E6008F00CA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		50A3E9641BBB25D7002A3EBF /* Build configuration list for PBXProject "FabAgainst" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
