@@ -301,23 +301,39 @@
                                     <constraint firstAttribute="height" constant="164" id="z6Q-j1-zVR"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cards Against Exis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSV-Mm-sa9">
-                                <rect key="frame" x="15" y="195" width="560" height="32"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wmH-M0-3dJ" customClass="SpringView" customModule="Spring">
+                                <rect key="frame" x="105.5" y="123" width="389" height="171"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cards Against Exis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSV-Mm-sa9">
+                                        <rect key="frame" x="-86" y="70" width="560" height="32"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="171" id="WTi-mp-oZx"/>
+                                    <constraint firstAttribute="width" constant="389" id="xfw-fl-oWX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="yph-8o-zg5" firstAttribute="top" secondItem="lKG-A5-q37" secondAttribute="bottom" constant="75" id="3gm-ep-hEs"/>
-                            <constraint firstItem="PSV-Mm-sa9" firstAttribute="centerX" secondItem="44Z-ii-qof" secondAttribute="centerX" id="JFO-7m-pZ2"/>
                             <constraint firstItem="lKG-A5-q37" firstAttribute="centerX" secondItem="44Z-ii-qof" secondAttribute="centerX" id="LXi-48-8BD"/>
                             <constraint firstItem="jf8-LM-Rao" firstAttribute="top" secondItem="vTK-5y-CzM" secondAttribute="bottom" constant="67" id="LZM-pf-jB6"/>
-                            <constraint firstItem="PSV-Mm-sa9" firstAttribute="top" secondItem="jf8-LM-Rao" secondAttribute="bottom" constant="80" id="e4a-ny-Jaa"/>
+                            <constraint firstItem="wmH-M0-3dJ" firstAttribute="top" secondItem="vTK-5y-CzM" secondAttribute="bottom" constant="103" id="kZY-qJ-Cvq"/>
                             <constraint firstItem="jf8-LM-Rao" firstAttribute="centerX" secondItem="44Z-ii-qof" secondAttribute="centerX" id="kfh-GB-XMk"/>
+                            <constraint firstItem="wmH-M0-3dJ" firstAttribute="centerX" secondItem="44Z-ii-qof" secondAttribute="centerX" id="qJJ-dT-jiC"/>
                         </constraints>
                     </view>
                 </viewController>

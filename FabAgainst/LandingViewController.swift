@@ -8,9 +8,18 @@
 
 import UIKit
 import Riffle
+import Spring
 
 class LandingViewController: UIViewController {
     var session: RiffleSession?
+    
+
+    
+    
+    override func viewDidAppear(animated: Bool) {
+//        viewLabel.animation = "zoomIn"
+//        viewLabel.layer.animate()
+    }
 
     @IBAction func play(sender: AnyObject) {
         if DEB {

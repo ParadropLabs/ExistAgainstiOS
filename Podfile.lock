@@ -12,20 +12,30 @@ PODS:
     - Mantle (~> 1.5)
     - MPMessagePack
     - SocketRocket
+  - RMSwipeTableViewCell (0.6)
   - SocketRocket (0.4.1)
+  - Spring (1.0.3)
 
 DEPENDENCIES:
   - IHKeyboardAvoiding
   - Riffle (from `https://github.com/ParadropLabs/riffle-swift`)
+  - RMSwipeTableViewCell
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
 
 EXTERNAL SOURCES:
   Riffle:
     :git: https://github.com/ParadropLabs/riffle-swift
+  Spring:
+    :branch: swift2
+    :git: https://github.com/MengTo/Spring.git
 
 CHECKOUT OPTIONS:
   Riffle:
     :commit: 5419016566b092a1cbd846571539f8754c701978
     :git: https://github.com/ParadropLabs/riffle-swift
+  Spring:
+    :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
+    :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: f5783bdedd232d91b89769bc4b5a1580aed518ad
@@ -34,6 +44,8 @@ SPEC CHECKSUMS:
   Mantle: 1b29072a707453975b200a173cf77ec1e2810b75
   MPMessagePack: d319b1defc053dc52432dfa0672b0c6325c48c56
   Riffle: 1b1a34f7f6329d89aff3e5cd25e324b77e9ff35b
+  RMSwipeTableViewCell: ef3a5fc804cf0d5fb70fe1195c088cc40b3fde3c
   SocketRocket: ee0b5c34182d37bb4f1f8d628bbe737718126daa
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
 COCOAPODS: 0.38.2

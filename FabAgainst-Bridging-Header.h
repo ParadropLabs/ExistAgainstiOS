@@ -10,5 +10,6 @@
 #define FabAgainst_Bridging_Header_h
 
 #import "IHKeyboardAvoiding.h"
+#import "RMSwipingTableViewCell.h"
 
 #endif /* FabAgainst_Bridging_Header_h */

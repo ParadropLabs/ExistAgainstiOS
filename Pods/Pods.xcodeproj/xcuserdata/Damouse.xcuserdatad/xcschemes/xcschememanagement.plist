@@ -8,64 +8,56 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>GHODictionary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>IHKeyboardAvoiding.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>MPMessagePack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>Mantle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
+		</dict>
+		<key>RMSwipeTableViewCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Riffle-Riffle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>Riffle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>SocketRocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
+		</dict>
+		<key>Spring.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -75,7 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>477AFE49F3515BB38637C0F9C87C1382</key>
+		<key>24EEC732AE9B7F2F4796E374A6A5C05F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4ADDC830F1F3957A877DC0A28F0CBD4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -85,27 +82,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F72D3E6182479D0F00C04FFB0D02AD6</key>
+		<key>7CDEF382D9A6C5C1392C544508282D44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AF3BD0244B52F8CACAAA1DFF878CEB43</key>
+		<key>851E95B6BB2307A105696DC700306CE9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2157B68B87BB60AD19BBDD933DC92C0</key>
+		<key>9B19FF392C02D5AB2B63B02B5B0FDBF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DE4A9BFD26FD6F364273F55BCBDEDE8E</key>
+		<key>BBE9BA94D622734FF5A02BC545078F40</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E009900F7C3DA1F89D8A935896D3CA84</key>
+		<key>F0DDA8D07703C1F9F317D513396B238B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F144F8C757D0E54794C2AEE0786EE892</key>
 		<dict>
 			<key>primary</key>
 			<true/>

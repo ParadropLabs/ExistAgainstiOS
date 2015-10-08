@@ -18,11 +18,12 @@ Collection always shows the players
 
 import UIKit
 import Riffle
+import RMSwipeTableViewCell
 
 // Testing ui code
 let DEB = true
 
-class GameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class GameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, RMSwipeTableViewCellDelegate {
     
     @IBOutlet weak var labelActiveCard: UILabel!
     @IBOutlet weak var tableCard: UITableView!
@@ -160,8 +161,19 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCellWithIdentifier("card") as! CardCell
         cell.labelTitle.text = table[indexPath.row].text
         
+        // Style the cell
         cell.viewHolder.layer.cornerRadius = 5
         cell.viewHolder.layer.masksToBounds = true
+        
+        let backView = UIView(frame: cell.frame)
+        backView.backgroundColor = UIColor.clearColor()
+        cell.backgroundView = backView
+        
+        cell.backgroundColor = UIColor.clearColor()
+        cell.backViewbackgroundColor = UIColor.clearColor()
+        
+        cell.delegate = self
+        
         return cell
     }
     
@@ -205,10 +217,11 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width / 2, height: 100)
     }
+    
 }
 
 
-class CardCell: UITableViewCell {
+class CardCell: RMSwipeTableViewCell {
     @IBOutlet weak var viewHolder: UIView!
     @IBOutlet weak var labelTitle: UILabel!
 }
