@@ -13,6 +13,9 @@ class LandingViewController: UIViewController {
     var session: RiffleSession?
 
     @IBAction func play(sender: AnyObject) {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+        
         // Ask for a room and present the gameplay controller
         session?.call("pd.demo.cardsagainst/play", session!.domain) { (result: [AnyObject]) -> () in
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController

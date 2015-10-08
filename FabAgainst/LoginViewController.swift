@@ -25,11 +25,18 @@ class LoginViewController: UIViewController, RiffleDelegate {
     }
     
     @IBAction func login(sender: AnyObject) {
+        if DEB {
+            pushController(self, identifier: "landing", data: nil)
+            return
+        }
+        
         let name = textfieldUsername.text!
  
         session = RiffleSession(domain: "pd.demo.cardsagainst." + name)
         session!.delegate = self
         session!.connect()
+        
+        
     }
     
     func onJoin() {

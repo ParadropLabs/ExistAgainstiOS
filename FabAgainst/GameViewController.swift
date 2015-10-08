@@ -19,6 +19,9 @@ Collection always shows the players
 import UIKit
 import Riffle
 
+// Testing ui code
+let DEB = true
+
 class GameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var labelActiveCard: UILabel!
@@ -37,6 +40,17 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //Questionable or temporary
     var chooser = ""
     
+    override func viewDidLoad() {
+        if DEB {
+            state = .Picking
+            
+            let c = Card()
+            c.text = "Test 1"
+            c.id = 1
+            hand.append(c)
+        }
+    }
+    
     
     override func viewWillAppear(animated: Bool) {
         // Animations?
@@ -51,21 +65,25 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func viewDidAppear(animated: Bool) {
-        session!.subscribe(room + "/round/picking", picking)
-        session!.subscribe(room + "/round/choosing", choosing)
-        session!.subscribe(room + "/round/scoring", scoring)
+        if !DEB {
+            session!.subscribe(room + "/round/picking", picking)
+            session!.subscribe(room + "/round/choosing", choosing)
+            session!.subscribe(room + "/round/scoring", scoring)
 
-        //session!.subscribe(room + "/play/picked", picked)
-        
-        session!.register(session!.domain + "/draw", draw)
-        session!.subscribe(room + "/joined", newPlayer)
-        session!.subscribe(room + "/left", playerLeft)
+            //session!.subscribe(room + "/play/picked", picked)
+            
+            session!.register(session!.domain + "/draw", draw)
+            session!.subscribe(room + "/joined", newPlayer)
+            session!.subscribe(room + "/left", playerLeft)
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
         // Have to unsub or unregister!
         // TODO: overload for version that doesn't take a handler block
-        session!.call(room + "/leave", session!.domain, handler: nil)
+        if !DEB {
+            session!.call(room + "/leave", session!.domain, handler: nil)
+        }
     }
 
     
