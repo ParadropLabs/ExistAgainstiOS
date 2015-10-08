@@ -98,8 +98,13 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
             // Flash the winner, remove the other cards off the screen, incrememnt their score on the bottom pane
             print("Player \(player) won!")
             var winners = players.filter { $0.domain == player }
-            let winner = winners[0]
-            winner.score += 1
+            
+            if winners.count == 0 {
+                print("Uh oh. Nothing found.")
+            } else {
+                let winner = winners[0]
+                winner.score += 1
+            }
             
             // Flash the cell
             

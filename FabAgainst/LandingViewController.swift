@@ -11,7 +11,7 @@ import Riffle
 
 class LandingViewController: UIViewController {
     var session: RiffleSession?
-    
+
     @IBAction func play(sender: AnyObject) {
         // Ask for a room and present the gameplay controller
         session?.call("pd.demo.cardsagainst/play", session!.domain) { (result: [AnyObject]) -> () in
