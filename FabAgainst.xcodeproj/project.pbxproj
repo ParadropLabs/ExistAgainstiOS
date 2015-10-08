@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5001BDDB1BC6D1DE004696B7 /* LiberationSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5001BDD71BC6D1DE004696B7 /* LiberationSans-Bold.ttf */; settings = {ASSET_TAGS = (); }; };
+		5001BDDC1BC6D1DE004696B7 /* LiberationSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5001BDD81BC6D1DE004696B7 /* LiberationSans-BoldItalic.ttf */; settings = {ASSET_TAGS = (); }; };
+		5001BDDD1BC6D1DE004696B7 /* LiberationSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5001BDD91BC6D1DE004696B7 /* LiberationSans-Italic.ttf */; settings = {ASSET_TAGS = (); }; };
+		5001BDDE1BC6D1DE004696B7 /* LiberationSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5001BDDA1BC6D1DE004696B7 /* LiberationSans-Regular.ttf */; settings = {ASSET_TAGS = (); }; };
 		50A3E96D1BBB25D7002A3EBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */; };
 		50A3E9721BBB25D7002A3EBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A3E9701BBB25D7002A3EBF /* Main.storyboard */; };
 		50A3E9741BBB25D7002A3EBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A3E9731BBB25D7002A3EBF /* Assets.xcassets */; };
@@ -20,6 +24,10 @@
 
 /* Begin PBXFileReference section */
 		073E0C481E99F06E2B723A71 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5001BDD71BC6D1DE004696B7 /* LiberationSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-Bold.ttf"; sourceTree = "<group>"; };
+		5001BDD81BC6D1DE004696B7 /* LiberationSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		5001BDD91BC6D1DE004696B7 /* LiberationSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-Italic.ttf"; sourceTree = "<group>"; };
+		5001BDDA1BC6D1DE004696B7 /* LiberationSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-Regular.ttf"; sourceTree = "<group>"; };
 		5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FabAgainst-Bridging-Header.h"; sourceTree = "<group>"; };
 		507F0DE41BC647C5008F00CA /* Riffle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Riffle.framework; path = "Pods/../build/Debug-iphoneos/Riffle.framework"; sourceTree = "<group>"; };
 		50A3E9691BBB25D7002A3EBF /* FabAgainst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FabAgainst.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +56,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5001BDD61BC6D1CB004696B7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5001BDD71BC6D1DE004696B7 /* LiberationSans-Bold.ttf */,
+				5001BDD81BC6D1DE004696B7 /* LiberationSans-BoldItalic.ttf */,
+				5001BDD91BC6D1DE004696B7 /* LiberationSans-Italic.ttf */,
+				5001BDDA1BC6D1DE004696B7 /* LiberationSans-Regular.ttf */,
+				50A3E9701BBB25D7002A3EBF /* Main.storyboard */,
+				50A3E9751BBB25D7002A3EBF /* LaunchScreen.storyboard */,
+				50A3E9731BBB25D7002A3EBF /* Assets.xcassets */,
+				50A3E9781BBB25D7002A3EBF /* Info.plist */,
+				5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		50A3E9601BBB25D7002A3EBF = {
 			isa = PBXGroup;
 			children = (
@@ -56,11 +80,7 @@
 				50A3E9B61BBB45F6002A3EBF /* LoginViewController.swift */,
 				50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */,
 				50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */,
-				50A3E9701BBB25D7002A3EBF /* Main.storyboard */,
-				50A3E9751BBB25D7002A3EBF /* LaunchScreen.storyboard */,
-				50A3E9731BBB25D7002A3EBF /* Assets.xcassets */,
-				50A3E9781BBB25D7002A3EBF /* Info.plist */,
-				5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */,
+				5001BDD61BC6D1CB004696B7 /* Resources */,
 				50A3E96A1BBB25D7002A3EBF /* Products */,
 				ABB01B19770A7819067DB8E1 /* Pods */,
 				B1913C54C7ED6CF5F9DAF8EB /* Frameworks */,
@@ -154,9 +174,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5001BDDE1BC6D1DE004696B7 /* LiberationSans-Regular.ttf in Resources */,
 				50A3E9771BBB25D7002A3EBF /* LaunchScreen.storyboard in Resources */,
 				50A3E9741BBB25D7002A3EBF /* Assets.xcassets in Resources */,
 				50A3E9721BBB25D7002A3EBF /* Main.storyboard in Resources */,
+				5001BDDC1BC6D1DE004696B7 /* LiberationSans-BoldItalic.ttf in Resources */,
+				5001BDDD1BC6D1DE004696B7 /* LiberationSans-Italic.ttf in Resources */,
+				5001BDDB1BC6D1DE004696B7 /* LiberationSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

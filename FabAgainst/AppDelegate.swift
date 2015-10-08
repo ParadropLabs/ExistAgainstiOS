@@ -8,6 +8,10 @@
 
 import UIKit
 
+// Load app-wide fonts
+let FONT_NORMAL = UIFont(name: "LiberationSans", size: 20)!
+let FONT_HEADER = UIFont(name: "LiberationSans-Bold", size: 30)
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         return true
     }
 
