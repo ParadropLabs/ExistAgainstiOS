@@ -9,19 +9,40 @@
 import UIKit
 import Riffle
 import Spring
+import IHKeyboardAvoiding
 
-class LandingViewController: UIViewController {
+class LandingViewController: UIViewController, RiffleDelegate {
+    @IBOutlet weak var viewLogo: SpringView!
+    @IBOutlet weak var viewButtons: SpringView!
+    @IBOutlet weak var viewLogin: SpringView!
+    
+    @IBOutlet weak var textfieldUsername: UITextField!
+    
     var session: RiffleSession?
     
-
     
+    override func viewDidLoad() {
+        setFabric("ws://ubuntu@ec2-52-26-83-61.us-west-2.compute.amazonaws.com:8000/ws")
+        IHKeyboardAvoiding.setAvoidingView(viewButtons)
+    }
     
+    override func viewWillAppear(animated: Bool) {
+        // Style the input a touch
+        textfieldUsername.textColor = UIColor.whiteColor()
+        textfieldUsername.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        textfieldUsername.layer.borderColor = UIColor.whiteColor().CGColor
+        textfieldUsername.layer.borderWidth = 1.0
+        textfieldUsername.layer.cornerRadius = 2.0
+    }
+   
     override func viewDidAppear(animated: Bool) {
-//        viewLabel.animation = "zoomIn"
-//        viewLabel.layer.animate()
+        viewLogo.animate()
+        viewLogin.animate()
     }
 
-    @IBAction func play(sender: AnyObject) {
+    
+    // MARK: Core Logic
+    func play() {
         if DEB {
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
             self.modalPresentationStyle = .CurrentContext
@@ -32,7 +53,6 @@ class LandingViewController: UIViewController {
             controller.modalPresentationStyle = .OverFullScreen
             
             self.presentViewController(controller, animated: true, completion: nil)
-//            self.navigationController?.pushViewController(controller, animated: true)
             return
         }
         
@@ -54,18 +74,37 @@ class LandingViewController: UIViewController {
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
+    
+    
+    //MARK: Riffle Delegate
+    func onJoin() {
+        print("Session connected")
+        viewLogin.animation = "zoomOut"
+        viewLogin.animate()
+        viewButtons.animation = "zoomIn"
+        viewButtons.animate()
+    }
+    
+    func onLeave() {
+        print("Session disconnected")
+    }
+    
+    
+    // MARK: Actions
+    @IBAction func login(sender: AnyObject) {
+        let name = textfieldUsername.text!
+        
+        session = RiffleSession(domain: "pd.demo.cardsagainst." + name)
+        session!.delegate = self
+        session!.connect()
+    }
+    
+    @IBAction func playpg13(sender: AnyObject) {
+        play()
+    }
+    
+    @IBAction func playR(sender: AnyObject) {
+        play()
+    }
+    
 }
-
-/*
-UIViewController * contributeViewController = [[UIViewController alloc] init];
-UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-UIVisualEffectView *beView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-beView.frame = self.view.bounds;
-
-contributeViewController.view.frame = self.view.bounds;
-contributeViewController.view.backgroundColor = [UIColor clearColor];
-[contributeViewController.view insertSubview:beView atIndex:0];
-contributeViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-
-[self presentViewController:contributeViewController animated:YES completion:nil];
-*/
