@@ -32,7 +32,7 @@ class LandingViewController: UIViewController, RiffleDelegate {
         textfieldUsername.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
         textfieldUsername.layer.borderColor = UIColor.whiteColor().CGColor
         textfieldUsername.layer.borderWidth = 1.0
-        textfieldUsername.layer.cornerRadius = 2.0
+        textfieldUsername.layer.cornerRadius = 3.0
     }
    
     override func viewDidAppear(animated: Bool) {

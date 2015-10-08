@@ -67,57 +67,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="129-iJ-rNP">
-                                                    <rect key="frame" x="16" y="16" width="584" height="36"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Card Card CArd" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-nD-gx1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="584" height="44"/>
-                                                            <animations/>
-                                                            <fontDescription key="fontDescription" name="LiberationSans" family="Liberation Sans" pointSize="20"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Card Card CArd" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-nD-gx1">
+                                                    <rect key="frame" x="8" y="10" width="584" height="45"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstItem="0rn-nD-gx1" firstAttribute="leading" secondItem="129-iJ-rNP" secondAttribute="leading" id="76V-Xj-XMS"/>
-                                                        <constraint firstAttribute="trailing" secondItem="0rn-nD-gx1" secondAttribute="trailing" id="Yjq-qY-37z"/>
-                                                        <constraint firstItem="0rn-nD-gx1" firstAttribute="top" secondItem="129-iJ-rNP" secondAttribute="top" id="eFb-YI-kgL"/>
-                                                        <constraint firstAttribute="bottom" secondItem="0rn-nD-gx1" secondAttribute="bottom" id="vAQ-rx-uuQ"/>
-                                                    </constraints>
-                                                </view>
+                                                    <fontDescription key="fontDescription" name="LiberationSans" family="Liberation Sans" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="129-iJ-rNP" firstAttribute="top" secondItem="ZHC-IU-J3d" secondAttribute="topMargin" constant="8" id="0Rx-d7-9zg"/>
-                                                <constraint firstItem="129-iJ-rNP" firstAttribute="bottom" secondItem="ZHC-IU-J3d" secondAttribute="bottomMargin" constant="8" id="3rg-C6-ub0"/>
-                                                <constraint firstItem="129-iJ-rNP" firstAttribute="leading" secondItem="ZHC-IU-J3d" secondAttribute="leadingMargin" constant="8" id="D6i-q2-uig"/>
-                                                <constraint firstItem="129-iJ-rNP" firstAttribute="leading" secondItem="ZHC-IU-J3d" secondAttribute="leadingMargin" constant="8" id="Eqk-DM-55u"/>
-                                                <constraint firstItem="129-iJ-rNP" firstAttribute="trailing" secondItem="ZHC-IU-J3d" secondAttribute="trailingMargin" id="K0o-c8-QpB"/>
-                                                <constraint firstItem="129-iJ-rNP" firstAttribute="trailing" secondItem="ZHC-IU-J3d" secondAttribute="trailingMargin" constant="8" id="Kns-UU-hfL"/>
-                                                <constraint firstItem="129-iJ-rNP" firstAttribute="trailing" secondItem="ZHC-IU-J3d" secondAttribute="trailingMargin" constant="8" id="cW1-Z8-yyv"/>
-                                                <constraint firstItem="129-iJ-rNP" firstAttribute="leading" secondItem="ZHC-IU-J3d" secondAttribute="leadingMargin" constant="8" id="eWF-1U-s86"/>
-                                                <constraint firstItem="129-iJ-rNP" firstAttribute="bottom" secondItem="ZHC-IU-J3d" secondAttribute="bottomMargin" constant="8" id="gZB-Kx-9oW"/>
-                                                <constraint firstItem="129-iJ-rNP" firstAttribute="top" secondItem="ZHC-IU-J3d" secondAttribute="topMargin" constant="8" id="lio-fT-UzR"/>
+                                                <constraint firstItem="0rn-nD-gx1" firstAttribute="leading" secondItem="ZHC-IU-J3d" secondAttribute="leadingMargin" constant="2" id="KFA-hm-8uK"/>
+                                                <constraint firstItem="0rn-nD-gx1" firstAttribute="top" secondItem="ZHC-IU-J3d" secondAttribute="topMargin" constant="2" id="dOe-Yf-Ua4"/>
+                                                <constraint firstItem="0rn-nD-gx1" firstAttribute="trailing" secondItem="ZHC-IU-J3d" secondAttribute="trailingMargin" constant="2" id="hLh-n2-jtn"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0rn-nD-gx1" secondAttribute="bottom" constant="2" id="s5S-ks-NfP"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="0Rx-d7-9zg"/>
-                                                    <exclude reference="D6i-q2-uig"/>
-                                                    <exclude reference="Eqk-DM-55u"/>
-                                                    <exclude reference="Kns-UU-hfL"/>
-                                                    <exclude reference="cW1-Z8-yyv"/>
-                                                    <exclude reference="gZB-Kx-9oW"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="labelTitle" destination="0rn-nD-gx1" id="i4H-m6-aVf"/>
-                                            <outlet property="viewHolder" destination="129-iJ-rNP" id="dtV-Nn-rBO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -126,6 +97,14 @@
                                     <outlet property="delegate" destination="y5l-PD-fLC" id="S70-UV-m9m"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OqS-ng-Ih2" customClass="M13ProgressViewBar">
+                                <rect key="frame" x="0.0" y="473" width="600" height="1"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="oxw-c5-kSz"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L2b-9W-dKb">
                                 <rect key="frame" x="0.0" y="474" width="600" height="126"/>
                                 <animations/>
@@ -195,10 +174,13 @@
                             <constraint firstAttribute="trailing" secondItem="wOs-lQ-ALW" secondAttribute="trailing" id="Cjy-bg-0ro"/>
                             <constraint firstItem="xuF-bi-CC7" firstAttribute="top" secondItem="wOs-lQ-ALW" secondAttribute="bottom" id="IxX-si-bzt"/>
                             <constraint firstItem="wOs-lQ-ALW" firstAttribute="leading" secondItem="suc-Cu-f4h" secondAttribute="leading" id="RSY-P7-Mng"/>
+                            <constraint firstItem="L2b-9W-dKb" firstAttribute="top" secondItem="OqS-ng-Ih2" secondAttribute="bottom" id="T3v-FT-Van"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OqS-ng-Ih2" secondAttribute="trailing" constant="-20" id="V6t-k8-NBr"/>
                             <constraint firstItem="L2b-9W-dKb" firstAttribute="leading" secondItem="suc-Cu-f4h" secondAttribute="leading" id="Z0e-jV-bbv"/>
                             <constraint firstAttribute="trailing" secondItem="xuF-bi-CC7" secondAttribute="trailing" id="ZzE-nU-2sX"/>
                             <constraint firstItem="dkJ-FF-djK" firstAttribute="top" secondItem="L2b-9W-dKb" secondAttribute="bottom" id="cHG-Rz-Keg"/>
                             <constraint firstItem="wOs-lQ-ALW" firstAttribute="top" secondItem="4Lf-rQ-yYq" secondAttribute="bottom" id="iAb-pv-KIq"/>
+                            <constraint firstItem="OqS-ng-Ih2" firstAttribute="leading" secondItem="suc-Cu-f4h" secondAttribute="leadingMargin" constant="-20" id="mvh-Hd-v8K"/>
                             <constraint firstItem="L2b-9W-dKb" firstAttribute="top" secondItem="xuF-bi-CC7" secondAttribute="bottom" id="ppG-Tz-VnV"/>
                             <constraint firstItem="xuF-bi-CC7" firstAttribute="leading" secondItem="suc-Cu-f4h" secondAttribute="leading" id="vOq-dq-0Wb"/>
                         </constraints>
@@ -208,6 +190,7 @@
                         <outlet property="collectionPlayers" destination="L2b-9W-dKb" id="gZy-sM-Qwh"/>
                         <outlet property="labelActiveCard" destination="M21-Hh-XMu" id="9Y0-Cw-fa3"/>
                         <outlet property="tableCard" destination="xuF-bi-CC7" id="MPb-nR-7Gf"/>
+                        <outlet property="viewProgress" destination="OqS-ng-Ih2" id="Bpd-yA-aN5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUP-0Y-NiD" userLabel="First Responder" sceneMemberID="firstResponder"/>

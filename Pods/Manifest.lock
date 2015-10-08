@@ -2,6 +2,7 @@ PODS:
   - CocoaAsyncSocket (7.4.2)
   - GHODictionary (1.0.9)
   - IHKeyboardAvoiding (2.4)
+  - M13ProgressSuite (1.2.7)
   - Mantle (1.5.5):
     - Mantle/extobjc (= 1.5.5)
   - Mantle/extobjc (1.5.5)
@@ -18,6 +19,7 @@ PODS:
 
 DEPENDENCIES:
   - IHKeyboardAvoiding
+  - M13ProgressSuite
   - Riffle (from `https://github.com/ParadropLabs/riffle-swift`)
   - RMSwipeTableViewCell
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
@@ -41,6 +43,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: f5783bdedd232d91b89769bc4b5a1580aed518ad
   GHODictionary: 1f7873492445e0f33ac19575a358c3c91926b564
   IHKeyboardAvoiding: f470ea004ae9befb3b10ff4db20d37af10f43e59
+  M13ProgressSuite: 03d194af6359da440641ba758aed5a18b0386a86
   Mantle: 1b29072a707453975b200a173cf77ec1e2810b75
   MPMessagePack: d319b1defc053dc52432dfa0672b0c6325c48c56
   Riffle: 1b1a34f7f6329d89aff3e5cd25e324b77e9ff35b

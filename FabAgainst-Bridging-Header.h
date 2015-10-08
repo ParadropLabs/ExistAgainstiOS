@@ -11,5 +11,6 @@
 
 #import "IHKeyboardAvoiding.h"
 #import "RMSwipingTableViewCell.h"
+#import "M13ProgressViewBar.h"
 
 #endif /* FabAgainst_Bridging_Header_h */

@@ -19,12 +19,14 @@ Collection always shows the players
 import UIKit
 import Riffle
 import RMSwipeTableViewCell
+import M13ProgressSuite
 
 // Testing ui code
 let DEB = true
 
 class GameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, RMSwipeTableViewCellDelegate {
     
+    @IBOutlet weak var viewProgress: M13ProgressViewBar!
     @IBOutlet weak var labelActiveCard: UILabel!
     @IBOutlet weak var tableCard: UITableView!
     @IBOutlet weak var collectionPlayers: UICollectionView!
@@ -42,6 +44,8 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var chooser = ""
     
     override func viewDidLoad() {
+        tableCard.estimatedRowHeight = 100
+        tableCard.rowHeight = UITableViewAutomaticDimension
         
         if DEB {
             state = .Picking
@@ -50,6 +54,11 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
             c.text = "Test 1"
             c.id = 1
             hand.append(c)
+            
+            let d = Card()
+            d.text = "Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1"
+            d.id = 1
+            hand.append(d)
         }
         
         if state == .Picking {
@@ -152,8 +161,8 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.labelTitle.text = table[indexPath.row].text
         
         // Style the cell
-        cell.viewHolder.layer.cornerRadius = 5
-        cell.viewHolder.layer.masksToBounds = true
+        cell.labelTitle.layer.cornerRadius = 6
+        cell.labelTitle.layer.masksToBounds = true
         
         let backView = UIView(frame: cell.frame)
         backView.backgroundColor = UIColor.clearColor()
@@ -161,6 +170,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.backgroundColor = UIColor.clearColor()
         cell.backViewbackgroundColor = UIColor.clearColor()
+        cell.contentView.backgroundColor = UIColor.clearColor()
         
         cell.delegate = self
         
@@ -208,11 +218,22 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return CGSize(width: collectionView.frame.size.width / 2, height: 100)
     }
     
+    
+    //MARK: Timer Functions
+    func tick() {
+        //timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("tick"), userInfo: nil, repeats: true)
+        // Set primaryColor and secondaryColor for the other effects
+        // Temp
+        var timer: NSTimer?
+        var progress = 0.0
+        
+        progress += 0.1
+        viewProgress.setProgress(CGFloat(progress), animated: true)
+    }
 }
 
 
 class CardCell: RMSwipeTableViewCell {
-    @IBOutlet weak var viewHolder: UIView!
     @IBOutlet weak var labelTitle: UILabel!
 }
 
