@@ -81,3 +81,13 @@ func flashCell(target: Player, model: [Player], collection: UICollectionView) {
         cell?.backgroundColor = UIColor.blackColor()
     }
 }
+
+func roundicate(target: UIView) {
+    // Give the target a round border
+    target.layer.borderColor = UIColor.whiteColor().CGColor
+    target.layer.borderWidth = 1.0
+    target.layer.cornerRadius = 6.0
+    target.layer.masksToBounds = true
+}
+
+

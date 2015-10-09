@@ -29,11 +29,8 @@ class LandingViewController: UIViewController, RiffleDelegate {
     
     override func viewWillAppear(animated: Bool) {
         // Style the input a touch
-        textfieldUsername.textColor = UIColor.whiteColor()
+        roundicate(textfieldUsername)
         textfieldUsername.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
-        textfieldUsername.layer.borderColor = UIColor.whiteColor().CGColor
-        textfieldUsername.layer.borderWidth = 1.0
-        textfieldUsername.layer.cornerRadius = 3.0
     }
    
     override func viewDidAppear(animated: Bool) {
