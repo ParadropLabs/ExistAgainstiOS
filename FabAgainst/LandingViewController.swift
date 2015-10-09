@@ -54,6 +54,7 @@ class LandingViewController: UIViewController, RiffleDelegate {
         }
         
         // Ask for a room and present the gameplay controller
+        // This is going to stick around for a bit until the "call" methods are updated to use cumin.
         session?.call("pd.demo.cardsagainst/play", session!.domain) { (result: [AnyObject]) -> () in
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
             
