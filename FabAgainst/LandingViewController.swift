@@ -54,6 +54,7 @@ class LandingViewController: UIViewController, RiffleDelegate {
         }
         
         // Ask for a room and present the gameplay controller
+        // This is going to stay here as a casted beast until the rest of the riffle lib is fleshed out
         session?.call("pd.demo.cardsagainst/play", session!.domain) { (result: [AnyObject]) -> () in
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
             
