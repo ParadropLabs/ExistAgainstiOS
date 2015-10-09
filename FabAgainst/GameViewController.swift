@@ -22,14 +22,15 @@ import RMSwipeTableViewCell
 import M13ProgressSuite
 
 // Testing ui code
-let DEB = true
+let DEB = false
 
 class GameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, RMSwipeTableViewCellDelegate {
     
-    @IBOutlet weak var viewProgress: M13ProgressViewBar!
+    @IBOutlet weak var viewProgress: TickingView!
     @IBOutlet weak var labelActiveCard: UILabel!
     @IBOutlet weak var tableCard: UITableView!
     @IBOutlet weak var collectionPlayers: UICollectionView!
+    @IBOutlet weak var buttonBack: UIButton!
     
     var session: RiffleSession?
     var state: State = .Empty
@@ -46,6 +47,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         tableCard.estimatedRowHeight = 100
         tableCard.rowHeight = UITableViewAutomaticDimension
+        buttonBack.imageView?.contentMode = .ScaleAspectFit
         
         if DEB {
             state = .Picking
@@ -91,7 +93,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     
     // MARK: Incoming state 
-    func picking(domain: String, card: Card) {
+    func picking(domain: String, card: Card, time: Double) {
         state = .Picking
         labelActiveCard.text = card.text
         chooser = domain
@@ -101,16 +103,18 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         table = chooser == session!.domain ? [] : hand
         
         tableCard.reloadData()
+        viewProgress.countdown(time)
     }
     
-    func choosing(choices: [[String: AnyObject]]) {
+    func choosing(choices: [[String: AnyObject]], time: Double) {
         state = .Choosing
         print("Choosing: \(table)")
         table = choices.map { Card.fromJson($0) }
         tableCard.reloadData()
+        viewProgress.countdown(time)
     }
     
-    func scoring(player: String) {
+    func scoring(player: String, time: Double) {
         state = .Scoring
         
         if player == "" {
@@ -128,9 +132,11 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
             
             // Flash the cell
-            
+            //flashCell(player, model: players, collection: collectionPlayers)
             collectionPlayers.reloadData()
         }
+        
+        viewProgress.countdown(time)
     }
     
     func newPlayer(player: String) {
@@ -148,6 +154,12 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func picked(player: String) {
         // Show that the player picked. Defer for now
+        if state == .Picking && !(chooser == session!.domain) {
+            let c = Card()
+            c.text = ""
+            c.id = 1
+            table.append(c)
+        }
     }
     
     func draw(cardJson: [String: AnyObject]) {
@@ -161,8 +173,8 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.labelTitle.text = table[indexPath.row].text
         
         // Style the cell
-        cell.labelTitle.layer.cornerRadius = 6
-        cell.labelTitle.layer.masksToBounds = true
+        cell.viewHolder.layer.cornerRadius = 6
+        cell.viewHolder.layer.masksToBounds = true
         
         let backView = UIView(frame: cell.frame)
         backView.backgroundColor = UIColor.clearColor()
@@ -183,19 +195,6 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        let ourChoice = chooser == session!.domain
-        
-        // Dont really have to worry about out of turn selections-- the chooser should see a blank table 
-        // based on the construction of the table in the reload methods
-        if state == .Picking && !ourChoice {
-            session!.call(room + "/play/pick", session!.domain, table[indexPath.row].id, handler: nil )
-        } else if state == .Choosing && ourChoice {
-            session!.publish(room + "/play/choose", table[indexPath.row].id)
-            //TOOD: remove the card from the table and reload
-        } else {
-            print("Pick occured outside a valid round! OurChoice: \(ourChoice), state: \(state)")
-        }
     }
     
     
@@ -225,19 +224,30 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let MAX = CGFloat(70.0)
         
+        let ourChoice = chooser == session!.domain
+        let index = tableCard.indexPathForCell(cell)
+        let card = table[index!.row]
+        
         // right side selection
-        if point.x >= MAX {
-//            cell.resetCellFromPoint(point, velocity:
+        if point.x >= MAX || point.x <= (-1 * MAX) {
+            // reset the cell
             cell.resetContentView()
             cell.interruptPanGestureHandler = true
-        }
-        
-        // Left side selection
-        if point.x <= (-1 * MAX) {
             
+            // Dont really have to worry about out of turn selections-- the chooser should see a blank table
+            // based on the construction of the table in the reload methods
+            if state == .Picking && !ourChoice {
+                session!.call(room + "/play/pick", session!.domain, card.id, handler: nil )
+                removeCellsExcept([card])
+            } else if state == .Choosing && ourChoice {
+                session!.publish(room + "/play/choose", card.id)
+                removeCellsExcept([card])
+            } else {
+                print("Pick occured outside a valid round! OurChoice: \(ourChoice), state: \(state)")
+            }
         }
         
-
+        // Left side selection. Defer for now, although this should represent a "rejection" when choosing
     }
     
     // MARK: Actions
@@ -260,36 +270,19 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
-    //MARK: Timer Functions
-    func tick() {
-        //timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("tick"), userInfo: nil, repeats: true)
-        // Set primaryColor and secondaryColor for the other effects
-        // Temp
-        var timer: NSTimer?
-        var progress = 0.0
+    //MARK: Utility
+    func removeCellsExcept(keep: [Card]) {
+        // removes all cards from the tableview and the table object except those passed
         
-        progress += 0.1
-        viewProgress.setProgress(CGFloat(progress), animated: true)
-    }
-}
-
-
-class CardCell: RMSwipeTableViewCell {
-    @IBOutlet weak var labelTitle: UILabel!
-    
-    func resetContentView() {
-        UIView.animateWithDuration(0.15, animations: { () -> Void in
-            self.contentView.frame = CGRectOffset(self.contentView.bounds, 0.0, 0.0)
-        }) { (b: Bool) -> Void in
-            self.shouldAnimateCellReset = true
-            self.cleanupBackView()
-            self.interruptPanGestureHandler = false
+        var ret: [NSIndexPath] = []
+        
+        for i in 0...(table.count - 1) {
+            if !keep.contains(table[i]) {
+                ret.append(NSIndexPath(forRow: i, inSection: 0))
+            }
         }
+        
+        table = keep
+        tableCard.deleteRowsAtIndexPaths(ret, withRowAnimation: .Left)
     }
 }
-
-class PlayerCell: UICollectionViewCell {
-    @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var labelScore: UILabel!
-}
-

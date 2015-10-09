@@ -13,6 +13,7 @@
 @end
 
 @implementation RMSwipeTableViewCell
+@synthesize panner;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -36,9 +37,9 @@
 {
     // We need to set the contentView's background colour, otherwise the sides are clear on the swipe and animations
     [self.contentView setBackgroundColor:[UIColor whiteColor]];
-    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
-    [panGestureRecognizer setDelegate:self];
-    [self addGestureRecognizer:panGestureRecognizer];
+    panner = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+    [panner setDelegate:self];
+    [self addGestureRecognizer:panner];
     
     self.revealDirection = RMSwipeTableViewCellRevealDirectionBoth;
     self.animationType = RMSwipeTableViewCellAnimationTypeBounce;
@@ -68,8 +69,9 @@
 #pragma mark - Gesture recognizer delegate
 
 -(BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer {
+//    NSLog(@"Should being...");
     if (self.interruptPanGestureHandler) {
-        NSLog(@"Kill triggered");
+//        NSLog(@"Kill triggered");
         panGestureRecognizer.enabled = false;
         return NO;
     }
@@ -85,7 +87,7 @@
 
 -(void)handlePanGesture:(UIPanGestureRecognizer *)panGestureRecognizer {
     if (self.interruptPanGestureHandler) {
-        NSLog(@"Kill triggered");
+//        NSLog(@"Kill triggered");
         panGestureRecognizer.enabled = false;
         return;
     }

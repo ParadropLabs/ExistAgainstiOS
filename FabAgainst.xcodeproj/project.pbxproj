@@ -11,6 +11,7 @@
 		5001BDDC1BC6D1DE004696B7 /* LiberationSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5001BDD81BC6D1DE004696B7 /* LiberationSans-BoldItalic.ttf */; settings = {ASSET_TAGS = (); }; };
 		5001BDDD1BC6D1DE004696B7 /* LiberationSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5001BDD91BC6D1DE004696B7 /* LiberationSans-Italic.ttf */; settings = {ASSET_TAGS = (); }; };
 		5001BDDE1BC6D1DE004696B7 /* LiberationSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5001BDDA1BC6D1DE004696B7 /* LiberationSans-Regular.ttf */; settings = {ASSET_TAGS = (); }; };
+		507F0DED1BC7DEAA008F00CA /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F0DEC1BC7DEAA008F00CA /* Views.swift */; settings = {ASSET_TAGS = (); }; };
 		50A3E96D1BBB25D7002A3EBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */; };
 		50A3E9721BBB25D7002A3EBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A3E9701BBB25D7002A3EBF /* Main.storyboard */; };
 		50A3E9741BBB25D7002A3EBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A3E9731BBB25D7002A3EBF /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		5001BDDA1BC6D1DE004696B7 /* LiberationSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-Regular.ttf"; sourceTree = "<group>"; };
 		5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FabAgainst-Bridging-Header.h"; sourceTree = "<group>"; };
 		507F0DE41BC647C5008F00CA /* Riffle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Riffle.framework; path = "Pods/../build/Debug-iphoneos/Riffle.framework"; sourceTree = "<group>"; };
+		507F0DEC1BC7DEAA008F00CA /* Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 		50A3E9691BBB25D7002A3EBF /* FabAgainst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FabAgainst.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = FabAgainst/AppDelegate.swift; sourceTree = "<group>"; };
 		50A3E9711BBB25D7002A3EBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				50F3804A1BBDEFF60028628B /* Shared.swift */,
 				50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */,
 				50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */,
+				507F0DEC1BC7DEAA008F00CA /* Views.swift */,
 				5001BDD61BC6D1CB004696B7 /* Resources */,
 				50A3E96A1BBB25D7002A3EBF /* Products */,
 				ABB01B19770A7819067DB8E1 /* Pods */,
@@ -239,6 +242,7 @@
 				50F3804B1BBDEFF60028628B /* Shared.swift in Sources */,
 				50A3E9B91BBB45FE002A3EBF /* GameViewController.swift in Sources */,
 				50A3E9B51BBB45EA002A3EBF /* LandingViewController.swift in Sources */,
+				507F0DED1BC7DEAA008F00CA /* Views.swift in Sources */,
 				50A3E96D1BBB25D7002A3EBF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

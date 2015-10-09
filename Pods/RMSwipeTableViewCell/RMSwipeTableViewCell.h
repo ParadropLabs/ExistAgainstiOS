@@ -58,6 +58,9 @@ typedef NS_ENUM(NSUInteger, RMSwipeTableViewCellAnimationType) {
  */
 @property (nonatomic, readwrite) RMSwipeTableViewCellAnimationType animationType;
 
+
+@property (strong, nonatomic) UIGestureRecognizer * panner;
+
 /**
  Determines the animation duration when the cell's contentView animates back. 
  

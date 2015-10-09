@@ -24,7 +24,7 @@ class LandingViewController: UIViewController, RiffleDelegate {
     
     override func viewDidLoad() {
         setFabric("ws://ubuntu@ec2-52-26-83-61.us-west-2.compute.amazonaws.com:8000/ws")
-        IHKeyboardAvoiding.setAvoidingView(buttonLogin)
+        IHKeyboardAvoiding.setAvoidingView(viewLogin)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -72,7 +72,13 @@ class LandingViewController: UIViewController, RiffleDelegate {
             controller.room = json["room"] as! String
             controller.session = self.session!
 
-            self.navigationController?.pushViewController(controller, animated: true)
+            let effect = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
+            effect.frame = controller.view.frame
+            controller.view.insertSubview(effect, atIndex:0)
+            controller.modalPresentationStyle = .OverFullScreen
+            self.modalPresentationStyle = .CurrentContext
+            
+            self.presentViewController(controller, animated: true, completion: nil)
         }
     }
     
@@ -80,6 +86,8 @@ class LandingViewController: UIViewController, RiffleDelegate {
     //MARK: Riffle Delegate
     func onJoin() {
         print("Session connected")
+        
+        // Animations
         viewLogin.animation = "zoomOut"
         viewLogin.animate()
         viewButtons.animation = "zoomIn"
@@ -93,6 +101,7 @@ class LandingViewController: UIViewController, RiffleDelegate {
     
     // MARK: Actions
     @IBAction func login(sender: AnyObject) {
+        textfieldUsername.resignFirstResponder()
         let name = textfieldUsername.text!
         
         session = RiffleSession(domain: "pd.demo.cardsagainst." + name)
