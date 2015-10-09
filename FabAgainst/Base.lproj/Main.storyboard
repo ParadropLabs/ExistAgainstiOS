@@ -102,6 +102,12 @@
                                                         <constraint firstAttribute="trailing" secondItem="0rn-nD-gx1" secondAttribute="trailing" constant="10" id="fvh-RS-wzN"/>
                                                         <constraint firstItem="0rn-nD-gx1" firstAttribute="top" secondItem="Wir-cg-Fio" secondAttribute="top" constant="10" id="xde-kH-XJn"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <animations/>
@@ -149,27 +155,25 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="player" id="tr6-xW-EtE" customClass="PlayerCell" customModule="FabAgainst" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="278" height="53"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="278" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="278" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="278" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC4-H5-YZF">
-                                                    <rect key="frame" x="8" y="16" width="220" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC4-H5-YZF">
+                                                    <rect key="frame" x="8" y="11" width="220" height="19"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="LiberationSans" family="Liberation Sans" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="be5-T7-XkC">
-                                                    <rect key="frame" x="228" y="16" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="be5-T7-XkC">
+                                                    <rect key="frame" x="228" y="11" width="42" height="19"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="42" id="TL8-cZ-1SP"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="LiberationSans" family="Liberation Sans" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -184,6 +188,7 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="be5-T7-XkC" secondAttribute="trailing" id="r62-nZ-Tiv"/>
                                             <constraint firstItem="CC4-H5-YZF" firstAttribute="leading" secondItem="tr6-xW-EtE" secondAttribute="leadingMargin" id="y6L-km-ctF"/>
                                         </constraints>
+                                        <size key="customSize" width="278" height="41"/>
                                         <connections>
                                             <outlet property="labelName" destination="CC4-H5-YZF" id="Rgf-y7-JDr"/>
                                             <outlet property="labelScore" destination="be5-T7-XkC" id="96U-us-Pc2"/>
@@ -301,10 +306,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHB-aJ-vrT" customClass="SpringView" customModule="Spring">
                                 <rect key="frame" x="20" y="450" width="560" height="150"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jf8-LM-Rao">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jf8-LM-Rao">
                                         <rect key="frame" x="0.0" y="52" width="280" height="46"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="LiberationSans" family="Liberation Sans" pointSize="30"/>
+                                        <fontDescription key="fontDescription" name="LiberationSans" family="Liberation Sans" pointSize="25"/>
                                         <state key="normal" title="PG13">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -312,10 +317,10 @@
                                             <action selector="playpg13:" destination="dYA-aB-PbI" eventType="touchUpInside" id="ZWf-sY-9hb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zo4-l3-2Gk">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zo4-l3-2Gk">
                                         <rect key="frame" x="280" y="52" width="280" height="46"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="LiberationSans" family="Liberation Sans" pointSize="30"/>
+                                        <fontDescription key="fontDescription" name="LiberationSans" family="Liberation Sans" pointSize="25"/>
                                         <state key="normal" title="R">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -351,7 +356,7 @@
                                             <constraint firstAttribute="height" constant="50" id="YON-Wn-3G9"/>
                                             <constraint firstAttribute="width" constant="200" id="vEy-Wy-b8Q"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="LiberationSans" family="Liberation Sans" pointSize="30"/>
+                                        <fontDescription key="fontDescription" name="LiberationSans" family="Liberation Sans" pointSize="25"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -366,6 +371,17 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="LiberationSans" family="Liberation Sans" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
                                 <animations/>

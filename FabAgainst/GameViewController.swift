@@ -129,10 +129,9 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
             } else {
                 let winner = winners[0]
                 winner.score += 1
+                flashCell(winner, model: players, collection: collectionPlayers)
             }
             
-            // Flash the cell
-            //flashCell(player, model: players, collection: collectionPlayers)
             collectionPlayers.reloadData()
         }
         
@@ -173,8 +172,8 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.labelTitle.text = table[indexPath.row].text
         
         // Style the cell
-        cell.viewHolder.layer.cornerRadius = 6
-        cell.viewHolder.layer.masksToBounds = true
+        //cell.viewHolder.layer.cornerRadius = 6
+        //cell.viewHolder.layer.masksToBounds = true
         
         let backView = UIView(frame: cell.frame)
         backView.backgroundColor = UIColor.clearColor()
