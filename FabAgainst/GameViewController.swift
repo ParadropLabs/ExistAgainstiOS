@@ -41,8 +41,6 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // The cards currently in play
     var table: [Card] = []
     
-    //Questionable or temporary
-    var chooser = ""
     
     override func viewDidLoad() {
         tableCard.estimatedRowHeight = 100
@@ -93,7 +91,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     
     // MARK: Incoming state 
-    func picking(domain: String, card: Card, time: Double) {
+    func picking(player: Player, card: Card, time: Double) {
         state = .Picking
         labelActiveCard.text = card.text
         chooser = domain
