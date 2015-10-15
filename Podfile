@@ -1,6 +1,6 @@
 
 platform :ios, '9.0'
-platform :osx, '10.9'
+# platform :osx, '10.9'
 
 use_frameworks!
 pod 'Riffle', :git => 'https://github.com/ParadropLabs/riffle-swift'

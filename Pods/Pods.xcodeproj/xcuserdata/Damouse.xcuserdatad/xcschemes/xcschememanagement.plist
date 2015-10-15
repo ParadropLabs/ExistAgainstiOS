@@ -8,85 +8,61 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>GHODictionary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>IHKeyboardAvoiding.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>M13ProgressSuite.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>MPMessagePack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>Mantle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>RMSwipeTableViewCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>11</integer>
 		</dict>
 		<key>Riffle-Riffle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>10</integer>
 		</dict>
 		<key>Riffle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
 		</dict>
 		<key>SocketRocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>12</integer>
 		</dict>
 		<key>Spring.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>13</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -101,7 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3683E31F727F709B65886F0D1E79F037</key>
+		<key>1944B2C0D50F6242DC0B0EE0527E639A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>46AD6A7C3266FFDD0EEA85A6E6C49EB2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -111,7 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5147F2598E52D40CE7609B90562F4525</key>
+		<key>5FD0A1AC8AD4833526318D25FB237FFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -126,22 +107,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7EE4A4E11A2179D0744E433E9B323C95</key>
+		<key>844B81A6A0EEFECC4495BC8073A54B87</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F0115AAF2F84A0BE3473B1E724155A7</key>
+		<key>E9DA22E80161DFDD45995457658C3770</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F175BD9BC63EC1AD66A8C8B3AE0747C9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F88960DBE121764F86EC4D9267072737</key>
+		<key>EC8CD89648B02DDD82F4421D40240CCF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

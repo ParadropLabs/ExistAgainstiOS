@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B606A61BA5A7BB871F6B8A03"
+               BlueprintIdentifier = "5A421876619C0734C007288E"
                BuildableName = "M13ProgressSuite.framework"
                BlueprintName = "M13ProgressSuite"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -23,6 +23,8 @@ import M13ProgressSuite
 
 // Testing ui code
 let DEB = false
+let MAX = CGFloat(70.0)
+
 
 class GameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, RMSwipeTableViewCellDelegate {
     
@@ -35,7 +37,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var session: RiffleSession?
     var state: State = .Empty
     var players: [Player] = []
-    var hand: [Card] = []
+    var currentPlayer = Player()
     var room: String = ""
     
     // The cards currently in play
@@ -53,16 +55,16 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let c = Card()
             c.text = "Test 1"
             c.id = 1
-            hand.append(c)
+            currentPlayer.hand.append(c)
             
             let d = Card()
             d.text = "Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1"
             d.id = 1
-            hand.append(d)
+            currentPlayer.hand.append(d)
         }
         
         if state == .Picking {
-            table = hand
+            table = currentPlayer.hand
         }
     }
     
@@ -94,11 +96,15 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func picking(player: Player, card: Card, time: Double) {
         state = .Picking
         labelActiveCard.text = card.text
-        chooser = domain
+        let newChooser = players[players.indexOf(player)!]
+        newChooser.chooser = true
+        
+        // Change the old chooser to false
         
         // are we choosing this round?
-        print("Choosen domain: \(domain), our domain: \(session!.domain)")
-        table = chooser == session!.domain ? [] : hand
+        print("Choosen domain: \(player.domain), our domain: \(session!.domain)")
+        
+        table = player.domain == session!.domain ? [] : currentPlayer.hand
         
         tableCard.reloadData()
         viewProgress.countdown(time)
@@ -151,7 +157,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func picked(player: String) {
         // Show that the player picked. Defer for now
-        if state == .Picking && !(chooser == session!.domain) {
+        if state == .Picking && !currentPlayer.chooser {
             let c = Card()
             c.text = ""
             c.id = 1
@@ -160,7 +166,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func draw(cardJson: [String: AnyObject]) {
-        hand.append(Card.fromJson(cardJson))
+        currentPlayer.hand.append(Card.fromJson(cardJson))
     }
     
     
@@ -219,9 +225,6 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func swipeTableViewCell(swipeTableViewCell: RMSwipeTableViewCell!, didSwipeToPoint point: CGPoint, velocity: CGPoint) {
         let cell = swipeTableViewCell as! CardCell
         
-        let MAX = CGFloat(70.0)
-        
-        let ourChoice = chooser == session!.domain
         let index = tableCard.indexPathForCell(cell)
         let card = table[index!.row]
         
@@ -233,14 +236,14 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             // Dont really have to worry about out of turn selections-- the chooser should see a blank table
             // based on the construction of the table in the reload methods
-            if state == .Picking && !ourChoice {
+            if state == .Picking && !currentPlayer.chooser {
                 session!.call(room + "/play/pick", session!.domain, card.id, handler: nil )
                 removeCellsExcept([card])
-            } else if state == .Choosing && ourChoice {
+            } else if state == .Choosing && currentPlayer.chooser {
                 session!.publish(room + "/play/choose", card.id)
                 removeCellsExcept([card])
             } else {
-                print("Pick occured outside a valid round! OurChoice: \(ourChoice), state: \(state)")
+                print("Pick occured outside a valid round! OurChoice: \(currentPlayer.chooser), state: \(state)")
             }
         }
         

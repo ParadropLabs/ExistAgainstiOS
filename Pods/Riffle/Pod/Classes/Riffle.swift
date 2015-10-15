@@ -112,6 +112,23 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
                 //print("Registration completed: \(endpoint)")
         }
     }
+    
+    /*
+    func _call(endpoint: String, _ args: AnyObject..., fn: (([AnyObject]) -> ())?) {
+        // The caller received the result of the call from the callee
+        
+        session.call(endpoint, payload: serialize(args)) { (result: MDWampResult!, err: NSError!) -> Void in
+            if err != nil {
+                print("Call Error for endpoint \(endpoint): \(err)")
+            }
+            else {
+                if let h = fn {
+                    h(result.arguments == nil ? [] : result.arguments)
+                }
+            }
+        }
+    }
+    */
 
     public func call(endpoint: String, _ args: AnyObject..., handler: (([AnyObject]) -> ())?) {
         session.call(endpoint, payload: serialize(args)) { (result: MDWampResult!, err: NSError!) -> Void in

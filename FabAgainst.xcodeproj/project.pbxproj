@@ -11,7 +11,6 @@
 		5001BDDC1BC6D1DE004696B7 /* LiberationSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5001BDD81BC6D1DE004696B7 /* LiberationSans-BoldItalic.ttf */; settings = {ASSET_TAGS = (); }; };
 		5001BDDD1BC6D1DE004696B7 /* LiberationSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5001BDD91BC6D1DE004696B7 /* LiberationSans-Italic.ttf */; settings = {ASSET_TAGS = (); }; };
 		5001BDDE1BC6D1DE004696B7 /* LiberationSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5001BDDA1BC6D1DE004696B7 /* LiberationSans-Regular.ttf */; settings = {ASSET_TAGS = (); }; };
-		5007A3131BD04FF400F0595A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5007A3121BD04FF400F0595A /* main.swift */; };
 		507F0DED1BC7DEAA008F00CA /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F0DEC1BC7DEAA008F00CA /* Views.swift */; settings = {ASSET_TAGS = (); }; };
 		50A3E96D1BBB25D7002A3EBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */; };
 		50A3E9721BBB25D7002A3EBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A3E9701BBB25D7002A3EBF /* Main.storyboard */; };
@@ -23,25 +22,12 @@
 		BCB4344D374A99FE293EFC63 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073E0C481E99F06E2B723A71 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		5007A30E1BD04FF400F0595A /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		073E0C481E99F06E2B723A71 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5001BDD71BC6D1DE004696B7 /* LiberationSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-Bold.ttf"; sourceTree = "<group>"; };
 		5001BDD81BC6D1DE004696B7 /* LiberationSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		5001BDD91BC6D1DE004696B7 /* LiberationSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-Italic.ttf"; sourceTree = "<group>"; };
 		5001BDDA1BC6D1DE004696B7 /* LiberationSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-Regular.ttf"; sourceTree = "<group>"; };
-		5007A3101BD04FF400F0595A /* FabAgainstBackend */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FabAgainstBackend; sourceTree = BUILT_PRODUCTS_DIR; };
 		5007A3121BD04FF400F0595A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FabAgainst-Bridging-Header.h"; sourceTree = "<group>"; };
 		507F0DE41BC647C5008F00CA /* Riffle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Riffle.framework; path = "Pods/../build/Debug-iphoneos/Riffle.framework"; sourceTree = "<group>"; };
@@ -60,13 +46,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5007A30D1BD04FF400F0595A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		50A3E9661BBB25D7002A3EBF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -122,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				50A3E9691BBB25D7002A3EBF /* FabAgainst.app */,
-				5007A3101BD04FF400F0595A /* FabAgainstBackend */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,23 +126,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5007A30F1BD04FF400F0595A /* FabAgainstBackend */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5007A3161BD04FF400F0595A /* Build configuration list for PBXNativeTarget "FabAgainstBackend" */;
-			buildPhases = (
-				5007A30C1BD04FF400F0595A /* Sources */,
-				5007A30D1BD04FF400F0595A /* Frameworks */,
-				5007A30E1BD04FF400F0595A /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = FabAgainstBackend;
-			productName = FabAgainstBackend;
-			productReference = 5007A3101BD04FF400F0595A /* FabAgainstBackend */;
-			productType = "com.apple.product-type.tool";
-		};
 		50A3E9681BBB25D7002A3EBF /* FabAgainst */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50A3E97B1BBB25D7002A3EBF /* Build configuration list for PBXNativeTarget "FabAgainst" */;
@@ -194,9 +155,6 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = paradrop;
 				TargetAttributes = {
-					5007A30F1BD04FF400F0595A = {
-						CreatedOnToolsVersion = 7.0.1;
-					};
 					50A3E9681BBB25D7002A3EBF = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = MBE45279K3;
@@ -217,7 +175,6 @@
 			projectRoot = "";
 			targets = (
 				50A3E9681BBB25D7002A3EBF /* FabAgainst */,
-				5007A30F1BD04FF400F0595A /* FabAgainstBackend */,
 			);
 		};
 /* End PBXProject section */
@@ -288,14 +245,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5007A30C1BD04FF400F0595A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5007A3131BD04FF400F0595A /* main.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		50A3E9651BBB25D7002A3EBF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,24 +281,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5007A3141BD04FF400F0595A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		5007A3151BD04FF400F0595A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 		50A3E9791BBB25D7002A3EBF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -466,14 +397,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5007A3161BD04FF400F0595A /* Build configuration list for PBXNativeTarget "FabAgainstBackend" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5007A3141BD04FF400F0595A /* Debug */,
-				5007A3151BD04FF400F0595A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
 		50A3E9641BBB25D7002A3EBF /* Build configuration list for PBXProject "FabAgainst" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

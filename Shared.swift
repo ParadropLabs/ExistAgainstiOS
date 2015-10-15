@@ -30,6 +30,13 @@ class Player: RiffleModel {
             "pick": picked
         ]
     }
+    
+    class func fromJson(json: [String: AnyObject]) -> Player {
+        let player = Player()
+        player.domain = json["domain"] as! String
+        player.score = json["score"] as! Int
+        return player
+    }
 }
 
 class Card: RiffleModel {
