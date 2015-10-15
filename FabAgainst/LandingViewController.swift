@@ -58,12 +58,11 @@ class LandingViewController: UIViewController, RiffleDelegate {
         session?.call("pd.demo.cardsagainst/play", session!.domain) { (result: [AnyObject]) -> () in
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
             
-            // Annoying. There should be a way to convert the responses as needed-- casting responses
             let json = result[0] as! [String: AnyObject]
             let rawPlayers = json["players"] as! [[String: AnyObject]]
             let rawCards = json["hand"] as! [[String: AnyObject]]
             
-            controller.hand = rawCards.map { Card.fromJson($0) }
+            controller.currentPlayer.hand = rawCards.map { Card.fromJson($0) }
             controller.players = rawPlayers.map { Player.fromJson($0) }
             controller.state = State(json["state"] as! String)!
             controller.room = json["room"] as! String
