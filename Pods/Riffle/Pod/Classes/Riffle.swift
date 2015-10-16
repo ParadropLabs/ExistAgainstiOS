@@ -78,6 +78,7 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
         // This is the real subscrive method
         session.subscribe(endpoint, onEvent: { (event: MDWampEvent!) -> Void in
             // Trigger the callback
+            print(event.arguments)
             fn(event.arguments)
             
             }) { (err: NSError!) -> Void in
