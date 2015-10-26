@@ -22,7 +22,6 @@ import RMSwipeTableViewCell
 import M13ProgressSuite
 
 // Testing ui code
-let DEB = false
 let MAX = CGFloat(70.0)
 
 
@@ -48,47 +47,28 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableCard.estimatedRowHeight = 100
         tableCard.rowHeight = UITableViewAutomaticDimension
         buttonBack.imageView?.contentMode = .ScaleAspectFit
-        
-        if DEB {
-            state = .Picking
-            
-            let c = Card()
-            c.text = "Test 1"
-            c.id = 1
-            currentPlayer.hand.append(c)
-            
-            let d = Card()
-            d.text = "Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1"
-            d.id = 1
-            currentPlayer.hand.append(d)
-        }
-        
+
         if state == .Picking {
             table = currentPlayer.hand
         }
     }
     
     override func viewDidAppear(animated: Bool) {
-        
-        if !DEB {
-            session!.subscribe(room + "/round/picking", picking)
-            session!.subscribe(room + "/round/choosing", choosing)
-            session!.subscribe(room + "/round/scoring", scoring)
+        session!.subscribe(room + "/round/picking", picking)
+        session!.subscribe(room + "/round/choosing", choosing)
+        session!.subscribe(room + "/round/scoring", scoring)
 
-            //session!.subscribe(room + "/play/picked", picked)
-            
-            session!.register(session!.domain + "/draw", draw)
-            session!.subscribe(room + "/joined", newPlayer)
-            session!.subscribe(room + "/left", playerLeft)
-        }
+        //session!.subscribe(room + "/play/picked", picked)
+        
+        session!.register(session!.domain + "/draw", draw)
+        session!.subscribe(room + "/joined", newPlayer)
+        session!.subscribe(room + "/left", playerLeft)
     }
     
     override func viewWillDisappear(animated: Bool) {
         // Have to unsub or unregister!
         // TODO: overload for version that doesn't take a handler block
-        if !DEB {
-            session!.call(room + "/leave", session!.domain, handler: nil)
-        }
+        session!.call(room + "/leave", session!.domain, handler: nil)
     }
 
     
@@ -173,11 +153,8 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //MARK: Table Delegate and Data Source
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("card") as! CardCell
+        cell.delegate = self
         cell.labelTitle.text = table[indexPath.row].text
-        
-        // Style the cell
-        //cell.viewHolder.layer.cornerRadius = 6
-        //cell.viewHolder.layer.masksToBounds = true
         
         let backView = UIView(frame: cell.frame)
         backView.backgroundColor = UIColor.clearColor()
@@ -186,8 +163,6 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.backgroundColor = UIColor.clearColor()
         cell.backViewbackgroundColor = UIColor.clearColor()
         cell.contentView.backgroundColor = UIColor.clearColor()
-        
-        cell.delegate = self
         
         return cell
     }
@@ -254,18 +229,16 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func leave(sender: AnyObject) {
         // Called when the user wants to leave the room. Unregister/subscribe to all relevant bits
         
-        if !DEB {
-            session!.unsubscribe(room + "/round/picking")
-            session!.unsubscribe(room + "/round/choosing")
-            session!.unsubscribe(room + "/round/scoring")
-            
-            //session!.unsubscribe(room + "/play/picked")
-            
-            session!.unregister(session!.domain + "/draw")
-            session!.unsubscribe(room + "/joined")
-            session!.unsubscribe(room + "/left")
-        }
+        session!.unsubscribe(room + "/round/picking")
+        session!.unsubscribe(room + "/round/choosing")
+        session!.unsubscribe(room + "/round/scoring")
         
+        //session!.unsubscribe(room + "/play/picked")
+        
+        session!.unregister(session!.domain + "/draw")
+        session!.unsubscribe(room + "/joined")
+        session!.unsubscribe(room + "/left")
+    
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

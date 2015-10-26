@@ -64,12 +64,7 @@
 
 @implementation MDWamp
 
-#pragma mark -
-#pragma mark Init methods
-
-
-- (id)initWithTransport:(id<MDWampTransport>)transport realm:(NSString *)realm delegate:(id<MDWampClientDelegate>)delegate
-{
+- (id)initWithTransport:(id<MDWampTransport>)transport realm:(NSString *)realm delegate:(id<MDWampClientDelegate>)delegate {
     self = [super init];
 	if (self) {
 		
@@ -99,9 +94,9 @@
 	return self;
 }
 
+
 #pragma mark Utils
-- (NSNumber *) generateID
-{
+- (NSNumber *) generateID {
     unsigned int r = arc4random_uniform(exp2(32)-1);
     return [NSNumber numberWithDouble:r];
 //    return [NSNumber numberWithInt:r];
@@ -119,16 +114,13 @@
     [self.publishRequests        removeAllObjects];
 }
 
-#pragma mark -
-#pragma mark Connection
 
-- (void) connect
-{
+#pragma mark Connection
+- (void) connect {
     [self.transport open];
 }
 
-- (void) disconnect
-{
+- (void) disconnect {
     _explicitSessionClose = YES;
     
     if (self.hbTimer) {
@@ -155,17 +147,13 @@
     }
 }
 
-- (BOOL) isConnected
-{
+- (BOOL) isConnected {
 	return [self.transport isConnected];
 }
 
-#pragma mark -
-#pragma mark MDWampTransport Delegate
 
-///
-- (void)transportDidOpenWithSerialization:(NSString*)serialization
-{
+#pragma mark MDWampTransport Delegate
+- (void) transportDidOpenWithSerialization:(NSString*)serialization {
     MDWampDebugLog(@"websocket connection opened");
 
     _serialization = serialization;
@@ -185,8 +173,7 @@
 
 }
 
-- (void)transportDidReceiveMessage:(NSData *)message
-{
+- (void) transportDidReceiveMessage:(NSData *)message {
     NSMutableArray *unpacked = [[self.serializator unpack:message] mutableCopy];
     NSNumber *code = [unpacked shift];
     
@@ -212,7 +199,7 @@
     [self receivedMessage:msg];
 }
 
-- (void)transportDidFailWithError:(NSError *)error {
+- (void) transportDidFailWithError:(NSError *)error {
     MDWampDebugLog(@"DID FAIL reason %@", error.localizedDescription);
     if (self.onSessionClosed) {
         self.onSessionClosed(self, error.code, error.localizedDescription, error.userInfo);
@@ -223,7 +210,7 @@
     }
 }
 
-- (void)transportDidCloseWithError:(NSError *)error {
+- (void) transportDidCloseWithError:(NSError *)error {
     MDWampDebugLog(@"DID CLOSE reason %@", error.localizedDescription);
     _sessionId = nil;
     [self cleanUp];
@@ -242,10 +229,9 @@
 
 }
 
-#pragma mark -
+
 #pragma mark Message Management
-- (void) receivedMessage:(id<MDWampMessage>)message
-{
+- (void) receivedMessage:(id<MDWampMessage>)message {
     
     if ([message isKindOfClass:[MDWampWelcome class]]) {
         
@@ -606,10 +592,10 @@
     }
 }
 
-- (void) sendMessage:(id<MDWampMessage>)message
-{
+- (void) sendMessage:(id<MDWampMessage>)message {
     MDWampDebugLog(@"Sending %@", message);
     if ([message isKindOfClass:[MDWampGoodbye class]]) {
+     
         self.goodbyeSent = YES;
     }
     NSArray *marshalled = [message marshall];
@@ -618,16 +604,8 @@
 }
 
 
-
-#pragma mark -
-#pragma mark Commands
-
-#pragma mark -
 #pragma mark Pub/Sub
-- (void) subscribe:(NSString *)topic
-           onEvent:(void(^)(MDWampEvent *payload))eventBlock
-            result:(void(^)(NSError *error))result
-{
+- (void) subscribe:(NSString *)topic onEvent:(void(^)(MDWampEvent *payload))eventBlock result:(void(^)(NSError *error))result {
     NSNumber *request = [self generateID];
     MDWampSubscribe *subscribe = [[MDWampSubscribe alloc] initWithPayload:@[request, @{}, topic]];
     
@@ -637,8 +615,7 @@
     [self sendMessage:subscribe];
 }
 
-- (void)unsubscribe:(NSString *)topic result:(void(^)(NSError *error))result
-{
+- (void) unsubscribe:(NSString *)topic result:(void(^)(NSError *error))result {
     if (!self.subscriptionID[topic]) {
         // inexistent sunscription we abort
         MDWampError *error = [[MDWampError alloc] initWithPayload:@[@-12, @0, @{}, @"mdwamp.error.no_such_subscription"]];
@@ -655,12 +632,7 @@
     [self sendMessage:unsubscribe];
 }
 
-- (void) publishTo:(NSString *)topic
-              args:(NSArray*)args
-                kw:(NSDictionary *)argsKw
-           options:(NSDictionary *)options
-            result:(void(^)(NSError *error))result
-{
+- (void) publishTo:(NSString *)topic args:(NSArray*)args kw:(NSDictionary *)argsKw options:(NSDictionary *)options result:(void(^)(NSError *error))result {
     NSNumber *request = [self generateID];
     
     NSMutableDictionary *opts = nil;
@@ -674,9 +646,11 @@
     if(opts[MDWampOption_acknowledge] == nil && self.config.publisher_acknowledge){
         opts[MDWampOption_acknowledge] = @YES;
     }
+    
     if(opts[MDWampOption_exclude_me] == nil && !self.config.publisher_exclude_me){
         opts[MDWampOption_exclude_me] = @NO;
     }
+    
     if(opts[MDWampOption_disclose_me] == nil && self.config.publisher_identification){
         opts[MDWampOption_disclose_me] = @YES;
     }
@@ -696,12 +670,7 @@
     [self sendMessage:msg];
 }
 
-- (void) publishTo:(NSString *)topic
-           exclude:(NSArray*)exclude
-          eligible:(NSArray*)eligible
-           payload:(id)payload
-            result:(void(^)(NSError *error))result
-{
+- (void) publishTo:(NSString *)topic exclude:(NSArray*)exclude eligible:(NSArray*)eligible payload:(id)payload result:(void(^)(NSError *error))result {
     NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
     
     if (exclude)
@@ -718,27 +687,16 @@
     }
 }
 
-- (void) publishTo:(NSString *)topic
-           payload:(id)payload
-            result:(void(^)(NSError *error))result
-{
+- (void) publishTo:(NSString *)topic payload:(id)payload result:(void(^)(NSError *error))result {
     [self publishTo:topic exclude:nil eligible:nil payload:payload result:result];
 }
 
 
-
-#pragma mark -
 #pragma mark Remote Procedure Call
-
-- (NSNumber *) call:(NSString*)procUri
-              args:(NSArray*)args
-            kwArgs:(NSDictionary*)argsKw
-           options:(NSDictionary*)options
-          complete:(void(^)(MDWampResult *result, NSError *error))completeBlock
-{
+- (NSNumber *) call:(NSString*)procUri args:(NSArray*)args kwArgs:(NSDictionary*)argsKw options:(NSDictionary*)options complete:(void(^)(MDWampResult *result, NSError *error))completeBlock {
     NSNumber *request = [self generateID];
-
     NSMutableDictionary *opts = nil;
+    
     if (options == nil) {
         opts = [[NSMutableDictionary alloc] init];
     } else {
@@ -771,12 +729,7 @@
     return request;
 }
 
-- (NSNumber *) call:(NSString*)procUri
-      payload:(id)payload
-      exclude:(NSArray*)exclude
-     eligible:(NSArray*)eligible
-     complete:(void(^)(MDWampResult *result, NSError *error))completeBlock
-{
+- (NSNumber *) call:(NSString*)procUri payload:(id)payload exclude:(NSArray*)exclude eligible:(NSArray*)eligible complete:(void(^)(MDWampResult *result, NSError *error))completeBlock {
     NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
     
     if (exclude)
@@ -793,24 +746,16 @@
     }
 }
 
-- (NSNumber *) call:(NSString*)procUri
-      payload:(id)payload
-     complete:(void(^)(MDWampResult *result, NSError *error))completeBlock
-{
+- (NSNumber *) call:(NSString*)procUri payload:(id)payload complete:(void(^)(MDWampResult *result, NSError *error))completeBlock {
     return [self call:procUri payload:payload exclude:nil eligible:nil complete:completeBlock];
 }
 
-- (void) cancelCallProcedure:(NSNumber*)requestID
-{
+- (void) cancelCallProcedure:(NSNumber*)requestID {
     MDWampCancel *msg = [[MDWampCancel alloc] initWithPayload:@[requestID,@{}]];
     [self sendMessage:msg];
 }
 
-- (void) registerRPC:(NSString *)procUri
-           procedure:(void(^)(MDWamp *client, MDWampInvocation* invocation))procedureBlock
-       cancelHandler:(void(^)(void))cancelBlock
-      registerResult:(void(^)(NSError *error))resultCallback
-{
+- (void) registerRPC:(NSString *)procUri procedure:(void(^)(MDWamp *client, MDWampInvocation* invocation))procedureBlock cancelHandler:(void(^)(void))cancelBlock registerResult:(void(^)(NSError *error))resultCallback {
     NSNumber *request = [self generateID];
     
     MDWampRegister *msg = [[MDWampRegister alloc] initWithPayload:@[request, @{}, procUri]];
@@ -827,8 +772,7 @@
     [self sendMessage:msg];
 }
 
-- (void)resultForInvocation:(MDWampInvocation*)invocation arguments:(NSArray*)arguments argumentsKw:(NSDictionary*)argumentsKw
-{
+- (void)resultForInvocation:(MDWampInvocation*)invocation arguments:(NSArray*)arguments argumentsKw:(NSDictionary*)argumentsKw {
     NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
     
     // Handle progressive results
@@ -849,9 +793,7 @@
     [self.rpcPendingInvocation removeObjectForKey:invocation.request];
 }
 
-- (void) unregisterRPC:(NSString *)procUri
-                result:(void(^)(NSError *error))resultCallback
-{
+- (void) unregisterRPC:(NSString *)procUri result:(void(^)(NSError *error))resultCallback {
     NSNumber *request = [self generateID];
     NSNumber *registrationID = [self.rpcRegisteredUri objectForKey:procUri];
     if (registrationID == nil) {

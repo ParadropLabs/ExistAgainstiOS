@@ -68,7 +68,7 @@ public func convert <A, T>(a:A, _ t:T.Type) -> T? {
     default: break
     }
     
-    print(T.self)
+//    print(T.self)
     
     // Attempt a model conversion
     if let Klass = t as? RiffleModel.Type {

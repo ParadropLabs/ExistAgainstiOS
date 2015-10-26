@@ -40,21 +40,7 @@ class LandingViewController: UIViewController, RiffleDelegate {
     
     // MARK: Core Logic
     func play() {
-        if DEB {
-            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
-            self.modalPresentationStyle = .CurrentContext
-            
-            let effect = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
-            effect.frame = controller.view.frame
-            controller.view.insertSubview(effect, atIndex:0)
-            controller.modalPresentationStyle = .OverFullScreen
-            
-            self.presentViewController(controller, animated: true, completion: nil)
-            return
-        }
-        
         // Ask for a room and present the gameplay controller
-        // This is going to stick around for a bit until the "call" methods are updated to use cumin.
         session?.call("pd.demo.cardsagainst/play", session!.domain) { (result: [AnyObject]) -> () in
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
             
