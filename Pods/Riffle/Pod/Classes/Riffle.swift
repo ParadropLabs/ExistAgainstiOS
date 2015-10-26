@@ -51,7 +51,7 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
     public func handle(args: AnyObject...) {
         
     }
-
+    
     
     //MARK: Delegates
     public func mdwamp(wamp: MDWamp!, sessionEstablished info: [NSObject : AnyObject]!) {
@@ -60,7 +60,7 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
     }
     
     public func mdwamp(wamp: MDWamp!, closedSession code: Int, reason: String!, details: [NSObject : AnyObject]!) {
-        print("Session Closed!")
+        print("Session Closed. Code: \(code), reason: \(reason), details: \(details)")
         delegate!.onLeave()
     }
     
@@ -105,7 +105,11 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
         session.registerRPC(endpoint, procedure: { (wamp: MDWamp!, invocation: MDWampInvocation!) -> Void in
             
             let result = fn(invocation.arguments)
-            wamp.resultForInvocation(invocation, arguments: [result as! AnyObject], argumentsKw: [:])
+            if let autoArray = result as? [AnyObject] {
+                wamp.resultForInvocation(invocation, arguments: autoArray, argumentsKw: [:])
+            } else {
+                wamp.resultForInvocation(invocation, arguments: [result as! AnyObject], argumentsKw: [:])
+            }
             
             }, cancelHandler: { () -> Void in
                 print("Register Cancelled!")
@@ -128,7 +132,7 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
             }
         }
     }
-
+    
     public func publish(endpoint: String, _ args: AnyObject...) {
         session.publishTo(endpoint, args: serialize(args), kw: [:], options: [:]) { (err: NSError!) -> Void in
             if let e = err {
@@ -152,7 +156,7 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
     public func register(pdid: String, _ fn: () -> ())  {
         _register(pdid, fn: cumin(fn))
     }
-
+    
     public func register<A>(pdid: String, _ fn: (A) -> ())  {
         _register(pdid, fn: cumin(fn))
     }
@@ -292,5 +296,5 @@ public class RiffleSession: NSObject, MDWampClientDelegate, RiffleDelegate {
     public func call<A, B, C, D, E>(pdid: String, _ args: AnyObject..., handler fn: ((A, B, C, D, E) -> ())?)  {
         _call(pdid, args: args, fn: fn == nil ? nil: cumin(fn!))
     }
-
+    
 }
