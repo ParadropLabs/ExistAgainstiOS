@@ -2546,6 +2546,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2CA0C5FC7C7A9D64A05AC94F4CE25A20 /* CocoaAsyncSocket-Private.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 7.4.2;
 				DEFINES_MODULE = YES;
@@ -2767,6 +2768,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2CA0C5FC7C7A9D64A05AC94F4CE25A20 /* CocoaAsyncSocket-Private.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 7.4.2;
 				DEFINES_MODULE = YES;
@@ -2784,6 +2786,7 @@
 				PRODUCT_NAME = CocoaAsyncSocket;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

@@ -10,7 +10,7 @@ import Foundation
 import Mantle
 
 
-public class RiffleModel : MTLModel, MTLJSONSerializing, Convertible {
+public class RiffleModel : MTLModel, MTLJSONSerializing, Cuminicable {
 //    var id = Int(arc4random_uniform(UInt32.max))
     
 //    override public func isEqual(object: AnyObject?) -> Bool {
@@ -32,9 +32,9 @@ public class RiffleModel : MTLModel, MTLJSONSerializing, Convertible {
         return [:]
     }
     
-    static func convert(object: AnyObject) -> Convertible? {
+    public static func convert(object: AnyObject) -> Cuminicable? {
         if let a = object as? [NSObject: AnyObject] {
-            return MTLJSONAdapter.modelOfClass(self, fromJSONDictionary: a) as? Convertible
+            return MTLJSONAdapter.modelOfClass(self, fromJSONDictionary: a) as? Cuminicable
         }
         
         return nil

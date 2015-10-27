@@ -63,23 +63,23 @@ class LandingViewController: UIViewController, RiffleDelegate {
 //            self.presentViewController(controller, animated: true, completion: nil)
 //        }
 
-        session?.call("pd.demo.cardsagainst/play", session!.domain) { (cards: [Card], players: [Player], state: String, roomName: String) -> () in
-            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
-            
-            controller.currentPlayer.hand = cards
-            controller.players = players
-            controller.state = State(state)!
-            controller.room = roomName
-            controller.session = self.session!
-            
-            let effect = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
-            effect.frame = controller.view.frame
-            controller.view.insertSubview(effect, atIndex:0)
-            controller.modalPresentationStyle = .OverFullScreen
-            self.modalPresentationStyle = .CurrentContext
-            
-            self.presentViewController(controller, animated: true, completion: nil)
-        }
+//        session?.call("pd.demo.cardsagainst/play", session!.domain) { (cards: [Card], players: [Player], state: String, roomName: String) -> () in
+//            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
+//            
+//            controller.currentPlayer.hand = cards
+//            controller.players = players
+//            controller.state = State(state)!
+//            controller.room = roomName
+//            controller.session = self.session!
+//            
+//            let effect = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
+//            effect.frame = controller.view.frame
+//            controller.view.insertSubview(effect, atIndex:0)
+//            controller.modalPresentationStyle = .OverFullScreen
+//            self.modalPresentationStyle = .CurrentContext
+//            
+//            self.presentViewController(controller, animated: true, completion: nil)
+//        }
     }
     
     
