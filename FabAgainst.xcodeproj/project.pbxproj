@@ -29,6 +29,7 @@
 		5001BDD91BC6D1DE004696B7 /* LiberationSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-Italic.ttf"; sourceTree = "<group>"; };
 		5001BDDA1BC6D1DE004696B7 /* LiberationSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-Regular.ttf"; sourceTree = "<group>"; };
 		5007A3121BD04FF400F0595A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		500A09AA1BDFEA3E007226BF /* CuminPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = CuminPlayground.playground; path = FabAgainst/CuminPlayground.playground; sourceTree = "<group>"; };
 		5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FabAgainst-Bridging-Header.h"; sourceTree = "<group>"; };
 		507F0DE41BC647C5008F00CA /* Riffle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Riffle.framework; path = "Pods/../build/Debug-iphoneos/Riffle.framework"; sourceTree = "<group>"; };
 		507F0DEC1BC7DEAA008F00CA /* Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */,
+				500A09AA1BDFEA3E007226BF /* CuminPlayground.playground */,
 				50F3804A1BBDEFF60028628B /* Shared.swift */,
 				50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */,
 				50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */,
