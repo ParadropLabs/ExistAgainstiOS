@@ -1,13 +1,10 @@
 //: Playground - noun: a place where people can play
 
 //import Cocoa
+import UIKit
 import Foundation
 import Riffle
 import Mantle
-
-// Hack to get the arrays to detect
-protocol ArrayProtocol{}
-extension Array: ArrayProtocol {}
 
 // Protcol all expected types must implement
 protocol Convertible {
@@ -59,17 +56,36 @@ func con<A: AnyObject, T: Convertible>(a: A?, _ t: T.Type) -> T? {
     return nil
 }
 
-func con<A: AnyObject, T: CollectionType where T.Generator.Element: Convertible>(a: A, _ t: T.Type) -> T? {
-//    print(T.Generator.Element.self)
-//
-//    let klass = T.Generator.Element.self
-//
-//    if klass.canConvert(a) {
-//        print("can convert")
-//    } else {
-//        print("cannot convert")
-//    }
-
+func con<A: AnyObject, T: CollectionType where T.Generator.Element: Convertible>(a: A?, _ t: T.Type) -> T? {
+    // Attempt to convert an array of arbitrary elements to collection of convertible elements. The sequence is passed
+    // as a type of these elements as understood from the method signature where they're declared.
+    
+    // The expected sequence element type
+    // Not implemented: recursive handling of nested data structures
+    let convertibleElement = T.Generator.Element.self
+    print(convertibleElement)
+    
+    // Attempt to process the incoming parameters as an array
+    if let x = a as? NSArray {
+        var ret: [T.Generator.Element] = []
+        
+        for e in x {
+            if let converted = convertibleElement.convert(e) as? T.Generator.Element {
+                ret.append(converted)
+            } else {
+                // If a single one of the casts fail, stop processing the collection.
+                // This behavior may not always be expected since it does not allow collections of optionals
+                
+                // TODO: Print out or return some flavor of log here?
+                return nil
+            }
+        }
+        
+        return ret as? T
+    }
+    
+    // Can cover arrays here, too
+    
     return nil
 }
 
@@ -77,154 +93,16 @@ func con<A: AnyObject, T: CollectionType where T.Generator.Element: Convertible>
 //let oneDog = con(oneDogJson, Dog.self)
 //oneDog?.woof()
 
-//let dogJson: AnyObject = [["name":"Fido"], ["name":"Spot"]]
-//let result = convert(dogJson, [Dog].self)
+let dogJson: AnyObject = [["name":"Fido"], ["name":"Spot"]]
+let result = con(dogJson, [Dog].self)!
+result[0].name
 
 let someStrings: AnyObject = ["1", "2", "3"]
 let someInts = con(someStrings, [Int].self)
 
 //let integer = con("1", Int.self)
 
-/*
-//: Playground - noun: a place where people can play
-
-import Cocoa
-import Foundation
-
-// Hack to get the arrays to detect
-protocol ArrayProtocol{}
-extension Array: ArrayProtocol {}
-
-// Protcol all expected types must implement
-protocol Convertible {
-static func convert(object: AnyObject) -> Convertible?
-}
-
-extension Int: Convertible {
-static func convert(object: AnyObject) -> Convertible? {
-if let x = object as? Int {
-return x
-}
-
-if let x = object as? String {
-return Int(x)
-}
-
-return nil
-}
-}
-
-class RiffleModel: NSObject, Convertible {
-required override init() {}
-
-static func convert(object: AnyObject) -> Convertible? {
-return nil
-}
-}
-
-class Dog: RiffleModel {
-var name: String = "Default"
-
-func woof() -> String {
-return "Hello."
-}
-}
-
-let a = "1"
-let b = Int(a)
-
-//extension Array where Element : Convertible, Convertible {
-//    static func convert() -> Int {
-//        return 1
-//    }
-//
-//    static func canConvert() -> Bool {
-//        return true
-//    }
-//}
-
-//func convert <A, T: Convertible>(a:A?, _ t:T.Type) -> T? {
-//    let a = t.canConvert()
-//
-//    if let y = t as? Array<Convertible>.Type {
-//        print("Cast Works")
-//    }
-//
-//    // Works when detecting an array
-//    if t is ArrayProtocol.Type {
-//        print("Protocol Type")
-////        return arrayConverter(a, t: t as! [AnyObject])
-//    }
-//
-//    // Attempt a model conversion
-//    if let Klass = t as? RiffleModel.Type {
-//        let ret = Klass.init()
-//
-//        // Make sure the argument is a dictionary
-//        ret.deserialize(a as! [String:AnyObject])
-//        return ret as! T
-//    }
-//
-//    // Fallthrough so the playground complies
-////    let dogs = [Dog(), Dog()]
-////    return dogs as! T
-//
-//    return nil
-//}
 
 
-func add(a: [Int]) {
-return
-}
-
-
-func convert<A: AnyObject, T: Convertible>(a: A?, _ t: T.Type) -> T? {
-if let x = a {
-return t.convert(x) as? T
-}
-
-return nil
-}
-
-func convert<A: AnyObject, T: CollectionType where T.Generator.Element: Convertible>(a: A?, _ t: T.Type) -> T? {
-let convertibleElement = T.Generator.Element.self
-
-// Attempt to process the incoming parameters as an array
-if let x = a as? NSArray {
-//        let ret = x.map { convertibleElement.convert($0)! }
-let ret = []
-
-for e in x {
-let con = convertibleElement.convert(e)
-
-if let answer =
-print(con)
-}
-
-print(ret.dynamicType)
-return ret as? T
-}
-
-return nil
-}
-
-
-let dogJson: AnyObject = [["name":"Fido"], ["name":"Spot"]]
-
-//let result = convert(dogJson, [Dog].self)
-//let lawd = collectionConvert(dogJson, t: [Dog].self)
-//let whypleasewhy = convert("1", Int.self)
-
-let integer = convert("1", Int.self)
-
-let someStrings: AnyObject = ["1"]
-let someInts = convert(someStrings, [Int].self)
-
-
-
-
-
-
-*/
 
 

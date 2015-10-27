@@ -61,6 +61,7 @@
 		5001BDD61BC6D1CB004696B7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				500A09AA1BDFEA3E007226BF /* CuminPlayground.playground */,
 				5001BDD71BC6D1DE004696B7 /* LiberationSans-Bold.ttf */,
 				5001BDD81BC6D1DE004696B7 /* LiberationSans-BoldItalic.ttf */,
 				5001BDD91BC6D1DE004696B7 /* LiberationSans-Italic.ttf */,
@@ -86,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				50A3E96C1BBB25D7002A3EBF /* AppDelegate.swift */,
-				500A09AA1BDFEA3E007226BF /* CuminPlayground.playground */,
 				50F3804A1BBDEFF60028628B /* Shared.swift */,
 				50A3E9B41BBB45EA002A3EBF /* LandingViewController.swift */,
 				50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */,
