@@ -78,6 +78,20 @@ public func convert <A, T>(a:A, _ t:T.Type) -> T? {
     // Collections, applied recursively
     // Going to have to apply the osx bug fix here too... string checking required
     if let source = a as? NSArray {
+        
+        // If we're reciving an array and its empty, it doesn't matter what you expected to get back (right?)
+        // Alternatively, this could just be an error, in which case you're screwed
+        if source.count == 0 {
+            return [] as! T
+        }
+        
+        let element = source.firstObject!
+        print(element)
+        
+        if let r = element as? RiffleModel.Type {
+            print("ISARIFFLEMODEL")
+        }
+        
         switch t {
         case is [String].Type:
             return (source.map { convert($0, String.self)! } as! T)
@@ -91,6 +105,12 @@ public func convert <A, T>(a:A, _ t:T.Type) -> T? {
             return (source.map { convert($0, RiffleModel.self)! } as! T)
         default:
             print("UNIMPLEMENTED COLLECTION: \(source.dynamicType)")
+//            print(source)
+            print(t)
+            
+            if let Klass = t as? [RiffleModel].Type {
+                print("Able to extrace the programmic types: Klass")
+            }
         }
     }
     
@@ -121,7 +141,7 @@ precedence 155
 
 func <- <T> (t:T.Type, object: AnyObject) -> T {
     let a = convert(object, t)
-//    print(a)
+    print(a)
     return a!
 }
 
