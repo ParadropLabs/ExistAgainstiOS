@@ -48,8 +48,6 @@ class Dog: RiffleModel {
 // Conversion methods
 ////////////////////////////
 
-
-
 func con<A: AnyObject, T: Convertible>(a: A?, _ t: T.Type) -> T? {
     if let x = a {
         return t.convert(x) as? T

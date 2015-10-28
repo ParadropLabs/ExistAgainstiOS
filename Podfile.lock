@@ -33,7 +33,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Riffle:
-    :commit: 5a8754665657217b1b6375c7fa017b085a80bdb5
+    :commit: 1021c75789e029c89d030acf87b8d4e1eda22e99
     :git: https://github.com/ParadropLabs/riffle-swift
   Spring:
     :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
