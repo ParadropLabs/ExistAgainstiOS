@@ -63,7 +63,7 @@ class LandingViewController: UIViewController, RiffleDelegate {
 //            self.presentViewController(controller, animated: true, completion: nil)
 //        }
 
-//        session?.call("pd.demo.cardsagainst/play", session!.domain) { (cards: [Card], players: [Player], state: String, roomName: String) -> () in
+//        session?.call("pd.demo.cardsagainst/play", session!.domain, handler: { (cards: [Card], players: [Player], state: String, roomName: String) in
 //            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
 //            
 //            controller.currentPlayer.hand = cards
@@ -79,7 +79,7 @@ class LandingViewController: UIViewController, RiffleDelegate {
 //            self.modalPresentationStyle = .CurrentContext
 //            
 //            self.presentViewController(controller, animated: true, completion: nil)
-//        }
+//        })
     }
     
     

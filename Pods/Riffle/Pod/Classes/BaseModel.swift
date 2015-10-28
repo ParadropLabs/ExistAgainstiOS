@@ -11,19 +11,19 @@ import Mantle
 
 
 public class RiffleModel : MTLModel, MTLJSONSerializing, Cuminicable {
-//    var id = Int(arc4random_uniform(UInt32.max))
+    //    var id = Int(arc4random_uniform(UInt32.max))
     
-//    override public func isEqual(object: AnyObject?) -> Bool {
-//        if object_getClassName(self) != object_getClassName(object) {
-//            return false
-//        }
-//        
-//        if let object = object as? RiffleModel {
-//            return id == object.id
-//        } else {
-//            return false
-//        }
-//    }
+    //    override public func isEqual(object: AnyObject?) -> Bool {
+    //        if object_getClassName(self) != object_getClassName(object) {
+    //            return false
+    //        }
+    //
+    //        if let object = object as? RiffleModel {
+    //            return id == object.id
+    //        } else {
+    //            return false
+    //        }
+    //    }
     
     
     //Boilerplate Mantle code
@@ -41,19 +41,19 @@ public class RiffleModel : MTLModel, MTLJSONSerializing, Cuminicable {
     }
     
     //MARK: Old Placeholder Methods
-//    required override public init() {
-//        super.init()
-//        
-//        // A random integer. Have to deal with colliding ids. This is an ok base case
-//        id = Int(arc4random_uniform(UInt32.max))
-//    }
-
+    //    required override public init() {
+    //        super.init()
+    //
+    //        // A random integer. Have to deal with colliding ids. This is an ok base case
+    //        id = Int(arc4random_uniform(UInt32.max))
+    //    }
     
-//    func serialize() -> [String:AnyObject] {
-//        return [:]
-//    }
-//    
-//    func deserialize(json: [String:AnyObject]) {
-//        
-//    }
+    
+    //    func serialize() -> [String:AnyObject] {
+    //        return [:]
+    //    }
+    //    
+    //    func deserialize(json: [String:AnyObject]) {
+    //        
+    //    }
 }

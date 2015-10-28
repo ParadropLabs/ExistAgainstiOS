@@ -1,4 +1,4 @@
-        //
+//
 //  MDWampClient.m
 //  MDWamp
 //
@@ -66,8 +66,8 @@
 
 - (id)initWithTransport:(id<MDWampTransport>)transport realm:(NSString *)realm delegate:(id<MDWampClientDelegate>)delegate {
     self = [super init];
-	if (self) {
-		
+    if (self) {
+        
         self.explicitSessionClose = NO;
         self.sessionEstablished   = NO;
         self.goodbyeSent          = NO;
@@ -76,12 +76,12 @@
         self.delegate   = delegate;
         self.transport  = transport;
         [self.transport setDelegate:self];
-
+        
         self.subscriptionRequests   = [[NSMutableDictionary alloc] init];
-		self.rpcCallbackMap         = [[NSMutableDictionary alloc] init];
-		self.rpcRegisterRequests    = [[NSMutableDictionary alloc] init];
+        self.rpcCallbackMap         = [[NSMutableDictionary alloc] init];
+        self.rpcRegisterRequests    = [[NSMutableDictionary alloc] init];
         self.rpcUnregisterRequests  = [[NSMutableDictionary alloc] init];
-		self.rpcRegisteredProcedures= [[NSMutableDictionary alloc] init];
+        self.rpcRegisteredProcedures= [[NSMutableDictionary alloc] init];
         self.rpcRegisteredUri       = [[NSMutableDictionary alloc] init];
         self.rpcPendingInvocation   = [[NSMutableDictionary alloc] init];
         self.subscriptionEvents     = [[NSMutableDictionary alloc] init];
@@ -90,8 +90,8 @@
         
         self.config = [[MDWampClientConfig alloc] init];
         
-	}
-	return self;
+    }
+    return self;
 }
 
 
@@ -99,7 +99,7 @@
 - (NSNumber *) generateID {
     unsigned int r = arc4random_uniform(exp2(32)-1);
     return [NSNumber numberWithDouble:r];
-//    return [NSNumber numberWithInt:r];
+    //    return [NSNumber numberWithInt:r];
 }
 
 - (void) cleanUp {
@@ -130,12 +130,12 @@
         self.hbOutgoingSeq = 0;
     }
     
-	[self.transport close];
+    [self.transport close];
     
     if (self.onSessionClosed) {
         self.onSessionClosed(self, MDWampConnectionClosed, @"MDWamp.session.explicit_closed", nil);
     }
-        
+    
     if (self.onSessionClosed) {
         self.onSessionClosed(self, MDWampConnectionClosed, @"MDWamp.session.explicit_closed", nil);
     }
@@ -148,29 +148,29 @@
 }
 
 - (BOOL) isConnected {
-	return [self.transport isConnected];
+    return [self.transport isConnected];
 }
 
 
 #pragma mark MDWampTransport Delegate
 - (void) transportDidOpenWithSerialization:(NSString*)serialization {
     MDWampDebugLog(@"websocket connection opened");
-
+    
     _serialization = serialization;
-
+    
     // Init the serializator
     Class ser = NSClassFromString(self.serialization);
     NSAssert(ser != nil, @"Serialization %@ doesn't exists", ser);
     self.serializator = [[ser alloc] init];
-
+    
     NSDictionary* helloDetails = [self.config getHelloDetails];
-
+    
     // send hello message
     MDWampHello* hello =
-        [[MDWampHello alloc] initWithPayload:@[ self.realm, helloDetails ]];
+    [[MDWampHello alloc] initWithPayload:@[ self.realm, helloDetails ]];
     hello.realm = self.realm;
     [self sendMessage:hello];
-
+    
 }
 
 - (void) transportDidReceiveMessage:(NSData *)message {
@@ -191,7 +191,7 @@
     @catch (NSException *exception) {
 #ifdef DEBUG
         [exception raise];
-#else 
+#else
         MDWampDebugLog(@"Invalid message code received !!");
 #endif
     }
@@ -214,7 +214,7 @@
     MDWampDebugLog(@"DID CLOSE reason %@", error.localizedDescription);
     _sessionId = nil;
     [self cleanUp];
- 
+    
     if (!_explicitSessionClose) {
         if (self.onSessionClosed) {
             self.onSessionClosed(self, error.code, error.localizedDescription, error.userInfo);
@@ -226,7 +226,7 @@
         
     }
     self.sessionEstablished = NO;
-
+    
 }
 
 
@@ -237,9 +237,9 @@
         
         MDWampWelcome *welcome = (MDWampWelcome *)message;
         _sessionId = [welcome.session stringValue];
-
+        
         NSDictionary *details = welcome.details;
-// TODO: maybe do something with details? save some auth related stuff??
+        // TODO: maybe do something with details? save some auth related stuff??
         self.sessionEstablished = YES;
         
         if (_delegate && [_delegate respondsToSelector:@selector(mdwamp:sessionEstablished:)]) {
@@ -251,11 +251,11 @@
         }
         
     } else if ([message isKindOfClass:[MDWampAbort class]]) {
-        #pragma mark MDWampAbort
+#pragma mark MDWampAbort
         MDWampAbort *abort = (MDWampAbort *)message;
         _explicitSessionClose = YES;
         [self.transport close];
-  
+        
         if (_delegate && [_delegate respondsToSelector:@selector(mdwamp:closedSession:reason:details:)]) {
             [_delegate mdwamp:self closedSession:MDWampConnectionAborted reason:abort.reason details:abort.details];
         }
@@ -287,7 +287,7 @@
         }
         
     } else if ([message isKindOfClass:[MDWampError class]]) {
-        #pragma mark MDWampError
+#pragma mark MDWampError
         // Manage different errors based on the type code
         // that relates to message classes
         
@@ -297,7 +297,7 @@
         if ([errorType isEqual:kMDWampSubscribe]) {
             // It's a subscribe error
             NSArray *callbacks = self.subscriptionRequests[error.request];
-
+            
             if (!callbacks) {
                 return;
             }
@@ -305,7 +305,7 @@
             void(^resultCallback)(NSError *)  = callbacks[0];
             
             resultCallback([error makeError]);
-
+            
             // clean subscriber structures
             [self.subscriptionRequests removeObjectForKey:error.request];
             
@@ -334,12 +334,12 @@
             [self.publishRequests removeObjectForKey:error.request];
             
         } else if ([errorType isEqual:kMDWampCall]) {
-
+            
             void(^resultcallback)(MDWampResult *, NSError *) = self.rpcCallbackMap[error.request];
             if (resultcallback) {
                 resultcallback(nil, [error makeError]);
             }
-
+            
             [self.rpcCallbackMap removeObjectForKey:error.request];
             
         } else if ([errorType isEqual:kMDWampRegister]) {
@@ -354,7 +354,7 @@
             
             void(^resultCallback)(NSError *) = registrationRequest[0];
             resultCallback([error makeError]);
-
+            
         } else if ([errorType isEqual:kMDWampUnregister]) {
             NSArray *unregistrationRequest = [self.rpcUnregisterRequests objectForKey:error.request];
             if (!unregistrationRequest) {
@@ -440,9 +440,9 @@
             // remove callback only if it is not a progress
             [self.rpcCallbackMap removeObjectForKey:result.request];
         }
-
+        
     } else if ([message isKindOfClass:[MDWampRegistered class]]) {
-        #pragma mark MDWampRegistered
+#pragma mark MDWampRegistered
         
         MDWampRegistered *registered = (MDWampRegistered *)message;
         
@@ -460,7 +460,7 @@
         } else {
             procedures = @[registrationRequest[2]];
         }
-
+        
         [self.rpcRegisteredProcedures setObject:procedures forKey:registered.registration];
         
         // map uri to registrationID
@@ -503,7 +503,7 @@
     } else if ([message isKindOfClass:[MDWampInvocation class]]) {
 #pragma mark MDWampInvocation
         MDWampInvocation *invocation = (MDWampInvocation *)message;
-
+        
         // Store association between this invocation.request to the generic registration
         [self.rpcPendingInvocation setObject:invocation.registration forKey:invocation.request];
         
@@ -513,10 +513,10 @@
         
         // exec procedure
         procedure(self, invocation);
-
-    /**
-     * ADvanced Protocol
-     */
+        
+        /**
+         * ADvanced Protocol
+         */
     } else if ([message isKindOfClass:[MDWampInterrupt class]]) {
         MDWampInterrupt *interrupt = (MDWampInterrupt *)message;
         NSNumber *registration = [self.rpcPendingInvocation objectForKey:interrupt.request];
@@ -538,7 +538,7 @@
         MDWampError *error = [[MDWampError alloc] initWithPayload:@[invocationCode, interrupt.request, @{}, @"mdwamp.error.invocation_interrupted"]];
         [self sendMessage:error];
         
-    #pragma mark MDWampChallenge
+#pragma mark MDWampChallenge
     } else if ([message isKindOfClass:[MDWampChallenge class]]) {
         MDWampChallenge *challenge = (MDWampChallenge *)message;
         
@@ -554,7 +554,7 @@
                     // Sending auth message
                     MDWampAuthenticate *auth = [[MDWampAuthenticate alloc] initWithPayload:@[signature, @{}]];
                     [self sendMessage:auth];
-
+                    
                 });
                 
             } else {
@@ -583,8 +583,8 @@
                 MDWampAuthenticate *auth = [[MDWampAuthenticate alloc] initWithPayload:@[signature, @{}]];
                 [self sendMessage:auth];
             }
-
-        // Ticket Based Auth
+            
+            // Ticket Based Auth
         } else if ([challenge.authMethod isEqualToString:kMDWampAuthMethodTicket] &&  self.config && self.config.ticket) {
             MDWampAuthenticate *auth = [[MDWampAuthenticate alloc] initWithPayload:@[self.config.ticket, @{}]];
             [self sendMessage:auth];
@@ -595,7 +595,7 @@
 - (void) sendMessage:(id<MDWampMessage>)message {
     MDWampDebugLog(@"Sending %@", message);
     if ([message isKindOfClass:[MDWampGoodbye class]]) {
-     
+        
         self.goodbyeSent = YES;
     }
     NSArray *marshalled = [message marshall];
@@ -611,7 +611,7 @@
     
     // we have to wait Subscribed message before add event
     [self.subscriptionRequests setObject:@[result, eventBlock, topic] forKey:request];
-
+    
     [self sendMessage:subscribe];
 }
 
@@ -736,7 +736,7 @@
         options[MDWampOption_exclude] = exclude;
     if (eligible)
         options[MDWampOption_eligible] = eligible;
- 
+    
     if ([payload isKindOfClass:[NSDictionary class]]) {
         return [self call:procUri args:nil kwArgs:payload options:options complete:completeBlock];
     } else if ([payload isKindOfClass:[NSArray class]]) {
