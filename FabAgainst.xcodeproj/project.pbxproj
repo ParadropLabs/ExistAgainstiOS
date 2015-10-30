@@ -28,7 +28,6 @@
 		5001BDD81BC6D1DE004696B7 /* LiberationSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		5001BDD91BC6D1DE004696B7 /* LiberationSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-Italic.ttf"; sourceTree = "<group>"; };
 		5001BDDA1BC6D1DE004696B7 /* LiberationSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LiberationSans-Regular.ttf"; sourceTree = "<group>"; };
-		5007A3121BD04FF400F0595A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		500A09AA1BDFEA3E007226BF /* CuminPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = CuminPlayground.playground; path = FabAgainst/CuminPlayground.playground; sourceTree = "<group>"; };
 		5054EB401BBF347100ECF4F1 /* FabAgainst-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FabAgainst-Bridging-Header.h"; sourceTree = "<group>"; };
 		507F0DE41BC647C5008F00CA /* Riffle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Riffle.framework; path = "Pods/../build/Debug-iphoneos/Riffle.framework"; sourceTree = "<group>"; };
@@ -75,14 +74,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		5007A3111BD04FF400F0595A /* FabAgainstBackend */ = {
-			isa = PBXGroup;
-			children = (
-				5007A3121BD04FF400F0595A /* main.swift */,
-			);
-			path = FabAgainstBackend;
-			sourceTree = "<group>";
-		};
 		50A3E9601BBB25D7002A3EBF = {
 			isa = PBXGroup;
 			children = (
@@ -92,7 +83,6 @@
 				50A3E9B81BBB45FE002A3EBF /* GameViewController.swift */,
 				507F0DEC1BC7DEAA008F00CA /* Views.swift */,
 				5001BDD61BC6D1CB004696B7 /* Resources */,
-				5007A3111BD04FF400F0595A /* FabAgainstBackend */,
 				50A3E96A1BBB25D7002A3EBF /* Products */,
 				ABB01B19770A7819067DB8E1 /* Pods */,
 				B1913C54C7ED6CF5F9DAF8EB /* Frameworks */,
