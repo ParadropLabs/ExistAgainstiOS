@@ -59,11 +59,9 @@ class GameViewController: UIViewController {
         session!.subscribe(room + "/round/picking", picking)
         session!.subscribe(room + "/round/choosing", choosing)
         session!.subscribe(room + "/round/scoring", scoring)
-
         session!.subscribe(room + "/play/picked", picked)
         session!.subscribe(room + "/joined", newPlayer)
         session!.subscribe(room + "/left", playerLeft)
-        
         session!.register(session!.domain + "/draw", draw)
     }
     
@@ -71,22 +69,22 @@ class GameViewController: UIViewController {
         // Have to unsub or unregister!
         // TODO: overload for version that doesn't take a handler block
         session!.call(room + "/leave", session!.domain, handler: nil)
+        self.leaveRoom()
     }
 
     @IBAction func leave(sender: AnyObject) {
-        // Called when the user wants to leave the room. Unregister/subscribe to all relevant bits
-        
+        self.leaveRoom()
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func leaveRoom() {
         session!.unsubscribe(room + "/round/picking")
         session!.unsubscribe(room + "/round/choosing")
         session!.unsubscribe(room + "/round/scoring")
-        
-        //session!.unsubscribe(room + "/play/picked")
-        
-        session!.unregister(session!.domain + "/draw")
+        session!.unsubscribe(room + "/play/picked")
         session!.unsubscribe(room + "/joined")
         session!.unsubscribe(room + "/left")
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
+        session!.unregister(session!.domain + "/draw")
     }
     
     
