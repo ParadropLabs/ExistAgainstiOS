@@ -37,7 +37,7 @@ class GameViewController: UIViewController {
     var collectionDelegate: PlayerCollectionDelegate?
     
     var session: RiffleSession?
-    var state: State = .Empty
+    var state: String = "Empty"
     var players: [Player] = []
     var currentPlayer = Player()
     var room: String = ""
@@ -50,7 +50,7 @@ class GameViewController: UIViewController {
         buttonBack.imageView?.contentMode = .ScaleAspectFit
         currentPlayer = players.filter({ $0.domain == session!.domain })[0]
 
-        if state == .Picking {
+        if state == "Picking" {
             tableDelegate!.setTableCards(currentPlayer.hand)
         }
     }
@@ -91,7 +91,7 @@ class GameViewController: UIViewController {
     
     
     func picking(player: Player, card: Card, time: Double) {
-        state = .Picking
+        state = "Picking"
         labelActiveCard.text = card.text
         
         _ = players.map { $0.chooser = $0 == player }
@@ -106,7 +106,7 @@ class GameViewController: UIViewController {
     }
     
     func choosing(choices: [Card], time: Double) {
-        state = .Choosing
+        state = "Choosing"
         tableDelegate?.setTableCards(choices)
         tableCard.reloadData()
         viewProgress.countdown(time)
@@ -114,7 +114,7 @@ class GameViewController: UIViewController {
     
     func scoring(player: Player, time: Double) {
         print("Player \(player) won!")
-        state = .Scoring
+        state = "Scoring"
         
         player.score += 1
         flashCell(player, model: players, collection: collectionPlayers)
@@ -143,10 +143,10 @@ class GameViewController: UIViewController {
     func playerSwiped(card: Card) {
         // Dont really have to worry about out of turn selections-- the chooser should see a blank table
         // based on the construction of the table in the reload methods
-        if state == .Picking && !currentPlayer.chooser {
+        if state == "Picking" && !currentPlayer.chooser {
             session!.call(room + "/play/pick", session!.domain, card, handler: nil)
             tableDelegate!.removeCellsExcept([card])
-        } else if state == .Choosing && currentPlayer.chooser {
+        } else if state == "Choosing" && currentPlayer.chooser {
             session!.publish(room + "/play/choose", card.id)
             tableDelegate!.removeCellsExcept([card])
         } else {

@@ -46,7 +46,7 @@ class LandingViewController: UIViewController, RiffleDelegate {
             
             controller.currentPlayer.hand = cards
             controller.players = players
-            controller.state = State(state)!
+            controller.state = state
             controller.room = roomName
             controller.session = self.session!
             
