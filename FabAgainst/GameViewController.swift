@@ -55,12 +55,12 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidAppear(animated: Bool) {
         session!.subscribe(room + "/round/picking", picking)
-//        session!.subscribe(room + "/round/choosing", choosing)
+        session!.subscribe(room + "/round/choosing", choosing)
         session!.subscribe(room + "/round/scoring", scoring)
 
-        //session!.subscribe(room + "/play/picked", picked)
+        session!.subscribe(room + "/play/picked", picked)
         
-//        session!.register(session!.domain + "/draw", draw)
+        session!.register(session!.domain + "/draw", draw)
         session!.subscribe(room + "/joined", newPlayer)
         session!.subscribe(room + "/left", playerLeft)
     }
@@ -90,14 +90,14 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         viewProgress.countdown(time)
     }
     
-//    func choosing(choices: [[String: AnyObject]], time: Double) {
-//        state = .Choosing
-//        print("Choosing: \(table)")
-//        table = choices.map { Card.fromJson($0) }
-//        tableCard.reloadData()
-//        viewProgress.countdown(time)
-//    }
-//    
+    func choosing(choices: [Card], time: Double) {
+        state = .Choosing
+        print("Choosing: \(table)")
+        table = choices
+        tableCard.reloadData()
+        viewProgress.countdown(time)
+    }
+    
     func scoring(player: String, time: Double) {
         state = .Scoring
         
@@ -145,8 +145,8 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    func draw(cardJson: [String: AnyObject]) {
-        currentPlayer.hand.append(Card.fromJson(cardJson))
+    func draw(cards: [Card]) {
+        currentPlayer.hand += cards
     }
     
     

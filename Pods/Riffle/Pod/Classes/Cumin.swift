@@ -14,13 +14,6 @@ TODO:
 throw a well known error on miscast
 throw a well known error if args size doesn't match
 hold method weakly, dont call if deallocd EDIT: actually, dont hold the method at all-- evaluate at execution time
-
-NOTES:
-Stupid generics.
-Could be useful http://stackoverflow.com/questions/27591366/swift-generic-type-cast
-
-Works to detect an array, but from there...
-if t is ArrayProtocol.Type {
 */
 
 import Foundation
@@ -28,7 +21,21 @@ import Mantle
 
 func convert<A: AnyObject, T: Cuminicable>(a: A?, _ t: T.Type) -> T? {
     if let x = a {
-        return t.convert(x) as? T
+        let ret = t.convert(x)
+        
+        // If nothing was returned then no possible conversion was possible
+        guard let castResult = ret else { return nil }
+        
+        if let finalResult = castResult as? T {
+            return finalResult
+        }
+        
+        // Catch the OSX error as a last resort: on OSX the type pointers point to different things because of
+        // "embedded swift code..." and the library being imported twice
+        // If we've gotten here the normal things aren't going to work
+        if let bibble = t.brutalize(castResult, T.self) as? T{
+            return bibble
+        }
     }
     
     return nil
@@ -39,30 +46,39 @@ func convert<A: AnyObject, T: CollectionType where T.Generator.Element: Cuminica
     // as a type of these elements as understood from the method signature where they're declared.
     
     // The expected sequence element type
-    // Not implemented: recursive handling of nested data structures
-    let CuminicableElement = T.Generator.Element.self
-    print(CuminicableElement)
+    // Not implemented: recursive handling of nested data structures-- this is very important!
     
     // Attempt to process the incoming parameters as an array
     if let x = a as? NSArray {
         var ret: [T.Generator.Element] = []
         
         for e in x {
+            // Check for failure?
+            let converted = T.Generator.Element.self <- e
+            ret.append(converted)
+            
+            /*
             if let converted = CuminicableElement.convert(e) as? T.Generator.Element {
-                ret.append(converted)
+            ret.append(converted)
             } else {
-                // If a single one of the casts fail, stop processing the collection.
-                // This behavior may not always be expected since it does not allow collections of optionals
-                
-                // TODO: Print out or return some flavor of log here?
-                return nil
+            // If a single one of the casts fail, stop processing the collection.
+            // This behavior may not always be expected since it does not allow collections of optionals
+            
+            // TODO: Print out or return some flavor of log here?
+            return nil
             }
+            */
         }
         
-        return ret as? T
+        if let cast = ret as? T {
+            return cast
+        }
+        
+        // Emergency time-- have to cover the OSX cases here
+        return unsafeBitCast(ret, T.self)
     }
     
-    // Can cover arrays here, too
+    // Cover dicts and nesting here!
     
     return nil
 }
@@ -91,20 +107,14 @@ precedence 155
 
 func <- <T: CN> (t:T.Type, object: AnyObject) -> T {
     let a = convert(object, t)
-    // This would be an exxcellent place to catch cumin errors
-    // Throwing is likely the easiest way to deal with them
-    
+    //    print(a)
     return a!
 }
 
 func <- <T: CollectionType where T.Generator.Element: CN> (t:T.Type, object: AnyObject) -> T {
     let a = convert(object, t)
-    // This would be an exxcellent place to catch cumin errors
-    // Throwing is likely the easiest way to deal with them
-    
     return a!
 }
-
 
 // MARK: Deprecated V1 Cumin
 /*

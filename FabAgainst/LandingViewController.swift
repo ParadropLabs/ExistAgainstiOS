@@ -40,29 +40,6 @@ class LandingViewController: UIViewController, RiffleDelegate {
     
     // MARK: Core Logic
     func play() {
-        // Ask for a room and present the gameplay controller
-//        session?.call("pd.demo.cardsagainst/play", session!.domain) { (result: [AnyObject]) -> () in
-//            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
-//            
-//            let json = result[0] as! [String: AnyObject]
-//            let rawPlayers = json["players"] as! [[String: AnyObject]]
-//            let rawCards = json["hand"] as! [[String: AnyObject]]
-//            
-//            controller.currentPlayer.hand = rawCards.map { Card.fromJson($0) }
-//            controller.players = rawPlayers.map { Player.fromJson($0) }
-//            controller.state = State(json["state"] as! String)!
-//            controller.room = json["room"] as! String
-//            controller.session = self.session!
-//
-//            let effect = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
-//            effect.frame = controller.view.frame
-//            controller.view.insertSubview(effect, atIndex:0)
-//            controller.modalPresentationStyle = .OverFullScreen
-//            self.modalPresentationStyle = .CurrentContext
-//            
-//            self.presentViewController(controller, animated: true, completion: nil)
-//        }
-
         session?.call("pd.demo.cardsagainst/play", session!.domain, handler: { (cards: [Card], players: [Player], state: String, roomName: String) in
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
             
