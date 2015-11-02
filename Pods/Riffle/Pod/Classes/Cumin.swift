@@ -20,6 +20,9 @@ import Foundation
 import Mantle
 
 func convert<A: AnyObject, T: Cuminicable>(a: A?, _ t: T.Type) -> T? {
+    print("Expecting: \(T.self)")
+    print("Incoming: \(a)")
+    
     if let x = a {
         let ret = t.convert(x)
         
@@ -48,6 +51,9 @@ func convert<A: AnyObject, T: CollectionType where T.Generator.Element: Cuminica
     // The expected sequence element type
     // Not implemented: recursive handling of nested data structures-- this is very important!
     
+    //print("Incoming Data: \(a)")
+    //print("Expected Type: \(T.self)")
+    
     // Attempt to process the incoming parameters as an array
     if let x = a as? NSArray {
         var ret: [T.Generator.Element] = []
@@ -55,6 +61,7 @@ func convert<A: AnyObject, T: CollectionType where T.Generator.Element: Cuminica
         for e in x {
             // Check for failure?
             let converted = T.Generator.Element.self <- e
+            //print("Converted item: \(converted)")
             ret.append(converted)
             
             /*
@@ -71,12 +78,17 @@ func convert<A: AnyObject, T: CollectionType where T.Generator.Element: Cuminica
         }
         
         if let cast = ret as? T {
+            print("Returning Cast: \(cast)")
             return cast
         }
         
         // Emergency time-- have to cover the OSX cases here
         return unsafeBitCast(ret, T.self)
     }
+    
+    // If this is an array and nothing was passed in return empty array
+    let ret: [T.Generator.Element] = []
+    return ret as? T
     
     // Cover dicts and nesting here!
     
@@ -107,12 +119,13 @@ precedence 155
 
 func <- <T: CN> (t:T.Type, object: AnyObject) -> T {
     let a = convert(object, t)
-    //    print(a)
+    print(a)
     return a!
 }
 
 func <- <T: CollectionType where T.Generator.Element: CN> (t:T.Type, object: AnyObject) -> T {
     let a = convert(object, t)
+    //print(a)
     return a!
 }
 
