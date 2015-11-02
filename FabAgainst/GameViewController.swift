@@ -55,7 +55,7 @@ class GameViewController: UIViewController {
         }
         
         // TEMP
-        tableDelegate!.setTableCards(currentPlayer.hand)
+//        tableDelegate!.setTableCards(currentPlayer.hand)
     }
     
     override func viewDidAppear(animated: Bool) {
