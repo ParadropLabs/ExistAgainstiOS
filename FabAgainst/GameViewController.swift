@@ -7,12 +7,12 @@
 //
 
 /*
-Musings: 
-    Table allows touches and interactivity based on the current chooser and the phase
+Musings:
+Table allows touches and interactivity based on the current chooser and the phase
 
 Collection always shows the players
-    The chooser is always highlighted
-    The winner blinks when selected
+The chooser is always highlighted
+The winner blinks when selected
 */
 
 
@@ -41,7 +41,6 @@ class GameViewController: UIViewController {
     var players: [Player] = []
     var currentPlayer = Player()
     var room: String = ""
-    var c: Any?
     
     
     override func viewDidLoad() {
@@ -50,24 +49,20 @@ class GameViewController: UIViewController {
         
         buttonBack.imageView?.contentMode = .ScaleAspectFit
         currentPlayer = players.filter({ $0.domain == session!.domain })[0]
-
+        
         if state == "Picking" {
             tableDelegate!.setTableCards(currentPlayer.hand)
         }
     }
     
     override func viewDidAppear(animated: Bool) {
-        //session!.subscribe(room + "/round/picking", self.picking)
-        
-        room
-        
-        
-
-        var a = picking
-        
-        a()
-        b()
-        
+        session!.subscribe(room + "/round/picking", picking)
+        session!.subscribe(room + "/round/choosing", choosing)
+        session!.subscribe(room + "/round/scoring", scoring)
+        session!.subscribe(room + "/play/picked", picked)
+        session!.subscribe(room + "/joined", newPlayer)
+        session!.subscribe(room + "/left", playerLeft)
+        session!.register(session!.domain + "/draw", draw)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -76,7 +71,7 @@ class GameViewController: UIViewController {
         session!.call(room + "/leave", session!.domain, handler: nil)
         self.leaveRoom()
     }
-
+    
     @IBAction func leave(sender: AnyObject) {
         self.leaveRoom()
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -94,8 +89,18 @@ class GameViewController: UIViewController {
     
     
     func picking(player: Player, card: Card, time: Double) {
+        state = "Picking"
+        labelActiveCard.text = card.text
         
-        print("hi")
+        _ = players.map { $0.chooser = $0 == player }
+        
+        // are we choosing this round?
+        print("Choosen domain: \(player.domain), our domain: \(session!.domain)")
+        
+        tableDelegate!.setTableCards(player.domain == session!.domain ? [] : currentPlayer.hand)
+        
+        tableCard.reloadData()
+        viewProgress.countdown(time)
     }
     
     func choosing(choices: [Card], time: Double) {
