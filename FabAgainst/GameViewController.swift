@@ -144,14 +144,13 @@ class GameViewController: UIViewController {
         // Dont really have to worry about out of turn selections-- the chooser should see a blank table
         // based on the construction of the table in the reload methods
         if state == "Picking" && !currentPlayer.chooser {
-            session!.call(room + "/play/pick", session!.domain, card, handler: nil)
+            session!.call(room + "/play/pick", currentPlayer, card, handler: nil)
             tableDelegate!.removeCellsExcept([card])
         } else if state == "Choosing" && currentPlayer.chooser {
-            session!.publish(room + "/play/choose", card.id)
+            session!.publish(room + "/play/choose", card)
             tableDelegate!.removeCellsExcept([card])
         } else {
             print("Pick occured outside a valid round! OurChoice: \(currentPlayer.chooser), state: \(state)")
         }
     }
-    
 }
