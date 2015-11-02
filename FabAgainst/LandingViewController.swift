@@ -45,6 +45,8 @@ class LandingViewController: UIViewController, RiffleDelegate {
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
             
             controller.currentPlayer.hand = cards
+            controller.currentPlayer.domain = self.session!.domain
+            
             controller.players = players
             controller.state = state
             controller.room = roomName

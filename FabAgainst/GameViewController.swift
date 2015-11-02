@@ -48,11 +48,12 @@ class GameViewController: UIViewController {
         collectionDelegate = PlayerCollectionDelegate(collectionview: &collectionPlayers, parent: self)
         
         buttonBack.imageView?.contentMode = .ScaleAspectFit
-        currentPlayer = players.filter({ $0.domain == session!.domain })[0]
         
         if state == "Picking" {
             tableDelegate!.setTableCards(currentPlayer.hand)
         }
+        
+        tableDelegate!.setTableCards(currentPlayer.hand)
     }
     
     override func viewDidAppear(animated: Bool) {
