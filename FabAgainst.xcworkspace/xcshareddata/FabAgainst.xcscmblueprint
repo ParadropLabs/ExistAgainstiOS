@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FC36C30CA869D91AD8E5D3AE9F13728D6C1BFFD9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FC36C30CA869D91AD8E5D3AE9F13728D6C1BFFD9" : 0,
+    "86BCC9360356B37E984ABD2E91CB5332F4B7EEDD" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C20791E8-3D40-4C44-BAA5-CF17A31B9C2F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FC36C30CA869D91AD8E5D3AE9F13728D6C1BFFD9" : "fabagainst\/",
+    "86BCC9360356B37E984ABD2E91CB5332F4B7EEDD" : "swiftRiffle\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FabAgainst",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FabAgainst.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:exis-io\/swiftRiffle.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "86BCC9360356B37E984ABD2E91CB5332F4B7EEDD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ParadropLabs\/ExistAgainstiOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FC36C30CA869D91AD8E5D3AE9F13728D6C1BFFD9"
+    }
+  ]
+}
