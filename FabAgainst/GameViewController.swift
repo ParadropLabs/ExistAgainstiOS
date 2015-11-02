@@ -44,15 +44,17 @@ class GameViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        tableDelegate = CardTableDelegate(tableview: &tableCard, parent: self)
+        tableDelegate = CardTableDelegate(tableview: tableCard, parent: self)
         collectionDelegate = PlayerCollectionDelegate(collectionview: &collectionPlayers, parent: self)
         
         buttonBack.imageView?.contentMode = .ScaleAspectFit
+        collectionDelegate!.playersChanged(players)
         
         if state == "Picking" {
             tableDelegate!.setTableCards(currentPlayer.hand)
         }
         
+        // TEMP
         tableDelegate!.setTableCards(currentPlayer.hand)
     }
     
@@ -69,6 +71,9 @@ class GameViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         // Have to unsub or unregister!
         // TODO: overload for version that doesn't take a handler block
+        
+        // Temporary
+        currentPlayer.hand = []
         session!.call(room + "/leave", currentPlayer, handler: nil)
         
         session!.unsubscribe(room + "/round/picking")

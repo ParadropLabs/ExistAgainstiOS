@@ -19,7 +19,7 @@ class CardTableDelegate: NSObject, UITableViewDelegate, UITableViewDataSource, R
     var parent: GameViewController
     
     
-    init(inout tableview: UITableView!, parent p: GameViewController) {
+    init(tableview: UITableView!, parent p: GameViewController) {
         table = tableview
         parent = p
         super.init()
@@ -106,6 +106,11 @@ class PlayerCollectionDelegate: NSObject, UICollectionViewDataSource, UICollecti
         
         collection.delegate = self
         collection.dataSource = self
+    }
+    
+    func playersChanged(incoming: [Player]) {
+        players = incoming
+        collection.reloadData()
     }
     
     
