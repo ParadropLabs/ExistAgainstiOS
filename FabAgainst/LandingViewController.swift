@@ -44,6 +44,11 @@ class LandingViewController: UIViewController, RiffleDelegate {
         session?.call("pd.demo.cardsagainst/play", session!.domain, handler: { (cards: [Card], players: [Player], state: String, roomName: String) in
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("game") as! GameViewController
             
+            // Temporary
+            if roomName == "0" {
+                return
+            }
+            
             controller.currentPlayer.hand = cards
             controller.currentPlayer.domain = self.session!.domain
             
