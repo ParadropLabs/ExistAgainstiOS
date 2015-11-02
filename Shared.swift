@@ -19,6 +19,15 @@ class Player: RiffleModel {
     var chooser = false
     var hand: [Card] = []
     var pick: Card?
+    
+    override static func JSONKeyPathsByPropertyKey() -> [NSObject : AnyObject]!  {
+        // By default, do not pass along nested model objects
+        
+        var keys = super.JSONKeyPathsByPropertyKey()
+        keys["hand"] = NSNull()
+        keys["pick"] = NSNull()
+        return keys
+    }
 }
 
 class Card: RiffleModel {
