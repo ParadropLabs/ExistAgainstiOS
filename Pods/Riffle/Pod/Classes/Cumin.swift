@@ -83,7 +83,7 @@ func convert<A: AnyObject, T: CollectionType where T.Generator.Element: Cuminica
     
     // Cover dicts and nesting here!
     
-    throw CuminError.InvalidTypes("\(T.self)", "\(a)")
+    //throw CuminError.InvalidTypes("\(T.self)", "\(a)")
 }
 
 public func serialize(args: [AnyObject]) -> [AnyObject] {
