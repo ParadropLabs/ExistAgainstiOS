@@ -799,10 +799,12 @@
 - (void) unregisterRPC:(NSString *)procUri result:(void(^)(NSError *error))resultCallback {
     NSNumber *request = [self generateID];
     NSNumber *registrationID = [self.rpcRegisteredUri objectForKey:procUri];
+    
     if (registrationID == nil) {
         resultCallback([NSError errorWithDomain:kMDWampErrorDomain code:12 userInfo:@{NSLocalizedDescriptionKey: @"wamp.error.no_such_registration"}]);
         return;
     }
+    
     MDWampUnregister *msg = [[MDWampUnregister alloc] initWithPayload:@[request, registrationID]];
     [self.rpcUnregisterRequests setObject:@[registrationID, resultCallback] forKey:request];
     [self sendMessage:msg];

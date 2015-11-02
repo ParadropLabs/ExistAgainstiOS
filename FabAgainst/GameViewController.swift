@@ -68,7 +68,6 @@ class GameViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         // Have to unsub or unregister!
         // TODO: overload for version that doesn't take a handler block
-        session!.call(room + "/leave", session!.domain, handler: nil)
         self.leaveRoom()
     }
     
@@ -78,12 +77,15 @@ class GameViewController: UIViewController {
     }
     
     func leaveRoom() {
+        session!.call(room + "/leave", currentPlayer, handler: nil)
+        
         session!.unsubscribe(room + "/round/picking")
         session!.unsubscribe(room + "/round/choosing")
         session!.unsubscribe(room + "/round/scoring")
         session!.unsubscribe(room + "/play/picked")
         session!.unsubscribe(room + "/joined")
         session!.unsubscribe(room + "/left")
+        
         session!.unregister(session!.domain + "/draw")
     }
     
