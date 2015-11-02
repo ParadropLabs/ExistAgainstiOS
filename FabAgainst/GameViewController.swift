@@ -41,6 +41,7 @@ class GameViewController: UIViewController {
     var players: [Player] = []
     var currentPlayer = Player()
     var room: String = ""
+    var c: Any?
     
     
     override func viewDidLoad() {
@@ -56,13 +57,17 @@ class GameViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        session!.subscribe(room + "/round/picking", picking)
-        session!.subscribe(room + "/round/choosing", choosing)
-        session!.subscribe(room + "/round/scoring", scoring)
-        session!.subscribe(room + "/play/picked", picked)
-        session!.subscribe(room + "/joined", newPlayer)
-        session!.subscribe(room + "/left", playerLeft)
-        session!.register(session!.domain + "/draw", draw)
+        //session!.subscribe(room + "/round/picking", self.picking)
+        
+        room
+        
+        
+
+        var a = picking
+        
+        a()
+        b()
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -89,18 +94,8 @@ class GameViewController: UIViewController {
     
     
     func picking(player: Player, card: Card, time: Double) {
-        state = "Picking"
-        labelActiveCard.text = card.text
         
-        _ = players.map { $0.chooser = $0 == player }
-        
-        // are we choosing this round?
-        print("Choosen domain: \(player.domain), our domain: \(session!.domain)")
-        
-        tableDelegate!.setTableCards(player.domain == session!.domain ? [] : currentPlayer.hand)
-        
-        tableCard.reloadData()
-        viewProgress.countdown(time)
+        print("hi")
     }
     
     func choosing(choices: [Card], time: Double) {
