@@ -45,7 +45,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         tableDelegate = CardTableDelegate(tableview: tableCard, parent: self)
-        collectionDelegate = PlayerCollectionDelegate(collectionview: &collectionPlayers, parent: self)
+        collectionDelegate = PlayerCollectionDelegate(collectionview: collectionPlayers, parent: self)
         
         buttonBack.imageView?.contentMode = .ScaleAspectFit
         collectionDelegate!.playersChanged(players)
@@ -53,9 +53,6 @@ class GameViewController: UIViewController {
         if state == "Picking" {
             tableDelegate!.setTableCards(currentPlayer.hand)
         }
-        
-        // TEMP
-//        tableDelegate!.setTableCards(currentPlayer.hand)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -93,15 +90,8 @@ class GameViewController: UIViewController {
     func picking(player: Player, card: Card, time: Double) {
         state = "Picking"
         labelActiveCard.text = card.text
-        
         _ = players.map { $0.chooser = $0 == player }
-        
-        // are we choosing this round?
-        print("Choosen domain: \(player.domain), our domain: \(session!.domain)")
-        
         tableDelegate!.setTableCards(player.domain == session!.domain ? [] : currentPlayer.hand)
-        
-        tableCard.reloadData()
         viewProgress.countdown(time)
     }
     
@@ -113,9 +103,7 @@ class GameViewController: UIViewController {
     }
     
     func scoring(player: Player, time: Double) {
-        print("Player \(player) won!")
         state = "Scoring"
-        
         player.score += 1
         flashCell(player, model: players, collection: collectionPlayers)
         collectionPlayers.reloadData()
@@ -141,8 +129,6 @@ class GameViewController: UIViewController {
     }
     
     func playerSwiped(card: Card) {
-        // Dont really have to worry about out of turn selections-- the chooser should see a blank table
-        // based on the construction of the table in the reload methods
         if state == "Picking" && !currentPlayer.chooser {
             session!.call(room + "/play/pick", currentPlayer, card, handler: nil)
             tableDelegate!.removeCellsExcept([card])

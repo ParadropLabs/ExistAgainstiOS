@@ -49,8 +49,9 @@ class LandingViewController: UIViewController, RiffleDelegate {
                 return
             }
             
+            // Extract us as the current player 
+            controller.currentPlayer = players.filter { $0.domain == self.session!.domain }[0]
             controller.currentPlayer.hand = cards
-            controller.currentPlayer.domain = self.session!.domain
             
             controller.players = players
             controller.state = state

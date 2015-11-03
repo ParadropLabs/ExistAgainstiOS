@@ -99,7 +99,7 @@ class PlayerCollectionDelegate: NSObject, UICollectionViewDataSource, UICollecti
     var parent: GameViewController
     
     
-    init(inout collectionview: UICollectionView!, parent p: GameViewController) {
+    init(collectionview: UICollectionView, parent p: GameViewController) {
         collection = collectionview
         parent = p
         super.init()
@@ -141,11 +141,11 @@ class CardCell: RMSwipeTableViewCell {
     func resetContentView() {
         UIView.animateWithDuration(0.15, animations: { () -> Void in
             self.contentView.frame = CGRectOffset(self.contentView.bounds, 0.0, 0.0)
-            }) { (b: Bool) -> Void in
-                self.shouldAnimateCellReset = true
-                self.cleanupBackView()
-                self.interruptPanGestureHandler = false
-                self.panner.enabled = true
+        }) { (b: Bool) -> Void in
+            self.shouldAnimateCellReset = true
+            self.cleanupBackView()
+            self.interruptPanGestureHandler = false
+            self.panner.enabled = true
         }
     }
 }
@@ -195,11 +195,22 @@ class TickingView: M13ProgressViewBar {
 
 //MARK: General Utility
 func flashCell(target: Player, model: [Player], collection: UICollectionView) {
-    let index = model.indexOf(target)
-    let cell = collection.cellForItemAtIndexPath(NSIndexPath(forRow: index!, inSection: 0))
+    var index = -1
+    
+    for i in 0...model.count {
+        if model[i] == target {
+            index = i
+            break
+        }
+    }
+    
+    // Why does this fail?
+//    let index = model.indexOf(target)
+    
+    let cell = collection.cellForItemAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
     UIView.animateWithDuration(0.15, animations: { () -> Void in
         cell?.backgroundColor = UIColor.whiteColor()
-    }) { (_:Bool) -> Void in
+    }) { (_ :Bool) -> Void in
         cell?.backgroundColor = UIColor.blackColor()
     }
 }
